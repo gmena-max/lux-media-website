@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "YOUR_NUMBER_HERE";
+const WHATSAPP_NUMBER = "50689052828";
 const WHATSAPP_MESSAGE = "Hola, me interesa conocer más sobre sus servicios de marketing digital.";
 
 export default function WhatsAppButton() {

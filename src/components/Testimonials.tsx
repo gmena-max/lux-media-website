@@ -6,35 +6,51 @@ import { useState } from "react";
 const testimonials = [
   {
     id: 1,
-    name: "María González",
-    role: "CEO, Restaurante Sabores",
+    name: "Dr. Arnoldo Steinvorth",
+    role: "Médico Especialista",
     content:
-      "Lux Media transformó por completo nuestra presencia digital. En solo 3 meses duplicamos nuestros seguidores y las reservas aumentaron un 40%. Su equipo es increíblemente profesional y creativo.",
-    avatar: "MG",
+      "Lux Media transformó la imagen de mi práctica médica. Su equipo entiende perfectamente cómo comunicar profesionalismo y confianza. Los resultados en redes sociales han sido extraordinarios.",
+    avatar: "AS",
   },
   {
     id: 2,
-    name: "Carlos Rodríguez",
-    role: "Director, Inmobiliaria Costa",
+    name: "Dr. Diego Mena",
+    role: "Médico Especialista",
     content:
-      "La calidad del contenido audiovisual que producen es excepcional. Los videos de nuestras propiedades se ven de lujo y han mejorado significativamente nuestras ventas.",
-    avatar: "CR",
+      "La calidad del contenido que producen es excepcional. Cada video y publicación refleja exactamente la excelencia que quiero transmitir a mis pacientes. Totalmente recomendados.",
+    avatar: "DM",
   },
   {
     id: 3,
-    name: "Ana Martínez",
-    role: "Fundadora, Boutique Elegance",
+    name: "Erick Lonis",
+    role: "Director, Deporte+",
     content:
-      "Trabajar con Lux Media ha sido una de las mejores decisiones para mi negocio. Su estrategia de redes sociales nos ha ayudado a conectar con clientes que antes no podíamos alcanzar.",
-    avatar: "AM",
+      "Trabajar con Lux Media ha sido clave para posicionar nuestra marca en el mundo deportivo. Su creatividad y estrategia nos han ayudado a conectar con una audiencia más amplia.",
+    avatar: "EL",
   },
   {
     id: 4,
-    name: "Roberto Sánchez",
-    role: "Gerente, Hotel Paradise",
+    name: "Jeaustin Campos",
+    role: "DT, Real España",
     content:
-      "El equipo de Lux Media entiende perfectamente las necesidades del mercado costarricense. Sus campañas son efectivas y siempre superan nuestras expectativas.",
-    avatar: "RS",
+      "El equipo de Lux Media captura la esencia del deporte con profesionalismo. Su trabajo audiovisual es de primer nivel y siempre supera las expectativas.",
+    avatar: "JC",
+  },
+  {
+    id: 5,
+    name: "Daniel Bejarano",
+    role: "CEO, Dojo Coding",
+    content:
+      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel.",
+    avatar: "DB",
+  },
+  {
+    id: 6,
+    name: "Juan Guerrero",
+    role: "CEO, Blockchain Jungle",
+    content:
+      "En el mundo del blockchain, la comunicación efectiva es esencial. Lux Media ha sido fundamental para transmitir nuestra propuesta de valor de manera clara y atractiva.",
+    avatar: "JG",
   },
 ];
 
@@ -64,7 +80,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonial cards - Desktop */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}

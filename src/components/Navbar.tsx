@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-const WHATSAPP_NUMBER = "YOUR_NUMBER_HERE";
+const WHATSAPP_NUMBER = "50689052828";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -36,9 +37,18 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="text-2xl font-bold">
-          <span className="gradient-text">LUX</span>
-          <span className="text-white"> MEDIA</span>
+        <a href="#inicio" className="flex flex-col items-center">
+          <Image
+            src="/logo-icon.png"
+            alt="Lux Media"
+            width={60}
+            height={60}
+            className="h-14 w-auto mix-blend-lighten"
+            priority
+          />
+          <span className="text-[var(--accent)] text-xs font-bold tracking-[0.2em] mt-1">
+            LUX MEDIA
+          </span>
         </a>
 
         {/* Desktop Navigation */}
