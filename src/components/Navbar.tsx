@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
-const WHATSAPP_NUMBER = "50689052828";
+import { CONTACT } from "@/constants/contact";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -37,18 +36,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex flex-col items-center">
+        <a href="#inicio">
           <Image
-            src="/logo-icon.png"
+            src="/logo-full.png"
             alt="Lux Media"
-            width={60}
+            width={140}
             height={60}
-            className="h-14 w-auto mix-blend-lighten"
+            className="h-20 w-auto"
             priority
           />
-          <span className="text-[var(--accent)] text-xs font-bold tracking-[0.2em] mt-1">
-            LUX MEDIA
-          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -63,7 +59,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            href={CONTACT.getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -124,7 +120,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                href={CONTACT.getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold text-center"

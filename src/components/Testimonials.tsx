@@ -6,23 +6,23 @@ import { useState } from "react";
 const testimonials = [
   {
     id: 1,
-    name: "Dr. Arnoldo Steinvorth",
-    role: "Médico Especialista",
+    name: "Daniel Bejarano",
+    role: "CEO, Dojo Coding",
     content:
-      "Lux Media transformó la imagen de mi práctica médica. Su equipo entiende perfectamente cómo comunicar profesionalismo y confianza. Los resultados en redes sociales han sido extraordinarios.",
-    avatar: "AS",
+      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel. La cobertura del hackathon fue espectacular.",
+    avatar: "DB",
   },
   {
     id: 2,
-    name: "Dr. Diego Mena",
-    role: "Médico Especialista",
+    name: "Jeaustin Campos",
+    role: "DT, Real España",
     content:
-      "La calidad del contenido que producen es excepcional. Cada video y publicación refleja exactamente la excelencia que quiero transmitir a mis pacientes. Totalmente recomendados.",
-    avatar: "DM",
+      "El equipo de Lux Media captura la esencia del deporte con profesionalismo. Su trabajo audiovisual es de primer nivel y siempre supera las expectativas. Recomendados al 100%.",
+    avatar: "JC",
   },
   {
     id: 3,
-    name: "Erick Lonis",
+    name: "Eric Lonnis",
     role: "Director, Deporte+",
     content:
       "Trabajar con Lux Media ha sido clave para posicionar nuestra marca en el mundo deportivo. Su creatividad y estrategia nos han ayudado a conectar con una audiencia más amplia.",
@@ -30,26 +30,26 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Jeaustin Campos",
-    role: "DT, Real España",
+    name: "Dr. Diego Mena",
+    role: "Oftalmólogo, Oftalmologica Mena",
     content:
-      "El equipo de Lux Media captura la esencia del deporte con profesionalismo. Su trabajo audiovisual es de primer nivel y siempre supera las expectativas.",
-    avatar: "JC",
+      "La calidad del contenido que producen es excepcional. Cada video y publicación refleja exactamente la excelencia que quiero transmitir a mis pacientes. Las campañas de Meta Ads han traído pacientes nuevos cada mes.",
+    avatar: "DM",
   },
   {
     id: 5,
-    name: "Daniel Bejarano",
-    role: "CEO, Dojo Coding",
+    name: "Dr. Arnoldo Steinvorth",
+    role: "Ortodoncista",
     content:
-      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel.",
-    avatar: "DB",
+      "Lux Media transformó la imagen de mi práctica. Su equipo entiende perfectamente cómo comunicar profesionalismo y confianza. Los resultados en redes sociales han sido extraordinarios.",
+    avatar: "AS",
   },
   {
     id: 6,
     name: "Juan Guerrero",
     role: "CEO, Blockchain Jungle",
     content:
-      "En el mundo del blockchain, la comunicación efectiva es esencial. Lux Media ha sido fundamental para transmitir nuestra propuesta de valor de manera clara y atractiva.",
+      "En el mundo del blockchain, la comunicación efectiva es esencial. Lux Media fue fundamental para transmitir nuestra propuesta de valor de manera clara y atractiva durante el evento.",
     avatar: "JG",
   },
 ];

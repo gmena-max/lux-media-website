@@ -13,15 +13,132 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lux Media | Agencia de Marketing Digital en Costa Rica",
-  description: "Agencia de marketing digital premium en Costa Rica. Especialistas en redes sociales, producción de video, creación de contenido y estrategia de campañas.",
-  keywords: ["marketing digital", "Costa Rica", "redes sociales", "producción de video", "agencia de marketing"],
+  metadataBase: new URL("https://luxmediacr.com"),
+  title: {
+    default: "Lux Media | Agencia de Marketing Digital en Costa Rica",
+    template: "%s | Lux Media",
+  },
+  description:
+    "Agencia de marketing digital en Costa Rica. Especialistas en redes sociales, producción de video, Meta Ads, cobertura de eventos y creación de contenido. Hacemos crecer tu marca.",
+  keywords: [
+    "marketing digital Costa Rica",
+    "agencia de marketing",
+    "redes sociales",
+    "producción de video",
+    "Meta Ads",
+    "Facebook Ads",
+    "Instagram marketing",
+    "creación de contenido",
+    "branding",
+    "San José Costa Rica",
+  ],
+  authors: [{ name: "Lux Media" }],
+  creator: "Lux Media",
+  publisher: "Lux Media",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "Lux Media | Agencia de Marketing Digital",
-    description: "Transformamos marcas con estrategias digitales de alto impacto",
+    title: "Lux Media | Agencia de Marketing Digital en Costa Rica",
+    description:
+      "Hacemos crecer tu marca con estrategias digitales que generan resultados. Redes sociales, video, Meta Ads y más.",
+    url: "https://luxmediacr.com",
+    siteName: "Lux Media",
     locale: "es_CR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Lux Media - Agencia de Marketing Digital",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lux Media | Agencia de Marketing Digital",
+    description: "Hacemos crecer tu marca con estrategias digitales que generan resultados.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Add these when you set up Google Search Console
+    // google: "your-google-verification-code",
+  },
+};
+
+// JSON-LD Schema for Local Business
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  name: "Lux Media",
+  description:
+    "Agencia de marketing digital en Costa Rica especializada en redes sociales, producción de video, Meta Ads y creación de contenido.",
+  url: "https://luxmediacr.com",
+  logo: "https://luxmediacr.com/logo-full.png",
+  image: "https://luxmediacr.com/og-image.png",
+  telephone: "+506-8905-2828",
+  email: "contacto@luxmediacr.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "San José",
+    addressCountry: "CR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "9.9281",
+    longitude: "-84.0907",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Costa Rica",
+  },
+  priceRange: "$$",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: [
+    "https://www.instagram.com/luxmedia.cr/",
+    "https://www.facebook.com/luxmedia.cr",
+    "https://www.linkedin.com/company/luxmedia-cr/",
+  ],
+  founder: [
+    {
+      "@type": "Person",
+      name: "Jeaustin Campos",
+      jobTitle: "CEO",
+    },
+    {
+      "@type": "Person",
+      name: "Gabriel Mena",
+      jobTitle: "COO",
+    },
+  ],
+  knowsAbout: [
+    "Marketing Digital",
+    "Social Media Marketing",
+    "Video Production",
+    "Meta Ads",
+    "Content Creation",
+    "Branding",
+    "Event Coverage",
+  ],
 };
 
 export default function RootLayout({
@@ -31,9 +148,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="canonical" href="https://luxmediacr.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Skip to content link for accessibility */}
+        <a href="#main-content" className="skip-to-content">
+          Saltar al contenido
+        </a>
         {children}
       </body>
     </html>

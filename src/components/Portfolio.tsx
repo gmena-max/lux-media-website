@@ -2,51 +2,128 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
-const categories = ["Todos", "Branding", "Social Media", "Video", "Campañas"];
+const categories = ["Todos", "Eventos", "Social Media", "Campañas", "Branding"];
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+}
+
+function PortfolioCard({ project, index }: { project: Project; index: number }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      layout
+      className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
+    >
+      {/* Loading skeleton / Fallback background */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--card-border)] transition-opacity duration-300 ${
+          imageLoaded && !imageError ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {/* Animated shimmer effect for loading state */}
+        {!imageError && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+        )}
+      </div>
+
+      {/* Actual image */}
+      {!imageError && (
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+        />
+      )}
+
+      {/* Overlay - always visible but more opaque on hover */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:via-black/50 transition-all duration-300" />
+
+      {/* Content on hover */}
+      <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <span className="text-[var(--accent)] text-sm font-medium mb-2">
+          {project.category}
+        </span>
+        <h3 className="text-xl font-semibold text-white mb-1">
+          {project.title}
+        </h3>
+        <p className="text-gray-400 text-sm">{project.description}</p>
+      </div>
+
+      {/* Project title visible by default */}
+      <div className="absolute inset-0 flex items-center justify-center text-center p-4 group-hover:opacity-0 transition-opacity">
+        <div>
+          <p className="text-white font-medium mb-1 drop-shadow-lg">{project.title}</p>
+          <span className="text-xs text-gray-300 drop-shadow-lg">{project.category}</span>
+        </div>
+      </div>
+
+      {/* Border glow on hover */}
+      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[var(--accent)]/30 transition-colors" />
+    </motion.div>
+  );
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: "Campaña Digital Premium",
-    category: "Campañas",
-    image: "/portfolio/project-1.jpg",
-    description: "Estrategia integral de marketing digital",
+    title: "Dojo Coding Hackathon",
+    category: "Eventos",
+    image: "/portfolio/dojo-hackathon.jpg",
+    description: "Cobertura completa con drones, fotografía y video del hackathon más importante de Costa Rica.",
   },
   {
     id: 2,
-    title: "Identidad de Marca",
-    category: "Branding",
-    image: "/portfolio/project-2.jpg",
-    description: "Diseño de marca completo",
+    title: "Deporte+ (Teletica)",
+    category: "Social Media",
+    image: "/portfolio/deporte-plus.jpg",
+    description: "Gestión de redes sociales y contenido para el programa deportivo de Teletica.",
   },
   {
     id: 3,
-    title: "Contenido Redes Sociales",
-    category: "Social Media",
-    image: "/portfolio/project-3.jpg",
-    description: "Gestión de redes para restaurante",
+    title: "Oftalmologica Mena",
+    category: "Campañas",
+    image: "/portfolio/oftalmologica.jpg",
+    description: "Campañas de Meta Ads, gestión de redes y contenido para clínica oftalmológica.",
   },
   {
     id: 4,
-    title: "Video Corporativo",
-    category: "Video",
-    image: "/portfolio/project-4.jpg",
-    description: "Producción audiovisual premium",
+    title: "Blockchain Jungle",
+    category: "Eventos",
+    image: "/portfolio/blockchain-jungle.jpg",
+    description: "Videos, gráficos y grabación on-site para el evento blockchain más grande de Centroamérica.",
   },
   {
     id: 5,
-    title: "Lanzamiento de Producto",
-    category: "Campañas",
-    image: "/portfolio/project-5.jpg",
-    description: "Campaña de lanzamiento 360°",
+    title: "StartNet Nosara",
+    category: "Social Media",
+    image: "/portfolio/startnet-nosara.jpg",
+    description: "2 semanas de creación de contenido on-site para comunidad tech en Nosara.",
   },
   {
     id: 6,
-    title: "Rebranding Corporativo",
-    category: "Branding",
-    image: "/portfolio/project-6.jpg",
-    description: "Renovación de imagen de marca",
+    title: "Dra. Silvia Araya",
+    category: "Campañas",
+    image: "/portfolio/dra-araya.jpg",
+    description: "Campaña especial de Día de las Madres con Meta Ads que generó un alto ROI.",
   },
 ];
 
@@ -104,40 +181,7 @@ export default function Portfolio() {
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              layout
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
-            >
-              {/* Placeholder background - replace with actual images */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--card-border)]" />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-
-              {/* Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <span className="text-[var(--accent)] text-sm font-medium mb-2">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-semibold text-white mb-1">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{project.description}</p>
-              </div>
-
-              {/* Placeholder text */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-600 group-hover:opacity-0 transition-opacity">
-                <span className="text-sm">Imagen del proyecto</span>
-              </div>
-
-              {/* Border glow on hover */}
-              <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[var(--accent)]/30 transition-colors" />
-            </motion.div>
+            <PortfolioCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>

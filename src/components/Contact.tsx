@@ -1,32 +1,68 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-
-const WHATSAPP_NUMBER = "50689052828";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { CONTACT, EMAILJS } from "@/constants/contact";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
-    // Simulate form submission - replace with actual form handling
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Check if EmailJS is configured
+    if (EMAILJS.publicKey === "YOUR_PUBLIC_KEY") {
+      // Fallback: Open email client with pre-filled message
+      const subject = encodeURIComponent(`Contacto desde web: ${formData.name}`);
+      const body = encodeURIComponent(
+        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+      );
+      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      return;
+    }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      // Send email via EmailJS
+      await emailjs.sendForm(
+        EMAILJS.serviceId,
+        EMAILJS.templateId,
+        formRef.current!,
+        EMAILJS.publicKey
+      );
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Email send error:", error);
+      setSubmitStatus("error");
+      setErrorMessage("Error al enviar. Por favor intenta por WhatsApp.");
+
+      // Reset error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -66,7 +102,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -132,13 +168,23 @@ export default function Contact() {
                 {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
               </button>
 
-              {isSubmitted && (
+              {submitStatus === "success" && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-green-400 text-center"
                 >
                   ¡Mensaje enviado con éxito! Te contactaremos pronto.
+                </motion.p>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-400 text-center"
+                >
+                  {errorMessage}
                 </motion.p>
               )}
             </form>
@@ -159,7 +205,7 @@ export default function Contact() {
               <div className="space-y-6">
                 {/* WhatsApp */}
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  href={CONTACT.getWhatsAppUrl("Hola, me interesa conocer más sobre sus servicios.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-green-500/30 transition-colors group"
@@ -179,7 +225,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <a
-                  href="mailto:hola@luxmedia.cr"
+                  href={`mailto:${CONTACT.email}`}
                   className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors">
@@ -189,7 +235,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Email</p>
-                    <p className="text-sm text-gray-500">hola@luxmedia.cr</p>
+                    <p className="text-sm text-gray-500">{CONTACT.email}</p>
                   </div>
                 </a>
 
@@ -203,7 +249,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Ubicación</p>
-                    <p className="text-sm text-gray-500">San José, Costa Rica</p>
+                    <p className="text-sm text-gray-500">{CONTACT.location}</p>
                   </div>
                 </div>
               </div>

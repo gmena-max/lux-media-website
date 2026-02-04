@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "50+", label: "Clientes Satisfechos" },
-  { value: "200+", label: "Proyectos Completados" },
-  { value: "5M+", label: "Alcance Generado" },
-  { value: "3", label: "Años de Experiencia" },
+  { value: "6", label: "Clientes Activos" },
+  { value: "15+", label: "Proyectos Completados" },
+  { value: "1M+", label: "Alcance Generado" },
+  { value: "7", label: "Personas en el Equipo" },
 ];
 
 export default function Stats() {

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://luxmediacr.com
+
+# Sitemaps
+Sitemap: https://luxmediacr.com/sitemap.xml

@@ -1,14 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
+// Real Lux Media clients with their logos
 const clients = [
-  { name: "Cliente 1", placeholder: "LOGO" },
-  { name: "Cliente 2", placeholder: "LOGO" },
-  { name: "Cliente 3", placeholder: "LOGO" },
-  { name: "Cliente 4", placeholder: "LOGO" },
-  { name: "Cliente 5", placeholder: "LOGO" },
-  { name: "Cliente 6", placeholder: "LOGO" },
+  {
+    name: "Dojo Coding",
+    logo: "/logos/dojo-coding-logo.png",
+  },
+  {
+    name: "Deporte+",
+    logo: "/logos/deporte+logo.jpg",
+  },
+  {
+    name: "Oftalmologica Mena",
+    logo: "/logos/oftalmologica-mena-logo.png",
+  },
+  {
+    name: "Ortodoncia Steinvorth",
+    logo: "/logos/ortodoncia-steinvorth-logo.png",
+  },
+  {
+    name: "Retainer Brite",
+    logo: "/logos/LOGO BRITE.png",
+  },
+  {
+    name: "Blockchain Jungle",
+    logo: "/logos/BLOCKCHAIN JUNGLE LOGO.png",
+  },
 ];
 
 export default function ClientLogos() {
@@ -24,7 +44,7 @@ export default function ClientLogos() {
           Marcas que confían en nosotros
         </motion.p>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
@@ -32,12 +52,15 @@ export default function ClientLogos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="w-24 h-12 flex items-center justify-center text-gray-600 hover:text-gray-400 transition-colors cursor-pointer"
+              className="group relative w-28 h-16 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
             >
-              {/* Replace with actual client logos */}
-              <div className="text-xs font-medium tracking-wider opacity-50 hover:opacity-100 transition-opacity">
-                {client.placeholder}
-              </div>
+              <Image
+                src={client.logo}
+                alt={client.name}
+                fill
+                className="object-contain"
+                sizes="112px"
+              />
             </motion.div>
           ))}
         </div>

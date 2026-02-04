@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CONTACT } from "@/constants/contact";
 
-const WHATSAPP_NUMBER = "50689052828";
 const WHATSAPP_MESSAGE = "Hola, me interesa conocer más sobre sus servicios de marketing digital.";
 
 export default function WhatsAppButton() {
   return (
     <motion.a
-      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+      href={CONTACT.getWhatsAppUrl(WHATSAPP_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
