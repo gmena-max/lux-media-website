@@ -1,67 +1,87 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Real Lux Media clients with their logos
+// Real Lux Media clients with their logos - with custom sizes
 const clients = [
   {
     name: "Dojo Coding",
     logo: "/logos/dojo-coding-logo.png",
+    width: "w-24",
   },
   {
     name: "Deporte+",
     logo: "/logos/deporte+logo.jpg",
+    width: "w-32", // Bigger
   },
   {
     name: "Oftalmologica Mena",
     logo: "/logos/oftalmologica-mena-logo.png",
+    width: "w-32", // Bigger
   },
   {
     name: "Ortodoncia Steinvorth",
     logo: "/logos/ortodoncia-steinvorth-logo.png",
+    width: "w-24",
   },
   {
     name: "Retainer Brite",
     logo: "/logos/LOGO BRITE.png",
+    width: "w-24",
   },
   {
     name: "Blockchain Jungle",
     logo: "/logos/BLOCKCHAIN JUNGLE LOGO.png",
+    width: "w-32", // Bigger
   },
 ];
 
 export default function ClientLogos() {
   return (
-    <section className="py-16 border-y border-[var(--card-border)]">
+    <section className="py-8 border-y border-[var(--card-border)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-sm text-gray-500 uppercase tracking-widest mb-10"
-        >
+        <p className="text-center text-xs text-gray-500 uppercase tracking-widest mb-6">
           Marcas que confían en nosotros
-        </motion.p>
+        </p>
+      </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-          {clients.map((client, index) => (
-            <motion.div
+      {/* Marquee container */}
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--background)] to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--background)] to-transparent z-10" />
+
+        {/* Scrolling logos */}
+        <div className="flex animate-marquee items-center">
+          {/* First set */}
+          {clients.map((client) => (
+            <div
               key={client.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative w-28 h-16 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              className={`flex-shrink-0 mx-8 ${client.width} h-14 relative`}
             >
               <Image
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain"
-                sizes="112px"
+                className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                sizes="128px"
               />
-            </motion.div>
+            </div>
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {clients.map((client) => (
+            <div
+              key={`${client.name}-dup`}
+              className={`flex-shrink-0 mx-8 ${client.width} h-14 relative`}
+            >
+              <Image
+                src={client.logo}
+                alt={client.name}
+                fill
+                className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                sizes="128px"
+              />
+            </div>
           ))}
         </div>
       </div>

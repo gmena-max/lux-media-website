@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 
-const categories = ["Todos", "Eventos", "Social Media", "Campañas", "Branding"];
-
 interface Project {
   id: number;
   title: string;
@@ -128,13 +126,6 @@ const projects: Project[] = [
 ];
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("Todos");
-
-  const filteredProjects =
-    activeCategory === "Todos"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
     <section id="portafolio" className="py-24 bg-[var(--card-bg)]">
       <div className="max-w-7xl mx-auto px-6">
@@ -156,31 +147,9 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        {/* Filter buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category
-                  ? "bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black"
-                  : "bg-[var(--background)] text-gray-400 hover:text-white border border-[var(--card-border)]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <PortfolioCard key={project.id} project={project} index={index} />
           ))}
         </div>
