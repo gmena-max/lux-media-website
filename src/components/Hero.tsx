@@ -177,7 +177,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 text-[var(--accent)]"
+          className="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter mb-2 text-[var(--accent)] font-display"
         >
           Lux
         </motion.h1>

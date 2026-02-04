@@ -28,7 +28,10 @@ const differentiators = [
 
 export default function About() {
   return (
-    <section id="nosotros" className="py-24 bg-[var(--card-bg)]">
+    <section id="nosotros" className="py-24 bg-[var(--card-bg)] relative overflow-hidden">
+      {/* Decorative blur */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full blur-3xl" />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left content */}

@@ -11,10 +11,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main id="main-content" className="min-h-screen bg-[var(--background)]">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <ClientLogos />
