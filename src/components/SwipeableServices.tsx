@@ -81,7 +81,7 @@ export default function SwipeableServices() {
             >
               <Accordion.Item
                 value={`item-${service.id}`}
-                className="group/item border-b border-[rgba(245,181,26,0.1)] last:border-b-0 data-[state=open]:border-l-2 data-[state=open]:border-l-[var(--accent)]/30 data-[state=open]:pl-4 transition-all"
+                className="group/item border-b border-[rgba(245,181,26,0.1)] last:border-b-0 border-l-2 border-l-transparent hover:border-l-[rgba(245,181,26,0.2)] data-[state=open]:border-l-[var(--accent)]/30 data-[state=open]:pl-4 transition-all"
               >
                 <Accordion.Header>
                   <Accordion.Trigger className="group flex w-full items-center justify-between py-6 text-left transition-colors hover:text-[var(--accent)]">

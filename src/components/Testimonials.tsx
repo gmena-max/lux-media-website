@@ -112,7 +112,7 @@ export default function Testimonials() {
       </div>
 
       {/* Marquee container */}
-      <div className="group overflow-hidden">
+      <div className="group overflow-hidden marquee-mask">
         <div className="flex gap-6 animate-marquee-testimonials">
           {allCards.map((testimonial, index) => (
             <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
