@@ -156,7 +156,7 @@ export default function Hero() {
           className="font-light text-xl md:text-2xl mb-12 max-w-2xl mx-auto"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
-          Contenido que atrae, pauta que convierte, estrategia que escala.
+          Contenido + pauta + IA. Resultados que se miden.
         </motion.p>
 
         {/* CTAs */}

@@ -73,7 +73,7 @@ export default function About() {
               className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <p className="text-lg text-gray-300 italic mb-4">
-                &ldquo;Lux Media no solo ejecuta — entienden el negocio. Se sienten como parte del equipo.&rdquo;
+                &ldquo;Lux Media no construyó DOJO — amplificó todo lo que somos. Esa es la diferencia entre una agencia y un partner real.&rdquo;
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
