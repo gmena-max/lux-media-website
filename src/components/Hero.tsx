@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
 
 export default function Hero() {
@@ -20,56 +21,49 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Base gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#0d0d0d] to-[#050505]" />
+      {/* Base dark background */}
+      <div className="absolute inset-0 bg-[#050505]" />
 
-      {/* Animated gradient mesh */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            background: `
-              radial-gradient(ellipse 80% 50% at 20% 40%, rgba(245, 181, 26, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 213, 79, 0.05) 0%, transparent 50%)
-            `,
-          }}
-          animate={{
-            background: [
-              `radial-gradient(ellipse 80% 50% at 20% 40%, rgba(245, 181, 26, 0.08) 0%, transparent 50%),
-               radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 213, 79, 0.05) 0%, transparent 50%)`,
-              `radial-gradient(ellipse 80% 50% at 30% 50%, rgba(245, 181, 26, 0.08) 0%, transparent 50%),
-               radial-gradient(ellipse 60% 40% at 70% 50%, rgba(255, 213, 79, 0.05) 0%, transparent 50%)`,
-              `radial-gradient(ellipse 80% 50% at 20% 40%, rgba(245, 181, 26, 0.08) 0%, transparent 50%),
-               radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 213, 79, 0.05) 0%, transparent 50%)`,
-            ],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(245, 181, 26, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(245, 181, 26, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
+      {/* SINGLE strong background image with slow pan */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          scale: [1, 1.05, 1],
         }}
-      />
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <Image
+          src="/portfolio/dojo-hackathon.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-[0.25]"
+          sizes="100vw"
+          priority
+        />
+      </motion.div>
 
-      {/* Noise texture overlay for premium feel */}
+      {/* Gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+
+      {/* Gold radial glow behind headline */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-[var(--accent)]/[0.10] rounded-full blur-[180px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[600px] h-[300px] bg-[var(--accent)]/[0.12] rounded-full blur-[100px]" />
+
+      {/* Subtle noise texture */}
       <div
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
 
-      {/* Decorative elements */}
+      {/* Corner accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Corner accents */}
         <motion.div
           className="absolute top-16 left-16 w-24 h-24 border-l-2 border-t-2 border-[var(--accent)]/20"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -82,55 +76,27 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.7 }}
         />
-
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-[var(--accent)]/40"
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 25}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 4 + i,
-              repeat: Infinity,
-              delay: i * 0.5,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
       </div>
-
-      {/* Central glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-[var(--accent)]/[0.07] rounded-full blur-[150px]" />
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
 
       {/* Content with parallax */}
       <motion.div style={{ y, opacity }} className="relative z-10 text-center px-6 max-w-5xl">
-        {/* Trust badge */}
+        {/* Trust badge - VERY TIGHT to headline (mb-2) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-2"
         >
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-sm text-gray-400">+15 proyectos exitosos en Costa Rica</span>
+          <span className="text-sm text-gray-400">+15 marcas impulsadas en Costa Rica</span>
         </motion.div>
 
-        {/* Main headline - using AIDA: Attention */}
+        {/* SHARPER headline - names the pain */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 font-display"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 font-display"
         >
           <span className="text-white">Tu marca merece</span>
           <br />
@@ -138,10 +104,10 @@ export default function Hero() {
             className="relative inline-block"
             style={{
               color: "var(--accent)",
-              textShadow: "0 0 80px rgba(245, 181, 26, 0.4)",
+              textShadow: "0 0 80px rgba(245, 181, 26, 0.5)",
             }}
           >
-            resultados reales
+            clientes, no likes
             <motion.span
               className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)]"
               initial={{ width: 0 }}
@@ -151,27 +117,54 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        {/* Subheadline - Interest */}
+        {/* Subheadline - explains HOW */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl text-gray-400 mb-4 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-400 mb-3 max-w-2xl mx-auto leading-relaxed"
         >
-          Estrategias de marketing digital que convierten seguidores en clientes.
+          Contenido, pauta y estrategia que trabajan juntos para crecer tu negocio.
         </motion.p>
 
-        {/* Value proposition - Desire */}
+        {/* Service list - WHITE BOLD highlights instead of gold */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-base text-gray-500 mb-10 max-w-xl mx-auto"
+          className="text-base text-gray-500 mb-6 max-w-xl mx-auto"
         >
-          Redes sociales • Producción de video • Meta Ads • Cobertura de eventos
+          Redes sociales • <span className="text-white font-medium">Video profesional</span> • <span className="text-white font-medium">Meta Ads</span> • Desarrollo web • Eventos
         </motion.p>
 
-        {/* CTA Buttons - Action */}
+        {/* Trust line - THREE balanced points */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-5 text-sm text-gray-400"
+        >
+          <span className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Resultados en 30 días
+          </span>
+          <span className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Sin sorpresas
+          </span>
+          <span className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Respuesta en 48h
+          </span>
+        </motion.div>
+
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -210,27 +203,17 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Risk reversal */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-          className="text-gray-500 text-sm mt-4"
-        >
-          Sin contratos a largo plazo • Cancela cuando quieras
-        </motion.p>
-
-        {/* Social proof micro-stats */}
+        {/* Stats bar - THREE metrics, TIGHTER spacing */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-white/10"
+          className="flex flex-wrap justify-center gap-8 mt-8 pt-6 border-t border-white/10"
         >
           {[
             { value: "1M+", label: "Alcance generado" },
-            { value: "6", label: "Clientes activos" },
-            { value: "48h", label: "Respuesta promedio" },
+            { value: "4.2x", label: "ROAS promedio" },
+            { value: "+200", label: "Contenidos creados" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -239,7 +222,7 @@ export default function Hero() {
               transition={{ delay: 1.3 + i * 0.1 }}
               className="text-center"
             >
-              <p className="text-2xl font-bold text-white">{stat.value}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
               <p className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</p>
             </motion.div>
           ))}

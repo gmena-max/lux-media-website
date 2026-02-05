@@ -88,7 +88,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-[var(--accent)]/20 hover:shadow-[var(--accent)]/40"
+            className="border border-[var(--accent)] text-[var(--accent)] px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:bg-[var(--accent)] hover:text-black"
           >
             Contáctanos
           </motion.a>
