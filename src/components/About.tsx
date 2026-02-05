@@ -6,8 +6,8 @@ import { Sparkles, Users, Zap, Target } from "lucide-react";
 const differentiators = [
   {
     icon: <Zap className="w-5 h-5" />,
-    title: "Velocidad + Calidad",
-    description: "Usamos IA y automatización para entregar más rápido sin sacrificar la calidad que tu marca merece.",
+    title: "IA como Ventaja",
+    description: "Creamos más rápido, analizamos en tiempo real, y optimizamos constantemente. La IA no es un extra — es cómo trabajamos.",
   },
   {
     icon: <Users className="w-5 h-5" />,
@@ -22,7 +22,7 @@ const differentiators = [
   {
     icon: <Sparkles className="w-5 h-5" />,
     title: "Todo Bajo un Techo",
-    description: "Contenido, ads, eventos, branding. Un equipo, una visión, consistencia total.",
+    description: "Contenido, ads, web, automatización. Un equipo, una visión, consistencia total.",
   },
 ];
 
