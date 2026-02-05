@@ -23,13 +23,21 @@ npm run lint     # ESLint check
 ## Design Tokens
 
 ```css
---background: #1a1a1a      /* Dark background */
+--background: #0a0a0a      /* Deep black (matches hero/footer) */
 --foreground: #ededed      /* Light text */
 --accent: #F5B51A          /* Gold/yellow - primary brand color */
 --accent-light: #FFD54F    /* Lighter gold for gradients */
---card-bg: #242424         /* Card backgrounds */
+--accent-muted: #D4A843    /* Muted gold for subtle accents */
+--card-bg: #111111         /* Subtle lift for glass cards */
 --card-border: #333333     /* Borders */
 ```
+
+### Glass Utilities (globals.css)
+- `.glass-card` — glassmorphism card with blur
+- `.glass-card-hover` — adds gold border/glow on hover
+- `.gold-glow` — text shadow for numbers
+- `.gold-glow-subtle` — subtle text shadow for eyebrows
+- `.aurora-bg` — fixed ambient gold orbs background
 
 ## Brand Guidelines
 
@@ -121,12 +129,16 @@ src/
     └── utils.ts         # cn() utility
 ```
 
-## Git Workflow
+## Git & Deployment
 
+- **GitHub:** https://github.com/gmena-max/lux-media-website
+- **Vercel:** Auto-deploys on push to main
+- **Live URL:** https://luxmediacr.com
 - Each **commit** is a save point — can revert if changes aren't liked
-- **Push** uploads to GitHub: https://github.com/Juuice10/Lux-media-website
-- Commit related changes together with descriptive messages
+- `git push` → GitHub → Vercel auto-deploy → live
 - To undo: "go back to commit [hash]"
+
+Note: Original repo (Juuice10/Lux-media-website) exists but isn't connected. Gabriel owns current setup.
 
 ## Images
 
@@ -147,14 +159,17 @@ src/
 
 **Completed:**
 - Full landing page with all sections
+- Glassmorphism + gold aurora design system
 - Image optimization (93% reduction)
 - Portfolio with real project images
 - OG image for social sharing
 - Scroll progress indicator
 - Client logos marquee
+- Deployed to Vercel (luxmediacr.com)
+- Domain connected via GoDaddy DNS
 
 **Pending:**
-- Deploy to Vercel
 - Add Google Analytics
 - Set up EmailJS for contact form
 - Add real testimonials with photos
+- Discuss shared GitHub org setup with Jeaustin

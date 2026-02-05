@@ -125,7 +125,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -144,7 +144,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
@@ -254,7 +254,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <div className="p-8 rounded-2xl glass-card border-[rgba(245,181,26,0.1)]">
+            <div className="p-8 rounded-2xl glass-card" style={{ borderColor: "rgba(245,181,26,0.15)" }}>
               <h3 className="text-xl font-semibold mb-6">
                 Otras formas de contactarnos
               </h3>

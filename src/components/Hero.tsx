@@ -117,7 +117,7 @@ export default function Hero() {
             backdropFilter: "blur(8px)",
           }}
         >
-          <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
           <span className="text-sm text-[#D4A843]">+15 marcas impulsadas en Costa Rica</span>
         </motion.div>
 
