@@ -24,12 +24,30 @@ const services = [
   },
   {
     id: 4,
+    title: "IA & Automatización",
+    description:
+      "Flujos de trabajo automatizados, contenido potenciado con IA, y analytics en tiempo real. Más rápido, más inteligente.",
+  },
+  {
+    id: 5,
+    title: "Desarrollo Web",
+    description:
+      "Landing pages y sitios web que convierten. Diseño moderno, velocidad optimizada, listo para escalar.",
+  },
+  {
+    id: 6,
+    title: "SEO & Google",
+    description:
+      "Que te encuentren cuando buscan. Optimización para buscadores y presencia en Google que genera tráfico orgánico.",
+  },
+  {
+    id: 7,
     title: "Eventos",
     description:
       "Cobertura profesional con drones, cámaras y equipo en sitio. Capturamos la esencia de tu evento.",
   },
   {
-    id: 5,
+    id: 8,
     title: "Branding",
     description:
       "Creamos la identidad visual que hace que tu marca sea reconocible y profesional en cada punto de contacto.",
@@ -61,8 +79,7 @@ export default function SwipeableServices() {
             <span className="gradient-text">crecer</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Soluciones completas de marketing digital. Un equipo, todos los
-            servicios.
+            Marketing potenciado con IA. Contenido, pauta, web, automatización — todo bajo un techo.
           </p>
         </motion.div>
       </div>
