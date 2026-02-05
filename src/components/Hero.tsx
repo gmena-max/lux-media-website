@@ -118,7 +118,7 @@ export default function Hero() {
           }}
         >
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-          <span className="text-sm text-[#D4A843]">+15 marcas impulsadas en Costa Rica</span>
+          <span className="text-sm text-[#D4A843]">20+ marcas en 6 países</span>
         </motion.div>
 
         {/* Headline */}
@@ -209,11 +209,11 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-4 md:gap-6"
         >
           {[
-            { value: "+1.2K", label: "SEGUIDORES / MES" },
-            { value: "+340%", label: "ENGAGEMENT" },
-            { value: "1M+", label: "ALCANCE" },
-            { value: "4.2x", label: "ROAS" },
-            { value: "+200", label: "PIEZAS CREADAS" },
+            { value: "2M+", label: "ALCANCE MENSUAL" },
+            { value: "20+", label: "MARCAS" },
+            { value: "500+", label: "PIEZAS CREADAS" },
+            { value: "10+", label: "EVENTOS CUBIERTOS" },
+            { value: "6", label: "PAÍSES" },
           ].map((stat) => (
             <div
               key={stat.label}
