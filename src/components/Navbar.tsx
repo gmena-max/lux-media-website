@@ -62,7 +62,7 @@ export default function Navbar() {
             alt="Lux Media"
             width={160}
             height={70}
-            className="h-24 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
+            className="h-32 md:h-36 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </a>
