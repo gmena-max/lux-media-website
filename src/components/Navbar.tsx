@@ -86,9 +86,23 @@ export default function Navbar() {
             href={CONTACT.getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="border border-[var(--accent)] text-[var(--accent)] px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:bg-[var(--accent)] hover:text-black"
+            className="px-6 py-2.5 text-sm font-semibold transition-all"
+            style={{
+              background: "transparent",
+              border: "1px solid rgba(212, 168, 67, 0.4)",
+              borderRadius: "10px",
+              color: "#D4A843",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(212, 168, 67, 0.08)";
+              e.currentTarget.style.borderColor = "rgba(212, 168, 67, 0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.borderColor = "rgba(212, 168, 67, 0.4)";
+            }}
           >
             Contáctanos
           </motion.a>
