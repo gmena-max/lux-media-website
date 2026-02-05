@@ -7,7 +7,7 @@ const clients = [
   {
     name: "Dojo Coding",
     logo: "/logos/dojo-coding-logo.png",
-    width: "w-24",
+    width: "w-28", // 15% bigger (white logo)
   },
   {
     name: "Deporte+",
