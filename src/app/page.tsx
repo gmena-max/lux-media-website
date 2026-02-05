@@ -2,12 +2,12 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import SwipeableServices from "@/components/SwipeableServices";
-import CtaBanner from "@/components/CtaBanner";
-import Process from "@/components/Process";
-import Stats from "@/components/Stats";
-import About from "@/components/About";
 import Portfolio from "@/components/Portfolio";
+import Stats from "@/components/Stats";
+import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
+import About from "@/components/About";
+import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -21,21 +21,18 @@ export default function Home() {
       <Hero />
       <ClientLogos />
       <SwipeableServices />
-      <CtaBanner
-        subtitle="Agenda una consulta gratuita y descubre cómo podemos ayudarte"
-        whatsappMessage="Hola, vi su sitio web y me gustaría agendar una consulta gratuita."
-      />
-      <Process />
-      <Stats />
-      <About />
       <Portfolio />
-      <CtaBanner
-        title="¿Te gustó lo que viste?"
-        subtitle="Trabajemos juntos en tu próximo proyecto"
-        buttonText="Cotiza tu proyecto"
-        whatsappMessage="Hola, me interesa cotizar un proyecto con ustedes."
-      />
+      <Stats />
+      <Process />
       <Testimonials />
+      <About />
+      <CtaBanner
+        title="¿Listo para resultados reales?"
+        subtitle="Agenda una consulta gratuita. Sin compromiso, sin presión. Solo una conversación para entender cómo podemos ayudarte."
+        buttonText="Agendar consulta"
+        whatsappMessage="Hola, quiero agendar una consulta gratuita para mi marca."
+        urgency="Solo aceptamos 2 clientes nuevos por mes"
+      />
       <Contact />
       <Footer />
       <WhatsAppButton />

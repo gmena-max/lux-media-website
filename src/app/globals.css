@@ -186,6 +186,46 @@ body {
   }
 }
 
+/* Subtle bounce for interactive elements */
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Glow pulse for CTAs */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 181, 26, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 181, 26, 0.5);
+  }
+}
+
+/* Progress bar fill animation */
+@keyframes progressFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Tilt shine effect */
+@keyframes tiltShine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
 /* Accordion animations for Radix UI */
 @keyframes accordion-down {
   from {
@@ -258,6 +298,58 @@ body {
   animation: shimmer 1.5s infinite;
 }
 
+.animate-subtle-bounce {
+  animation: subtleBounce 2s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Card hover shine effect */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.6s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.card-shine:hover::before {
+  transform: translateX(250%) skewX(-15deg);
+}
+
+/* Magnetic hover effect */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.magnetic-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Smooth icon bounce on hover */
+.icon-bounce:hover svg,
+.icon-bounce:hover .icon {
+  animation: subtleBounce 0.4s ease-out;
+}
+
 .animate-accordion-down {
   animation: accordion-down 0.2s ease-out;
 }
@@ -286,6 +378,19 @@ body {
 .animation-delay-500 {
   animation-delay: 500ms;
 }
+
+/* ========================================
+   Z-INDEX SCALE
+   ======================================== */
+
+/*
+ * z-10: Section decorative elements (blurs, backgrounds)
+ * z-20: Cards and content overlays
+ * z-30: Sticky elements within sections
+ * z-40: Mobile menus and dropdowns
+ * z-50: Fixed navigation (Navbar, WhatsApp button)
+ * z-60: Progress indicators (ScrollProgress - above nav)
+ */
 
 /* ========================================
    FOCUS & ACCESSIBILITY

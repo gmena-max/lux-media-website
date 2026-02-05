@@ -135,7 +135,7 @@ export default function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="w-12 h-12 flex items-center justify-center rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-all"
               aria-label={link.label}
             >
               {link.icon}

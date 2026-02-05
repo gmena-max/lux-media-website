@@ -16,11 +16,26 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#inicio");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine active section
+      const sections = navLinks.map((link) => link.href.substring(1));
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(`#${section}`);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,18 +46,23 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-4" : "bg-transparent py-6"
+        isScrolled ? "glass py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#inicio">
+        {/* Logo - larger with glow effect */}
+        <a
+          href="#inicio"
+          className="relative group"
+        >
+          {/* Glow effect on hover */}
+          <div className="absolute inset-0 bg-[var(--accent)]/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <Image
             src="/logo-full.png"
             alt="Lux Media"
-            width={140}
-            height={60}
-            className="h-20 w-auto"
+            width={160}
+            height={70}
+            className="h-24 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </a>
@@ -53,19 +73,25 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-300 hover:text-white transition-colors line-animation pb-1"
+              className={`text-sm transition-colors line-animation pb-1 ${
+                activeSection === link.href
+                  ? "text-[var(--accent)]"
+                  : "text-gray-300 hover:text-white"
+              }`}
             >
               {link.label}
             </a>
           ))}
-          <a
+          <motion.a
             href={CONTACT.getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-[var(--accent)]/20 hover:shadow-[var(--accent)]/40"
           >
             Contáctanos
-          </a>
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -114,7 +140,11 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`transition-colors ${
+                    activeSection === link.href
+                      ? "text-[var(--accent)]"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                 >
                   {link.label}
                 </a>

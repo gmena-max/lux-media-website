@@ -9,53 +9,109 @@ const testimonials = [
     name: "Daniel Bejarano",
     role: "CEO, Dojo Coding",
     content:
-      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel. La cobertura del hackathon fue espectacular.",
+      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel. La cobertura del hackathon generó más de 50,000 impresiones.",
     avatar: "DB",
+    highlight: "+50K impresiones en un evento",
+    featured: true,
   },
   {
     id: 2,
-    name: "Jeaustin Campos",
-    role: "DT, Real España",
+    name: "Dr. Diego Mena",
+    role: "Oftalmólogo, Oftalmologica Mena",
     content:
-      "El equipo de Lux Media captura la esencia del deporte con profesionalismo. Su trabajo audiovisual es de primer nivel y siempre supera las expectativas. Recomendados al 100%.",
-    avatar: "JC",
+      "Las campañas de Meta Ads han traído 8-12 pacientes nuevos cada mes. La calidad del contenido refleja exactamente la excelencia que quiero transmitir. Estamos viendo un retorno de 4.2x en publicidad.",
+    avatar: "DM",
+    highlight: "4.2x ROAS en Meta Ads",
+    featured: true,
   },
   {
     id: 3,
     name: "Eric Lonnis",
     role: "Director, Deporte+",
     content:
-      "Trabajar con Lux Media ha sido clave para posicionar nuestra marca en el mundo deportivo. Su creatividad y estrategia nos han ayudado a conectar con una audiencia más amplia.",
+      "Trabajar con Lux Media ha sido clave para posicionar nuestra marca. En 3 meses duplicamos nuestro engagement y triplicamos el alcance en Instagram.",
     avatar: "EL",
+    highlight: "+200% engagement en 3 meses",
   },
   {
     id: 4,
-    name: "Dr. Diego Mena",
-    role: "Oftalmólogo, Oftalmologica Mena",
-    content:
-      "La calidad del contenido que producen es excepcional. Cada video y publicación refleja exactamente la excelencia que quiero transmitir a mis pacientes. Las campañas de Meta Ads han traído pacientes nuevos cada mes.",
-    avatar: "DM",
-  },
-  {
-    id: 5,
     name: "Dr. Arnoldo Steinvorth",
     role: "Ortodoncista",
     content:
-      "Lux Media transformó la imagen de mi práctica. Su equipo entiende perfectamente cómo comunicar profesionalismo y confianza. Los resultados en redes sociales han sido extraordinarios.",
+      "Lux Media transformó la imagen de mi práctica. Su equipo entiende perfectamente cómo comunicar profesionalismo. Pasamos de 500 a 3,000 seguidores en 4 meses.",
     avatar: "AS",
+    highlight: "6x crecimiento en seguidores",
   },
   {
-    id: 6,
+    id: 5,
     name: "Juan Guerrero",
     role: "CEO, Blockchain Jungle",
     content:
-      "En el mundo del blockchain, la comunicación efectiva es esencial. Lux Media fue fundamental para transmitir nuestra propuesta de valor de manera clara y atractiva durante el evento.",
+      "La cobertura del evento fue impecable. Entregaron contenido profesional en menos de 48 horas que usamos para promocionar los siguientes 3 meses.",
     avatar: "JG",
+    highlight: "Contenido para 3+ meses",
   },
 ];
 
+function TestimonialCard({ testimonial, index, featured = false }: { testimonial: typeof testimonials[0]; index: number; featured?: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className={`relative p-6 md:p-8 rounded-2xl bg-[var(--card-bg)] border transition-all duration-300 ${
+        featured
+          ? "border-[var(--accent)]/30 hover:border-[var(--accent)]/50"
+          : "border-[var(--card-border)] hover:border-[var(--accent)]/20"
+      }`}
+    >
+      {/* Featured badge */}
+      {featured && (
+        <div className="absolute -top-3 left-6">
+          <span className="bg-[var(--accent)] text-black text-xs font-semibold px-3 py-1 rounded-full">
+            Destacado
+          </span>
+        </div>
+      )}
+
+      {/* Quote icon */}
+      <div className="text-[var(--accent)]/20 mb-4">
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+      </div>
+
+      {/* Highlight */}
+      <p className="text-[var(--accent)] font-medium text-sm mb-3">
+        {testimonial.highlight}
+      </p>
+
+      {/* Content */}
+      <p className="text-gray-300 mb-6 leading-relaxed">
+        &ldquo;{testimonial.content}&rdquo;
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold">
+          {testimonial.avatar}
+        </div>
+        <div>
+          <p className="font-semibold text-white">{testimonial.name}</p>
+          <p className="text-sm text-gray-500">{testimonial.role}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+
+  const featuredTestimonials = testimonials.filter((t) => t.featured);
+  const otherTestimonials = testimonials.filter((t) => !t.featured);
+  const mobileTestimonials = showAll ? testimonials : testimonials.slice(0, 3);
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -73,95 +129,50 @@ export default function Testimonials() {
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
             Testimonios
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6">
-            Lo que dicen{" "}
-            <span className="gradient-text">nuestros clientes</span>
+          <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
+            Clientes que <span className="gradient-text">confían</span> en nosotros
           </h2>
+          <p className="text-gray-500 max-w-xl mx-auto">
+            No lo decimos nosotros. Lo dicen ellos.
+          </p>
         </motion.div>
 
-        {/* Testimonial cards - Desktop */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)]/20 transition-colors"
-            >
-              {/* Quote icon */}
-              <div className="text-[var(--accent)]/30 mb-4">
-                <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold">
-                  {testimonial.avatar}
-                </div>
-                <div>
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Testimonial cards - Mobile carousel */}
-        <div className="md:hidden">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)]"
-          >
-            <div className="text-[var(--accent)]/30 mb-4">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-            </div>
-
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              &ldquo;{testimonials[activeIndex].content}&rdquo;
-            </p>
-
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold">
-                {testimonials[activeIndex].avatar}
-              </div>
-              <div>
-                <p className="font-semibold text-white">
-                  {testimonials[activeIndex].name}
-                </p>
-                <p className="text-sm text-gray-500">
-                  {testimonials[activeIndex].role}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Carousel dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === activeIndex
-                    ? "w-8 bg-[var(--accent)]"
-                    : "bg-gray-600"
-                }`}
-              />
+        {/* Desktop layout */}
+        <div className="hidden md:block">
+          {/* Featured testimonials - larger */}
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {featuredTestimonials.map((testimonial, index) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} featured />
             ))}
           </div>
+
+          {/* Other testimonials */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {otherTestimonials.map((testimonial, index) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index + featuredTestimonials.length} />
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile layout */}
+        <div className="md:hidden space-y-4">
+          {mobileTestimonials.map((testimonial, index) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} featured={testimonial.featured} />
+          ))}
+
+          {!showAll && testimonials.length > 3 && (
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              onClick={() => setShowAll(true)}
+              className="w-full py-4 mt-4 rounded-xl border border-[var(--card-border)] text-gray-400 hover:text-white hover:border-[var(--accent)]/30 transition-colors flex items-center justify-center gap-2"
+            >
+              Ver más testimonios
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </motion.button>
+          )}
         </div>
       </div>
     </section>

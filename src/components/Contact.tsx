@@ -11,6 +11,7 @@ export default function Contact() {
     name: "",
     email: "",
     message: "",
+    website: "", // Honeypot field - should remain empty
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -22,6 +23,13 @@ export default function Contact() {
     setSubmitStatus("idle");
     setErrorMessage("");
 
+    // Honeypot check - if filled, it's a bot
+    if (formData.website) {
+      setIsSubmitting(false);
+      setSubmitStatus("success"); // Fake success to fool bots
+      return;
+    }
+
     // Check if EmailJS is configured
     if (EMAILJS.publicKey === "YOUR_PUBLIC_KEY") {
       // Fallback: Open email client with pre-filled message
@@ -32,7 +40,7 @@ export default function Contact() {
       window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
       setIsSubmitting(false);
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", website: "" });
       return;
     }
 
@@ -46,7 +54,7 @@ export default function Contact() {
       );
 
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", website: "" });
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
@@ -86,12 +94,12 @@ export default function Contact() {
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
             Contacto
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6">
-            ¿Listo para <span className="gradient-text">comenzar</span>?
+          <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
+            Hablemos de tu <span className="gradient-text">proyecto</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte a
-            alcanzar tus objetivos de marketing digital.
+            Déjanos un mensaje o contáctanos por WhatsApp.
+            Respondemos en menos de 24 horas.
           </p>
         </motion.div>
 
@@ -160,6 +168,18 @@ export default function Contact() {
                 />
               </div>
 
+              {/* Honeypot field - hidden from users, catches bots */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -187,6 +207,22 @@ export default function Contact() {
                   {errorMessage}
                 </motion.p>
               )}
+
+              {/* Trust indicators */}
+              <div className="flex items-center justify-center gap-6 pt-4 text-xs text-gray-500">
+                <span className="flex items-center gap-1">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  100% Confidencial
+                </span>
+                <span className="flex items-center gap-1">
+                  <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Respuesta en 24h
+                </span>
+              </div>
             </form>
           </motion.div>
 

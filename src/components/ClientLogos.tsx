@@ -38,8 +38,11 @@ const clients = [
 
 export default function ClientLogos() {
   return (
-    <section className="py-8 border-y border-[var(--card-border)] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-8 overflow-hidden relative">
+      {/* Subtle gradient that blends with both hero and next section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <p className="text-center text-xs text-gray-500 uppercase tracking-widest mb-6">
           Marcas que confían en nosotros
         </p>
@@ -63,7 +66,7 @@ export default function ClientLogos() {
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                className="object-contain opacity-70 hover:opacity-100 transition-opacity"
                 sizes="128px"
               />
             </div>
@@ -78,7 +81,7 @@ export default function ClientLogos() {
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                className="object-contain opacity-70 hover:opacity-100 transition-opacity"
                 sizes="128px"
               />
             </div>
