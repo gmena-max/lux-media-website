@@ -208,19 +208,40 @@ export default function Contact() {
                 </motion.p>
               )}
 
-              {/* Trust indicators */}
-              <div className="flex items-center justify-center gap-6 pt-4 text-xs text-gray-500">
-                <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              {/* Trust badges - doubt removers */}
+              <div className="flex flex-wrap justify-center gap-4 pt-6">
+                <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
+                  style={{
+                    background: "rgba(74, 222, 128, 0.08)",
+                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                  }}
+                >
+                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  100% Confidencial
+                  <span className="text-gray-300">Resultados en 30 días</span>
                 </span>
-                <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
+                  style={{
+                    background: "rgba(74, 222, 128, 0.08)",
+                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                  }}
+                >
+                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  Respuesta en 24h
+                  <span className="text-gray-300">Sin sorpresas</span>
+                </span>
+                <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
+                  style={{
+                    background: "rgba(74, 222, 128, 0.08)",
+                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                  }}
+                >
+                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-300">Respuesta en 48h</span>
                 </span>
               </div>
             </form>

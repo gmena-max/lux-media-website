@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const testimonials = [
   {
@@ -9,29 +8,27 @@ const testimonials = [
     name: "Daniel Bejarano",
     role: "CEO, Dojo Coding",
     content:
-      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel. La cobertura del hackathon generó más de 50,000 impresiones.",
+      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel.",
     avatar: "DB",
-    highlight: "+50K impresiones en un evento",
-    featured: true,
+    highlight: "Resultados excepcionales",
   },
   {
     id: 2,
     name: "Dr. Diego Mena",
     role: "Oftalmólogo, Oftalmologica Mena",
     content:
-      "Las campañas de Meta Ads han traído 8-12 pacientes nuevos cada mes. La calidad del contenido refleja exactamente la excelencia que quiero transmitir. Estamos viendo un retorno de 4.2x en publicidad.",
+      "Las campañas que me han hecho me han llenado la agenda de consultas constantemente.",
     avatar: "DM",
     highlight: "4.2x ROAS en Meta Ads",
-    featured: true,
   },
   {
     id: 3,
-    name: "Eric Lonnis",
+    name: "Erick Lonnis",
     role: "Director, Deporte+",
     content:
       "Trabajar con Lux Media ha sido clave para posicionar nuestra marca. En 3 meses duplicamos nuestro engagement y triplicamos el alcance en Instagram.",
     avatar: "EL",
-    highlight: "+200% engagement en 3 meses",
+    highlight: "+200% engagement",
   },
   {
     id: 4,
@@ -53,65 +50,40 @@ const testimonials = [
   },
 ];
 
-function TestimonialCard({ testimonial, index, featured = false }: { testimonial: typeof testimonials[0]; index: number; featured?: boolean }) {
+function TestimonialCard({
+  testimonial,
+}: {
+  testimonial: (typeof testimonials)[0];
+}) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className={`relative p-6 md:p-8 rounded-2xl bg-[var(--card-bg)] border transition-all duration-300 ${
-        featured
-          ? "border-[var(--accent)]/30 hover:border-[var(--accent)]/50"
-          : "border-[var(--card-border)] hover:border-[var(--accent)]/20"
-      }`}
-    >
-      {/* Featured badge */}
-      {featured && (
-        <div className="absolute -top-3 left-6">
-          <span className="bg-[var(--accent)] text-black text-xs font-semibold px-3 py-1 rounded-full">
-            Destacado
-          </span>
-        </div>
-      )}
-
-      {/* Quote icon */}
-      <div className="text-[var(--accent)]/20 mb-4">
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-        </svg>
+    <div className="w-[300px] md:w-[350px] flex-shrink-0 p-6 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-colors">
+      {/* Highlight badge */}
+      <div className="inline-block bg-[var(--accent)]/10 text-[var(--accent)] text-sm font-medium px-3 py-1 rounded-full mb-4">
+        {testimonial.highlight}
       </div>
 
-      {/* Highlight */}
-      <p className="text-[var(--accent)] font-medium text-sm mb-3">
-        {testimonial.highlight}
-      </p>
-
-      {/* Content */}
+      {/* Quote */}
       <p className="text-gray-300 mb-6 leading-relaxed">
         &ldquo;{testimonial.content}&rdquo;
       </p>
 
       {/* Author */}
-      <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
           {testimonial.avatar}
         </div>
         <div>
-          <p className="font-semibold text-white">{testimonial.name}</p>
-          <p className="text-sm text-gray-500">{testimonial.role}</p>
+          <p className="font-semibold text-white text-sm">{testimonial.name}</p>
+          <p className="text-xs text-gray-500">{testimonial.role}</p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Testimonials() {
-  const [showAll, setShowAll] = useState(false);
-
-  const featuredTestimonials = testimonials.filter((t) => t.featured);
-  const otherTestimonials = testimonials.filter((t) => !t.featured);
-  const mobileTestimonials = showAll ? testimonials : testimonials.slice(0, 3);
+  // Duplicate for seamless loop
+  const allCards = [...testimonials, ...testimonials];
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -130,49 +102,21 @@ export default function Testimonials() {
             Testimonios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            Clientes que <span className="gradient-text">confían</span> en nosotros
+            Clientes que <span className="gradient-text">confían</span> en
+            nosotros
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
             No lo decimos nosotros. Lo dicen ellos.
           </p>
         </motion.div>
+      </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:block">
-          {/* Featured testimonials - larger */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {featuredTestimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} featured />
-            ))}
-          </div>
-
-          {/* Other testimonials */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {otherTestimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index + featuredTestimonials.length} />
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile layout */}
-        <div className="md:hidden space-y-4">
-          {mobileTestimonials.map((testimonial, index) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} featured={testimonial.featured} />
+      {/* Marquee container */}
+      <div className="group overflow-hidden">
+        <div className="flex gap-6 animate-marquee-testimonials">
+          {allCards.map((testimonial, index) => (
+            <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
           ))}
-
-          {!showAll && testimonials.length > 3 && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              onClick={() => setShowAll(true)}
-              className="w-full py-4 mt-4 rounded-xl border border-[var(--card-border)] text-gray-400 hover:text-white hover:border-[var(--accent)]/30 transition-colors flex items-center justify-center gap-2"
-            >
-              Ver más testimonios
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </motion.button>
-          )}
         </div>
       </div>
     </section>
