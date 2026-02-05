@@ -60,6 +60,9 @@ export default function Stats() {
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background)]" />
 
+      {/* Radial gradient accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,181,26,0.04)_0%,transparent_70%)]" />
+
       {/* Accent glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--accent)]/5 rounded-full blur-[100px]" />
 
@@ -86,7 +89,7 @@ export default function Stats() {
               className="text-center"
             >
               <motion.p
-                className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-2"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text gold-glow mb-2"
               >
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
               </motion.p>

@@ -56,9 +56,9 @@ function TestimonialCard({
   testimonial: (typeof testimonials)[0];
 }) {
   return (
-    <div className="w-[300px] md:w-[350px] flex-shrink-0 p-6 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-colors">
+    <div className="w-[300px] md:w-[350px] flex-shrink-0 p-6 rounded-2xl glass-card glass-card-hover">
       {/* Highlight badge */}
-      <div className="inline-block bg-[var(--accent)]/10 text-[var(--accent)] text-sm font-medium px-3 py-1 rounded-full mb-4">
+      <div className="inline-block bg-[rgba(245,181,26,0.12)] border border-[rgba(245,181,26,0.25)] text-[var(--accent)] text-sm font-medium px-3 py-1 rounded-full mb-4">
         {testimonial.highlight}
       </div>
 
@@ -69,7 +69,7 @@ function TestimonialCard({
 
       {/* Author */}
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm ring-2 ring-[rgba(245,181,26,0.3)]">
           {testimonial.avatar}
         </div>
         <div>
@@ -98,7 +98,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Testimonios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">

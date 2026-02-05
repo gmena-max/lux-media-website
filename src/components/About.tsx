@@ -41,7 +41,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+            <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
               Sobre Nosotros
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
@@ -70,7 +70,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[var(--accent)]/20"
+              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <p className="text-lg text-gray-300 italic mb-4">
                 &ldquo;Lux Media no solo ejecuta — entienden el negocio. Se sienten como parte del equipo.&rdquo;
@@ -102,7 +102,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 8, transition: { type: "spring", stiffness: 400, damping: 25 } }}
-                  className="flex items-start gap-4 p-5 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-[var(--accent)]/50 transition-all duration-300 cursor-default group icon-bounce"
+                  className="flex items-start gap-4 p-5 rounded-xl glass-card glass-card-hover cursor-default group icon-bounce"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] flex-shrink-0 group-hover:bg-[var(--accent)]/20 transition-colors duration-300">
                     <span className="icon">{item.icon}</span>

@@ -23,6 +23,9 @@ export default function CtaBanner({
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--card-bg)] to-[var(--background)]" />
 
+      {/* Warm aurora glow behind content */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(245,181,26,0.06)_0%,transparent_60%)]" />
+
       {/* Animated accent */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--accent)]/10 rounded-full blur-[100px]"

@@ -93,8 +93,8 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
         )}
       </div>
 
-      {/* Hover border */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[var(--accent)]/40 transition-colors duration-300" />
+      {/* Hover border with gold glow */}
+      <div className="absolute inset-0 rounded-2xl border border-[rgba(245,181,26,0.1)] group-hover:border-[rgba(245,181,26,0.25)] group-hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300" />
     </motion.div>
   );
 }
@@ -167,7 +167,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Portafolio
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">

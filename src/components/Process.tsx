@@ -63,7 +63,7 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Proceso
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
@@ -100,11 +100,11 @@ export default function Process() {
 
               <motion.div
                 whileHover={{ y: -4 }}
-                className="relative p-6 rounded-2xl bg-[var(--background)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-all duration-300 h-full"
+                className="relative p-6 rounded-2xl glass-card glass-card-hover h-full"
               >
                 {/* Number badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors shadow-[0_0_15px_rgba(245,181,26,0.15)]">
                     {step.icon}
                   </div>
                   <span className="text-[var(--accent)]/50 text-3xl font-bold font-mono">

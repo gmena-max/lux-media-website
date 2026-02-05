@@ -53,7 +53,7 @@ export default function SwipeableServices() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Servicios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
@@ -69,6 +69,7 @@ export default function SwipeableServices() {
 
       {/* Accordion */}
       <div className="max-w-4xl mx-auto px-6">
+        <div className="bg-[rgba(17,17,17,0.5)] backdrop-blur-sm rounded-2xl p-6 border border-[var(--card-border)]/50">
         <Accordion.Root type="single" collapsible className="w-full">
           {services.map((service, index) => (
             <motion.div
@@ -80,7 +81,7 @@ export default function SwipeableServices() {
             >
               <Accordion.Item
                 value={`item-${service.id}`}
-                className="border-b border-[var(--card-border)]"
+                className="group/item border-b border-[rgba(245,181,26,0.1)] last:border-b-0 data-[state=open]:border-l-2 data-[state=open]:border-l-[var(--accent)]/30 data-[state=open]:pl-4 transition-all"
               >
                 <Accordion.Header>
                   <Accordion.Trigger className="group flex w-full items-center justify-between py-6 text-left transition-colors hover:text-[var(--accent)]">
@@ -137,6 +138,7 @@ export default function SwipeableServices() {
             </motion.div>
           ))}
         </Accordion.Root>
+        </div>
       </div>
     </section>
   );

@@ -91,7 +91,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
+          <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Contacto
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
@@ -125,7 +125,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -144,7 +144,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[var(--card-bg)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
@@ -192,7 +192,7 @@ export default function Contact() {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-green-400 text-center"
+                  className="text-[var(--accent)] text-center"
                 >
                   ¡Mensaje enviado con éxito! Te contactaremos pronto.
                 </motion.p>
@@ -212,33 +212,33 @@ export default function Contact() {
               <div className="flex flex-wrap justify-center gap-4 pt-6">
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
                   style={{
-                    background: "rgba(74, 222, 128, 0.08)",
-                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                    background: "rgba(245, 181, 26, 0.08)",
+                    border: "1px solid rgba(245, 181, 26, 0.2)",
                   }}
                 >
-                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-300">Resultados en 30 días</span>
                 </span>
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
                   style={{
-                    background: "rgba(74, 222, 128, 0.08)",
-                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                    background: "rgba(245, 181, 26, 0.08)",
+                    border: "1px solid rgba(245, 181, 26, 0.2)",
                   }}
                 >
-                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-300">Sin sorpresas</span>
                 </span>
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
                   style={{
-                    background: "rgba(74, 222, 128, 0.08)",
-                    border: "1px solid rgba(74, 222, 128, 0.2)",
+                    background: "rgba(245, 181, 26, 0.08)",
+                    border: "1px solid rgba(245, 181, 26, 0.2)",
                   }}
                 >
-                  <svg className="w-4 h-4 text-[#4ADE80]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-300">Respuesta en 48h</span>
@@ -254,7 +254,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <div className="p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)]">
+            <div className="p-8 rounded-2xl glass-card border-[rgba(245,181,26,0.1)]">
               <h3 className="text-xl font-semibold mb-6">
                 Otras formas de contactarnos
               </h3>
