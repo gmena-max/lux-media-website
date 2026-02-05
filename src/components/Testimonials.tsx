@@ -6,47 +6,47 @@ const testimonials = [
   {
     id: 1,
     name: "Daniel Bejarano",
-    role: "CEO, Dojo Coding",
+    role: "CEO, DOJO Coding",
     content:
-      "Como empresa de tecnología, necesitábamos un equipo que entendiera nuestra visión. Lux Media no solo lo logró, sino que elevó nuestra presencia digital a otro nivel.",
+      "Lux Media no construyó DOJO — amplificó todo lo que somos. Esa es la diferencia entre una agencia y un partner real.",
     avatar: "DB",
-    highlight: "Resultados excepcionales",
+    highlight: "Partner real",
   },
   {
     id: 2,
     name: "Dr. Diego Mena",
-    role: "Oftalmólogo, Oftalmologica Mena",
+    role: "Oftalmólogo, Oftalmológica Mena",
     content:
       "Las campañas que me han hecho me han llenado la agenda de consultas constantemente.",
     avatar: "DM",
-    highlight: "4.2x ROAS en Meta Ads",
+    highlight: "Agenda llena",
   },
   {
     id: 3,
     name: "Erick Lonnis",
     role: "Director, Deporte+",
     content:
-      "Trabajar con Lux Media ha sido clave para posicionar nuestra marca. En 3 meses duplicamos nuestro engagement y triplicamos el alcance en Instagram.",
+      "Pasamos de cero presencia digital a 3 millones de vistas al mes. Los ratings del show también subieron.",
     avatar: "EL",
-    highlight: "+200% engagement",
+    highlight: "3M vistas/mes",
   },
   {
     id: 4,
     name: "Dr. Arnoldo Steinvorth",
     role: "Ortodoncista",
     content:
-      "Lux Media transformó la imagen de mi práctica. Su equipo entiende perfectamente cómo comunicar profesionalismo. Pasamos de 500 a 3,000 seguidores en 4 meses.",
+      "Lux Media entiende cómo comunicar lo que hacemos con profesionalismo. Crearon toda mi presencia digital desde cero y ahora mis pacientes me encuentran en redes.",
     avatar: "AS",
-    highlight: "6x crecimiento en seguidores",
+    highlight: "De cero a presencia digital",
   },
   {
     id: 5,
     name: "Juan Guerrero",
     role: "CEO, Blockchain Jungle",
     content:
-      "La cobertura del evento fue impecable. Entregaron contenido profesional en menos de 48 horas que usamos para promocionar los siguientes 3 meses.",
+      "Necesitábamos un equipo que aguantara el ritmo del evento tech más grande de Latinoamérica. Lux Media respondió con velocidad, calidad y consistencia.",
     avatar: "JG",
-    highlight: "Contenido para 3+ meses",
+    highlight: "50+ piezas de contenido",
   },
 ];
 
