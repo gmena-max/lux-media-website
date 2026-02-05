@@ -7,6 +7,7 @@ import Stats from "@/components/Stats";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import CtaBanner from "@/components/CtaBanner";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <Process />
       <Testimonials />
       <About />
+      <FAQ />
       <CtaBanner
         title="¿Listo para resultados reales?"
         subtitle="Agenda una consulta gratuita. Sin compromiso, sin presión. Solo una conversación para entender cómo podemos ayudarte."
