@@ -161,10 +161,10 @@ export default function Portfolio() {
             Portafolio
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            Resultados que <span className="gradient-text">hablan</span>
+            Resultados que <span className="gradient-text">impulsan</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            No solo creamos contenido bonito. Generamos resultados medibles para nuestros clientes.
+            Estrategia, creatividad y datos para hacer crecer tu marca.
           </p>
         </motion.div>
 
