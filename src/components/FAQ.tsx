@@ -7,17 +7,17 @@ const faqs = [
   {
     question: "¿Cuánto cuesta trabajar con ustedes?",
     answer:
-      "Depende del alcance: servicios, volumen de contenido, quién produce. Desde paquetes básicos de redes hasta gestión completa con pauta y eventos. Escríbenos para una cotización personalizada.",
+      "Cada proyecto es diferente. Diseñamos planes según tus objetivos, canales y volumen de contenido. Escríbenos para una cotización personalizada.",
   },
   {
     question: "¿Cómo es el proceso de trabajo?",
     answer:
-      "Llamada inicial → propuesta → onboarding → ejecución mensual con reportes y ajustes continuos. Nos adaptamos a tu ritmo y necesidades.",
+      "Llamada inicial → propuesta → arranque → ejecución mensual con reportes y ajustes continuos. Nos adaptamos a tu ritmo y necesidades.",
   },
   {
     question: "¿En cuánto tiempo veo resultados?",
     answer:
-      "Contenido orgánico: 2-3 meses para tracción real. Pauta: resultados desde la primera semana. Te damos expectativas realistas desde el inicio.",
+      "Contenido orgánico: 2-3 meses para tracción real. Pauta: resultados desde la primera semana. En tu consulta definimos metas claras con plazos concretos.",
   },
   {
     question: "¿Manejan la pauta o solo el contenido?",
@@ -28,6 +28,11 @@ const faqs = [
     question: "¿Trabajan con empresas fuera de Costa Rica?",
     answer:
       "Sí. Tenemos clientes en 6 países y creamos contenido en español, inglés y portugués.",
+  },
+  {
+    question: "¿Qué industrias manejan?",
+    answer:
+      "Deportes, salud, tecnología, eventos, gastronomía, e-commerce y más. Trabajar con industrias distintas nos da perspectiva fresca para cada proyecto.",
   },
 ];
 
