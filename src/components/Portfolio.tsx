@@ -71,10 +71,8 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
           {project.title}
         </h3>
 
-        {/* Description - always visible on featured, hover on regular */}
-        <p className={`text-gray-400 text-sm leading-relaxed transition-all duration-300 ${
-          featured ? "opacity-100" : "opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-        }`}>
+        {/* Description - always visible on all cards */}
+        <p className="text-gray-400 text-sm leading-relaxed">
           {project.description}
         </p>
 
