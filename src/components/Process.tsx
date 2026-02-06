@@ -6,7 +6,7 @@ const steps = [
   {
     number: "01",
     title: "Consulta",
-    description: "Conversamos sobre tu negocio, audiencia y objetivos. Sin compromiso.",
+    description: "Entendemos tu marca, tu audiencia y tus metas.",
     duration: "30 min",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -28,7 +28,7 @@ const steps = [
   {
     number: "03",
     title: "Ejecución",
-    description: "Creamos y publicamos contenido de alta calidad consistentemente.",
+    description: "Contenido de alta calidad, publicado de forma constante.",
     duration: "Continuo",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -39,7 +39,7 @@ const steps = [
   {
     number: "04",
     title: "Optimización",
-    description: "Analizamos resultados y ajustamos para mejorar continuamente.",
+    description: "Reportes claros, ajustes basados en datos, y mejora mes a mes.",
     duration: "Mensual",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -70,7 +70,7 @@ export default function Process() {
             Así <span className="gradient-text">trabajamos</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Un proceso simple y transparente. Sin sorpresas.
+            De la consulta a los resultados en cuatro pasos.
           </p>
         </motion.div>
 
@@ -100,11 +100,12 @@ export default function Process() {
 
               <motion.div
                 whileHover={{ y: -4 }}
-                className="relative p-6 rounded-2xl glass-card glass-card-hover h-full"
+                className="relative p-6 rounded-2xl glass-card h-full"
+                style={{ borderColor: "rgba(245, 181, 26, 0.25)", boxShadow: "0 0 20px rgba(245, 181, 26, 0.08)" }}
               >
                 {/* Number badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors shadow-[0_0_15px_rgba(245,181,26,0.15)]">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] shadow-[0_0_15px_rgba(245,181,26,0.15)]">
                     {step.icon}
                   </div>
                   <span className="text-[var(--accent)]/50 text-3xl font-bold font-mono">

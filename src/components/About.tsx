@@ -12,7 +12,7 @@ const differentiators = [
   {
     icon: <Users className="w-5 h-5" />,
     title: "Atención Dedicada",
-    description: "Somos un equipo pequeño por diseño. Conocemos tu marca como si fuera nuestra.",
+    description: "Respuesta rápida, comunicación directa, cero intermediarios.",
   },
   {
     icon: <Target className="w-5 h-5" />,
@@ -21,8 +21,8 @@ const differentiators = [
   },
   {
     icon: <Sparkles className="w-5 h-5" />,
-    title: "Todo Bajo un Techo",
-    description: "Contenido, ads, web, automatización. Un equipo, una visión, consistencia total.",
+    title: "Solución Integral",
+    description: "Contenido, ads, web y automatización. Una estrategia, un equipo, cero fragmentación.",
   },
 ];
 
@@ -45,22 +45,20 @@ export default function About() {
               Sobre Nosotros
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
-              No somos una agencia más
+              Tu equipo de crecimiento
             </h2>
 
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
                 <strong className="text-white">Somos Lux Media</strong>, una agencia de marketing digital
-                basada en Costa Rica que trabaja diferente.
+                en Costa Rica que combina creatividad, estrategia y tecnología para hacer crecer marcas.
               </p>
               <p>
-                Mientras otras agencias te tratan como un número más en su lista de clientes,
-                nosotros nos convertimos en una extensión de tu equipo. Conocemos tu negocio,
-                entendemos tu audiencia, y nos obsesionamos con tus resultados.
+                Cada marca trabaja con un equipo dedicado que conoce tu estrategia, tu audiencia y tus metas.
               </p>
               <p>
-                Desde redes sociales y producción de video hasta campañas de Meta Ads y
-                cobertura de eventos — todo lo que necesitas para crecer, bajo un mismo techo.
+                Redes sociales, video, publicidad digital, desarrollo web y cobertura de eventos.
+                Una visión integrada, un solo equipo.
               </p>
             </div>
 
@@ -73,15 +71,15 @@ export default function About() {
               className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <p className="text-lg text-gray-300 italic mb-4">
-                &ldquo;Lux Media no construyó DOJO — amplificó todo lo que somos. Esa es la diferencia entre una agencia y un partner real.&rdquo;
+                &ldquo;Fundamos Lux Media con una idea simple: que cada marca merece un equipo que se obsesione con sus resultados como si fueran propios.&rdquo;
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
-                  DB
+                  J&G
                 </div>
                 <div>
-                  <p className="text-white font-medium text-sm">Daniel Bejarano</p>
-                  <p className="text-gray-500 text-xs">CEO, Dojo Coding</p>
+                  <p className="text-white font-medium text-sm">Jeaustin & Gabriel</p>
+                  <p className="text-gray-500 text-xs">Fundadores</p>
                 </div>
               </div>
             </motion.div>
