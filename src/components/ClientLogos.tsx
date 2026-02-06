@@ -5,11 +5,11 @@ import Image from "next/image";
 // Real Lux Media clients with their logos - with custom sizes
 const clients = [
   { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png", size: "w-36 h-14" },
-  { name: "Deporte+", logo: "/logos/deporte-plus.jpg", size: "w-20 h-20" },
-  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "w-36 h-36" },
+  { name: "Deporte+", logo: "/logos/deporte-plus.jpg", size: "w-24 h-24" },
+  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "w-44 h-44" },
   { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png", size: "w-28 h-28" },
-  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png", size: "w-32 h-14" },
-  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png", size: "w-16 h-20" },
+  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png", size: "w-64 h-28" },
+  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png", size: "w-20 h-24" },
   { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "w-56 h-36" },
   { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "w-52 h-52" },
 ];

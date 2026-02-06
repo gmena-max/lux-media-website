@@ -64,7 +64,7 @@ export default function Footer() {
             alt="Lux Media"
             width={180}
             height={60}
-            className="h-16 w-auto"
+            className="h-32 w-auto"
           />
         </motion.div>
 
