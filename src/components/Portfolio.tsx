@@ -56,8 +56,11 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
         />
       )}
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+      {/* Gradient overlay — compact band at bottom to keep faces visible */}
+      <div
+        className="absolute inset-0 transition-opacity group-hover:opacity-100 opacity-95"
+        style={{ background: "linear-gradient(to top, black 0%, rgba(0,0,0,0.7) 35%, transparent 55%)" }}
+      />
 
       {/* Content */}
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
