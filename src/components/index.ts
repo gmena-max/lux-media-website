@@ -3,7 +3,6 @@ export { default as Hero } from "./Hero";
 export { default as SwipeableServices } from "./SwipeableServices";
 export { default as Stats } from "./Stats";
 export { default as ClientLogos } from "./ClientLogos";
-export { default as Services } from "./Services";
 export { default as Portfolio } from "./Portfolio";
 export { default as Testimonials } from "./Testimonials";
 export { default as About } from "./About";

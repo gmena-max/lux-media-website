@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import SwipeableServices from "@/components/SwipeableServices";
 import Portfolio from "@/components/Portfolio";
-import CaseStudies from "@/components/CaseStudies";
 import Stats from "@/components/Stats";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
@@ -24,7 +23,6 @@ export default function Home() {
       <ClientLogos />
       <SwipeableServices />
       <Portfolio />
-      <CaseStudies />
       <Stats />
       <Process />
       <Testimonials />
