@@ -18,7 +18,7 @@ const services = [
   },
   {
     id: 3,
-    title: "Meta Ads",
+    title: "Publicidad Digital",
     description:
       "Campañas de Facebook e Instagram diseñadas para generar leads y ventas reales, no solo métricas vacías.",
   },
@@ -75,11 +75,11 @@ export default function SwipeableServices() {
             Servicios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            Todo lo que necesitas para{" "}
-            <span className="gradient-text">crecer</span>
+            Todo para crecer{" "}
+            <span className="gradient-text">tu marca</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Marketing potenciado con IA. Contenido, pauta, web, automatización — todo bajo un techo.
+            Contenido. Pauta. Web. Automatización. Todo conectado, todo medible.
           </p>
         </motion.div>
       </div>
