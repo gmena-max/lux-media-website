@@ -110,7 +110,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Oftalmologica Mena",
-    category: "Meta Ads",
+    category: "Publicidad Digital",
     image: "/portfolio/oftalmologica.jpg",
     description: "Clínica oftalmológica líder. Campañas de Meta Ads que convierten en citas reales vía WhatsApp.",
     result: "+Pacientes vía WhatsApp",
