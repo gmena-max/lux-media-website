@@ -76,7 +76,7 @@ export default function Footer() {
           transition={{ delay: 0.1 }}
           className="text-center text-white text-lg font-medium mb-10"
         >
-          Digital Marketing Agency
+          Estrategia digital para marcas que quieren crecer
         </motion.p>
 
         {/* Contact info row */}
