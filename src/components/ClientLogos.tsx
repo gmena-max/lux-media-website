@@ -4,36 +4,12 @@ import Image from "next/image";
 
 // Real Lux Media clients with their logos - with custom sizes
 const clients = [
-  {
-    name: "Dojo Coding",
-    logo: "/logos/dojo-coding-white.png",
-    width: "w-28",
-  },
-  {
-    name: "Deporte+",
-    logo: "/logos/deporte-plus.jpg",
-    width: "w-32",
-  },
-  {
-    name: "Oftalmologica Mena",
-    logo: "/logos/oftalmologica-mena-white.png",
-    width: "w-32",
-  },
-  {
-    name: "Ortodoncia Steinvorth",
-    logo: "/logos/ortodoncia-steinvorth-white.png",
-    width: "w-24",
-  },
-  {
-    name: "Retainer Brite",
-    logo: "/logos/retainer-brite-white.png",
-    width: "w-24",
-  },
-  {
-    name: "Blockchain Jungle",
-    logo: "/logos/blockchain-jungle.png",
-    width: "w-32",
-  },
+  { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png" },
+  { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
+  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png" },
+  { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
+  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png" },
+  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
 ];
 
 export default function ClientLogos() {
@@ -60,7 +36,7 @@ export default function ClientLogos() {
           {clients.map((client) => (
             <div
               key={client.name}
-              className={`flex-shrink-0 mx-8 ${client.width} h-14 relative`}
+              className="flex-shrink-0 mx-10 w-32 h-12 relative"
             >
               <Image
                 src={client.logo}
@@ -75,7 +51,7 @@ export default function ClientLogos() {
           {clients.map((client) => (
             <div
               key={`${client.name}-dup`}
-              className={`flex-shrink-0 mx-8 ${client.width} h-14 relative`}
+              className="flex-shrink-0 mx-10 w-32 h-12 relative"
             >
               <Image
                 src={client.logo}
