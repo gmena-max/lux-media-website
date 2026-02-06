@@ -105,22 +105,6 @@ export default function Hero() {
 
       {/* Main content - centered */}
       <div className="relative z-10 max-w-[900px] mx-auto text-center px-6 py-24">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
-          style={{
-            background: "rgba(212, 168, 67, 0.05)",
-            border: "1px solid rgba(212, 168, 67, 0.15)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-          <span className="text-sm text-[#D4A843]">20+ marcas en 6 países</span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -211,7 +195,6 @@ export default function Hero() {
           {[
             { value: "2M+", label: "ALCANCE MENSUAL" },
             { value: "20+", label: "MARCAS" },
-            { value: "500+", label: "PIEZAS CREADAS" },
             { value: "10+", label: "EVENTOS CUBIERTOS" },
             { value: "6", label: "PAÍSES" },
           ].map((stat) => (
