@@ -66,7 +66,7 @@ export default function ClientLogos() {
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                className="object-contain"
                 sizes="128px"
               />
             </div>
@@ -81,7 +81,7 @@ export default function ClientLogos() {
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                className="object-contain"
                 sizes="128px"
               />
             </div>
