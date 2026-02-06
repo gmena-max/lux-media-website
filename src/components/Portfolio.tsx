@@ -26,65 +26,56 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-      className={`group relative rounded-2xl overflow-hidden cursor-pointer card-shine ${
-        featured ? "aspect-[16/10]" : "aspect-[4/3]"
-      }`}
+      className="group relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(245,181,26,0.1)] hover:border-[rgba(245,181,26,0.25)] hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300 flex flex-col"
     >
-      {/* Loading skeleton */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--card-border)] transition-opacity duration-300 ${
-          imageLoaded && !imageError ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        {!imageError && (
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
-        )}
-      </div>
-
-      {/* Image */}
-      {!imageError && (
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"}
-          className={`object-cover transition-all duration-700 group-hover:scale-110 ${
-            imageLoaded ? "opacity-100" : "opacity-0"
+      {/* Image area */}
+      <div className={`relative overflow-hidden ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+        {/* Loading skeleton */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br from-[var(--accent)]/20 to-[var(--card-border)] transition-opacity duration-300 ${
+            imageLoaded && !imageError ? "opacity-0" : "opacity-100"
           }`}
-          onLoad={() => setImageLoaded(true)}
-          onError={() => setImageError(true)}
-        />
-      )}
+        >
+          {!imageError && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+          )}
+        </div>
 
-      {/* Gradient overlay — compact band at bottom to keep faces visible */}
-      <div
-        className="absolute inset-0 transition-opacity group-hover:opacity-100 opacity-95"
-        style={{ background: "linear-gradient(to top, black 0%, rgba(0,0,0,0.7) 35%, transparent 55%)" }}
-      />
+        {!imageError && (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"}
+            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
+          />
+        )}
 
-      {/* Content */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end">
-        {/* Category badge */}
-        <span className="inline-block w-fit text-[var(--accent)] text-xs font-medium uppercase tracking-wider bg-[var(--accent)]/10 px-3 py-1 rounded-full mb-3">
+        {/* Category badge on image */}
+        <span className="absolute bottom-3 left-3 text-[var(--accent)] text-xs font-medium uppercase tracking-wider bg-black/70 backdrop-blur-sm px-2.5 py-1 rounded-full">
           {project.category}
         </span>
+      </div>
 
-        {/* Title */}
-        <h3 className={`font-bold text-white mb-2 ${featured ? "text-2xl" : "text-lg"}`}>
+      {/* Text area below image */}
+      <div className="p-4 bg-[var(--background)] flex-1">
+        <h3 className={`font-bold text-white mb-1 ${featured ? "text-xl" : "text-base"}`}>
           {project.title}
         </h3>
 
-        {/* Description - always visible on all cards */}
         <p className="text-gray-400 text-sm leading-relaxed">
           {project.description}
         </p>
 
-        {/* Result badge - if available */}
         {project.result && (
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="mt-3 inline-flex items-center gap-2 text-[var(--accent)] text-sm font-medium"
+            className="mt-2 inline-flex items-center gap-2 text-[var(--accent)] text-sm font-medium"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
@@ -93,9 +84,6 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
           </motion.div>
         )}
       </div>
-
-      {/* Hover border with gold glow */}
-      <div className="absolute inset-0 rounded-2xl border border-[rgba(245,181,26,0.1)] group-hover:border-[rgba(245,181,26,0.25)] group-hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300" />
     </motion.div>
   );
 }
