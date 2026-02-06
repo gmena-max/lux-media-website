@@ -8,49 +8,49 @@ const services = [
     id: 1,
     title: "Redes Sociales",
     description:
-      "Tu competencia está publicando. Nosotros te ayudamos a destacar con contenido que genera engagement y conversiones.",
+      "Tu competencia está publicando. Nosotros te ayudamos a destacar con contenido que conecta con tu audiencia y genera resultados.",
   },
   {
     id: 2,
     title: "Video & Reels",
     description:
-      "El video domina las redes. Creamos contenido que captura atención instantáneamente y cuenta tu historia.",
+      "El video domina las redes. Producción ágil de video que comunica tu mensaje en segundos.",
   },
   {
     id: 3,
     title: "Publicidad Digital",
     description:
-      "Campañas de Facebook e Instagram diseñadas para generar leads y ventas reales, no solo métricas vacías.",
+      "Campañas en Meta, Google y más — diseñadas para generar leads y ventas reales, no métricas vacías.",
   },
   {
     id: 4,
     title: "IA & Automatización",
     description:
-      "Flujos de trabajo automatizados, contenido potenciado con IA, y analytics en tiempo real. Más rápido, más inteligente.",
+      "Flujos de trabajo automatizados, contenido potenciado con IA, y métricas en tiempo real. Más rápido, más inteligente.",
   },
   {
     id: 5,
     title: "Desarrollo Web",
     description:
-      "Landing pages y sitios web que convierten. Diseño moderno, velocidad optimizada, listo para escalar.",
+      "Tu negocio necesita presencia digital. Landing pages y sitios web que convierten, con diseño moderno y velocidad optimizada.",
   },
   {
     id: 6,
     title: "SEO & Google",
     description:
-      "Que te encuentren cuando buscan. Optimización para buscadores y presencia en Google que genera tráfico orgánico.",
+      "Que te encuentren cuando buscan. Estrategia SEO y presencia en Google que convierte tráfico en clientes.",
   },
   {
     id: 7,
     title: "Eventos",
     description:
-      "Cobertura profesional con drones, cámaras y equipo en sitio. Capturamos la esencia de tu evento.",
+      "Tu evento merece más que fotos. Producción, cobertura y promoción profesional con drones, cámaras y equipo en sitio.",
   },
   {
     id: 8,
     title: "Branding",
     description:
-      "Creamos la identidad visual que hace que tu marca sea reconocible y profesional en cada punto de contacto.",
+      "La primera impresión cuenta. Identidad visual que hace tu marca reconocible y profesional en cada punto de contacto.",
   },
 ];
 
