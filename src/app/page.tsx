@@ -27,11 +27,10 @@ export default function Home() {
       <About />
       <FAQ />
       <CtaBanner
-        title="¿Listo para resultados reales?"
-        subtitle="Agenda una consulta gratuita. Sin compromiso, sin presión. Solo una conversación para entender cómo podemos ayudarte."
+        title="Hagamos crecer tu marca"
+        subtitle="Agenda una consulta gratuita. Conversemos sobre tus metas y cómo hacerlas realidad."
         buttonText="Agendar consulta"
         whatsappMessage="Hola, quiero agendar una consulta gratuita para mi marca."
-        urgency="Solo aceptamos 2 clientes nuevos por mes"
       />
       <Contact />
       <Footer />

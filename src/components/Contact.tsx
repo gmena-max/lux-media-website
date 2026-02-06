@@ -230,7 +230,7 @@ export default function Contact() {
                   <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-300">Sin sorpresas</span>
+                  <span className="text-gray-300">Respuesta en menos de 24h</span>
                 </span>
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
                   style={{
@@ -241,7 +241,7 @@ export default function Contact() {
                   <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-300">Respuesta en 48h</span>
+                  <span className="text-gray-300">Consulta de 30 minutos</span>
                 </span>
               </div>
             </form>
@@ -275,7 +275,7 @@ export default function Contact() {
                   <div>
                     <p className="font-medium text-white">WhatsApp</p>
                     <p className="text-sm text-gray-500">
-                      Respuesta inmediata
+                      Respuesta en menos de 24h
                     </p>
                   </div>
                 </a>

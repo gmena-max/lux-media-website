@@ -112,7 +112,7 @@ export default function CtaBanner({
               href="#contacto"
               className="text-gray-400 hover:text-white transition-colors px-6 py-4"
             >
-              O déjanos un mensaje
+              Escríbenos directo
             </a>
           </motion.div>
 
@@ -124,7 +124,7 @@ export default function CtaBanner({
             transition={{ delay: 0.5 }}
             className="text-gray-600 text-sm mt-8"
           >
-            Consulta sin compromiso • Respuesta en menos de 24 horas
+            Respuesta en menos de 24 horas · Consulta de 30 minutos
           </motion.p>
         </motion.div>
       </div>
