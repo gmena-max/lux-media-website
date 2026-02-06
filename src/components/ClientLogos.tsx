@@ -6,33 +6,33 @@ import Image from "next/image";
 const clients = [
   {
     name: "Dojo Coding",
-    logo: "/logos/dojo-coding-logo.png",
-    width: "w-28", // 15% bigger (white logo)
+    logo: "/logos/dojo-coding-white.png",
+    width: "w-28",
   },
   {
     name: "Deporte+",
-    logo: "/logos/deporte+logo.jpg",
-    width: "w-32", // Bigger
+    logo: "/logos/deporte-plus.jpg",
+    width: "w-32",
   },
   {
     name: "Oftalmologica Mena",
-    logo: "/logos/oftalmologica-mena-logo.png",
-    width: "w-32", // Bigger
+    logo: "/logos/oftalmologica-mena-white.png",
+    width: "w-32",
   },
   {
     name: "Ortodoncia Steinvorth",
-    logo: "/logos/ortodoncia-steinvorth-logo.png",
+    logo: "/logos/ortodoncia-steinvorth-white.png",
     width: "w-24",
   },
   {
     name: "Retainer Brite",
-    logo: "/logos/LOGO BRITE.png",
+    logo: "/logos/retainer-brite-white.png",
     width: "w-24",
   },
   {
     name: "Blockchain Jungle",
-    logo: "/logos/BLOCKCHAIN JUNGLE LOGO.png",
-    width: "w-32", // Bigger
+    logo: "/logos/blockchain-jungle.png",
+    width: "w-32",
   },
 ];
 

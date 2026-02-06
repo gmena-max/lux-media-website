@@ -144,7 +144,7 @@ Note: Original repo (Juuice10/Lux-media-website) exists but isn't connected. Gab
 
 - **Service backgrounds:** `/public/bg-service-*.jpg` (optimized, ~200KB each)
 - **Portfolio:** `/public/portfolio/*.jpg` (6 project images)
-- **Logos:** `/public/logos/` (client logos for marquee)
+- **Logos:** `/public/logos/` (client logos for marquee, naming: `[brand]-white.png` / `[brand]-dark.png`, or just `[brand].ext` if only one version)
 - **OG Image:** `/public/og-image.png` (1200x630, for social sharing previews)
 
 ## Rules (Learned)
