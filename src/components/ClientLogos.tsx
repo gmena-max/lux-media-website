@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 
-// Real Lux Media clients with their logos - with custom sizes
+// Real Lux Media clients with their logos
 const clients = [
-  { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png", size: "w-36 h-14" },
-  { name: "Deporte+", logo: "/logos/deporte-plus.jpg", size: "w-24 h-24" },
-  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "w-44 h-44" },
-  { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png", size: "w-28 h-28" },
-  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png", size: "w-64 h-28" },
-  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png", size: "w-20 h-24" },
-  { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "w-56 h-36" },
-  { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "w-52 h-52" },
+  { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png" },
+  { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
+  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "w-64 h-48" },
+  { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
+  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png" },
+  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
+  { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "w-56 h-40" },
+  { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "w-64 h-48" },
 ];
 
 export default function ClientLogos() {
@@ -21,8 +21,10 @@ export default function ClientLogos() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <p className="text-center text-xs text-gray-500 uppercase tracking-widest mb-6">
-          Marcas que confían en nosotros
+        <p className="text-center text-xs uppercase tracking-widest mb-6">
+          <span className="text-gray-500">Marcas que </span>
+          <span className="text-[var(--accent)]">confían</span>
+          <span className="text-gray-500"> en nosotros</span>
         </p>
       </div>
 
@@ -38,14 +40,14 @@ export default function ClientLogos() {
           {clients.map((client) => (
             <div
               key={client.name}
-              className={`flex-shrink-0 mx-10 ${client.size} relative`}
+              className={`flex-shrink-0 mx-10 ${client.size || "w-44 h-32"} relative`}
             >
               <Image
                 src={client.logo}
                 alt={client.name}
                 fill
                 className="object-contain"
-                sizes="128px"
+                sizes="176px"
               />
             </div>
           ))}
@@ -53,14 +55,14 @@ export default function ClientLogos() {
           {clients.map((client) => (
             <div
               key={`${client.name}-dup`}
-              className={`flex-shrink-0 mx-10 ${client.size} relative`}
+              className={`flex-shrink-0 mx-10 ${client.size || "w-44 h-32"} relative`}
             >
               <Image
                 src={client.logo}
                 alt={client.name}
                 fill
                 className="object-contain"
-                sizes="128px"
+                sizes="176px"
               />
             </div>
           ))}
