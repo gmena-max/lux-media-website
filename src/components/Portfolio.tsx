@@ -190,17 +190,17 @@ export default function Portfolio() {
           className="text-center"
         >
           <p className="text-gray-400 mb-6">
-            ¿Quieres resultados como estos para tu marca?
+            Tu marca puede ser la siguiente.
           </p>
           <motion.a
-            href={CONTACT.getWhatsAppUrl("Hola, vi su portafolio y me gustaría resultados similares para mi marca.")}
+            href={CONTACT.getWhatsAppUrl("Hola, vi su portafolio y me gustaría agendar una consulta.")}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 bg-[var(--accent)] text-black px-8 py-4 rounded-full font-semibold hover:bg-[var(--accent-light)] transition-colors"
           >
-            Quiero resultados así
+            Agenda tu consulta gratuita
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
