@@ -35,7 +35,7 @@ export const SOCIAL = {
 // You'll need to create an account at https://www.emailjs.com/
 // Free tier: 200 emails/month
 export const EMAILJS = {
-  serviceId: "service_luxmedia", // Create this in EmailJS dashboard
-  templateId: "template_contact", // Create this in EmailJS dashboard
-  publicKey: "YOUR_PUBLIC_KEY", // Get this from EmailJS dashboard
+  serviceId: "service_fne0p1e",
+  templateId: "template_ekh8oaa",
+  publicKey: "obYLKk_Gy-8jb8fdt",
 } as const;

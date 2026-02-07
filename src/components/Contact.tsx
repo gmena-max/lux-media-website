@@ -30,20 +30,6 @@ export default function Contact() {
       return;
     }
 
-    // Check if EmailJS is configured
-    if (EMAILJS.publicKey === "YOUR_PUBLIC_KEY") {
-      // Fallback: Open email client with pre-filled message
-      const subject = encodeURIComponent(`Contacto desde web: ${formData.name}`);
-      const body = encodeURIComponent(
-        `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
-      );
-      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "", website: "" });
-      return;
-    }
-
     try {
       // Send email via EmailJS
       await emailjs.sendForm(
