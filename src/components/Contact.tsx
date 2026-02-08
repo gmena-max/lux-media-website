@@ -66,7 +66,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-24 relative">
+    <section id="contacto" className="py-16 md:py-24 relative">
       {/* Background elements */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-t from-[var(--accent)]/5 to-transparent" />
 
@@ -75,7 +75,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Contacto
@@ -238,7 +238,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center"
+            className="hidden lg:flex flex-col justify-center"
           >
             <div className="p-8 rounded-2xl glass-card" style={{ borderColor: "rgba(245,181,26,0.15)" }}>
               <h3 className="text-xl font-semibold mb-6">

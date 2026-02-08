@@ -28,7 +28,7 @@ const differentiators = [
 
 export default function About() {
   return (
-    <section id="nosotros" className="py-24 bg-[var(--card-bg)] relative overflow-hidden">
+    <section id="nosotros" className="py-16 md:py-24 bg-[var(--card-bg)] relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full blur-3xl" />

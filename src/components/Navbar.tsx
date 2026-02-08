@@ -46,7 +46,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-3" : "bg-transparent py-5"
+        isScrolled ? "glass py-3" : "bg-black/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none py-4 md:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -62,7 +62,7 @@ export default function Navbar() {
             alt="Lux Media"
             width={160}
             height={70}
-            className="h-32 md:h-36 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
+            className="h-16 md:h-36 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </a>

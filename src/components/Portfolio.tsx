@@ -146,7 +146,7 @@ export default function Portfolio() {
   const regularProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="portafolio" className="py-24 bg-[var(--card-bg)] relative overflow-hidden">
+    <section id="portafolio" className="py-12 md:py-24 bg-[var(--card-bg)] relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
 
@@ -155,7 +155,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Portafolio

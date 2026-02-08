@@ -58,7 +58,7 @@ function TestimonialCard({
   testimonial: (typeof testimonials)[0];
 }) {
   return (
-    <div className="w-[300px] md:w-[350px] flex-shrink-0 p-6 rounded-2xl glass-card glass-card-hover">
+    <div className="w-[280px] md:w-[350px] flex-shrink-0 p-4 md:p-6 rounded-2xl glass-card glass-card-hover">
       {/* Highlight badge */}
       <div className="inline-block bg-[rgba(245,181,26,0.12)] border border-[rgba(245,181,26,0.25)] text-[var(--accent)] text-sm font-medium px-3 py-1 rounded-full mb-4">
         {testimonial.highlight}
@@ -94,7 +94,7 @@ export default function Testimonials() {
   } = useMarquee({ speed: 50, nudgeDistance: 374 });
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-[var(--accent-light)]/5 rounded-full blur-3xl" />
@@ -104,7 +104,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Testimonios

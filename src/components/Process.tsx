@@ -51,7 +51,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[var(--card-bg)]">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-[var(--card-bg)]">
       {/* Background elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--card-border)] to-transparent" />
 
@@ -61,7 +61,7 @@ export default function Process() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
             Proceso

@@ -58,13 +58,13 @@ export default function SwipeableServices() {
   return (
     <section
       id="servicios"
-      className="py-24 relative overflow-hidden bg-[var(--background)]"
+      className="py-16 md:py-24 relative overflow-hidden bg-[var(--background)]"
     >
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--accent)]/[0.02] to-transparent" />
 
       {/* Section header */}
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+      <div className="max-w-7xl mx-auto px-6 mb-10 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -122,7 +122,7 @@ export default function CtaBanner({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="text-gray-600 text-sm mt-8"
+            className="text-gray-600 text-sm mt-4 md:mt-8"
           >
             Respuesta en menos de 24 horas · Consulta de 30 minutos
           </motion.p>

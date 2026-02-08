@@ -17,7 +17,7 @@ const clients = [
 
 function LogoItem({ client }: { client: (typeof clients)[0] }) {
   return (
-    <div className={`flex-shrink-0 mx-10 ${client.size || "w-44 h-32"} relative`}>
+    <div className={`flex-shrink-0 mx-4 md:mx-10 max-w-[120px] md:max-w-none ${client.size || "w-44 h-32"} relative`}>
       <Image
         src={client.logo}
         alt={client.name}
@@ -59,8 +59,8 @@ export default function ClientLogos() {
         onMouseLeave={handleMouseLeave}
       >
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--background)] to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--background)] to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[var(--background)] to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-[var(--background)] to-transparent z-10" />
 
         {/* Arrow buttons — desktop only, show on hover */}
         <button

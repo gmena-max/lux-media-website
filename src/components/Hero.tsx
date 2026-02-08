@@ -104,7 +104,7 @@ export default function Hero() {
       />
 
       {/* Main content - centered */}
-      <div className="relative z-10 max-w-[900px] mx-auto text-center px-6 py-24">
+      <div className="relative z-10 max-w-[900px] mx-auto text-center px-6 pt-28 pb-16 md:py-24">
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -200,7 +200,7 @@ export default function Hero() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="px-5 py-4 rounded-[12px] transition-all hover:-translate-y-0.5 cursor-default"
+              className="px-3 py-3 md:px-5 md:py-4 rounded-[12px] transition-all hover:-translate-y-0.5 cursor-default"
               style={{
                 background: "rgba(255,255,255,0.03)",
                 border: "1px solid rgba(255,255,255,0.07)",
@@ -209,7 +209,7 @@ export default function Hero() {
             >
               <p className="text-2xl md:text-3xl font-extrabold text-[#D4A843] mb-0.5">{stat.value}</p>
               <p
-                className="text-[9px] md:text-[10px] uppercase"
+                className="text-[11px] md:text-[10px] uppercase"
                 style={{ letterSpacing: "1.5px", color: "rgba(255,255,255,0.35)" }}
               >
                 {stat.label}
