@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useMarquee } from "@/hooks/useMarquee";
 
 const testimonials = [
   {
@@ -82,8 +84,14 @@ function TestimonialCard({
 }
 
 export default function Testimonials() {
-  // Duplicate for seamless loop
-  const allCards = [...testimonials, ...testimonials];
+  const {
+    containerRef,
+    trackRef,
+    handleMouseEnter,
+    handleMouseLeave,
+    nudgeLeft,
+    nudgeRight,
+  } = useMarquee({ speed: 50, nudgeDistance: 374 });
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -112,11 +120,40 @@ export default function Testimonials() {
       </div>
 
       {/* Marquee container */}
-      <div className="group overflow-hidden marquee-mask">
-        <div className="flex gap-6 animate-marquee-testimonials">
-          {allCards.map((testimonial, index) => (
-            <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
-          ))}
+      <div
+        ref={containerRef}
+        className="relative group marquee-mask"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Arrow buttons — desktop only, show on hover */}
+        <button
+          onClick={nudgeLeft}
+          aria-label="Ver anterior"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-black/60 border border-[var(--card-border)] text-gray-400 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={nudgeRight}
+          aria-label="Ver siguiente"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-black/60 border border-[var(--card-border)] text-gray-400 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        {/* Scrolling track — 3x duplication for seamless loop */}
+        <div className="overflow-hidden">
+          <div ref={trackRef} className="flex gap-6 will-change-transform">
+            {[0, 1, 2].map((setIndex) =>
+              testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={`${testimonial.id}-${setIndex}`}
+                  testimonial={testimonial}
+                />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </section>
