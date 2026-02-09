@@ -91,6 +91,9 @@ export default function Testimonials() {
     handleMouseLeave,
     nudgeLeft,
     nudgeRight,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   } = useMarquee({ speed: 50, nudgeDistance: 374 });
 
   return (
@@ -125,6 +128,9 @@ export default function Testimonials() {
         className="relative group marquee-mask"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Arrow buttons — desktop only, show on hover */}
         <button

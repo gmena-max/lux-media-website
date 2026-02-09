@@ -37,6 +37,9 @@ export default function ClientLogos() {
     handleMouseLeave,
     nudgeLeft,
     nudgeRight,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   } = useMarquee({ speed: 80, nudgeDistance: 280 });
 
   return (
@@ -57,6 +60,9 @@ export default function ClientLogos() {
         className="relative group"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[var(--background)] to-transparent z-10" />

@@ -27,6 +27,10 @@ export function useMarquee({
   const nudgeTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const prefersReducedMotion = useRef(false);
 
+  // Touch-swipe refs
+  const touchStartXRef = useRef(0);
+  const touchOffsetAtStartRef = useRef(0);
+
   // Measure one "set" of items (total scrollWidth / 3)
   const measure = useCallback(() => {
     if (!trackRef.current) return;
@@ -135,6 +139,43 @@ export function useMarquee({
   const nudgeLeft = useCallback(() => nudge("left"), [nudge]);
   const nudgeRight = useCallback(() => nudge("right"), [nudge]);
 
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent) => {
+      touchStartXRef.current = e.touches[0].clientX;
+      touchOffsetAtStartRef.current = offsetRef.current;
+      isPausedRef.current = true;
+      if (nudgeTimeoutRef.current) clearTimeout(nudgeTimeoutRef.current);
+    },
+    []
+  );
+
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      if (!trackRef.current || setWidthRef.current === 0) return;
+
+      const delta = touchStartXRef.current - e.touches[0].clientX;
+      let newOffset = touchOffsetAtStartRef.current + delta;
+
+      // Wrap around seamlessly
+      if (newOffset < 0) {
+        newOffset += setWidthRef.current;
+      } else if (newOffset >= setWidthRef.current) {
+        newOffset -= setWidthRef.current;
+      }
+
+      offsetRef.current = newOffset;
+      trackRef.current.style.transform = `translateX(-${newOffset}px)`;
+    },
+    []
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    nudgeTimeoutRef.current = setTimeout(() => {
+      isPausedRef.current = false;
+      lastTimeRef.current = 0;
+    }, nudgePauseDuration);
+  }, [nudgePauseDuration]);
+
   return {
     containerRef,
     trackRef,
@@ -142,5 +183,8 @@ export function useMarquee({
     handleMouseLeave,
     nudgeLeft,
     nudgeRight,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   };
 }
