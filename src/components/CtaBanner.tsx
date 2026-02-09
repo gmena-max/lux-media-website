@@ -48,7 +48,8 @@ export default function CtaBanner({
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
           {/* Urgency badge */}
@@ -56,7 +57,8 @@ export default function CtaBanner({
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
@@ -68,8 +70,8 @@ export default function CtaBanner({
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.1, duration: 0.5 }}
             className="text-3xl md:text-5xl font-bold text-white mb-4 font-display"
           >
             {title}
@@ -79,8 +81,8 @@ export default function CtaBanner({
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.2, duration: 0.5 }}
             className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             {subtitle}
@@ -90,8 +92,8 @@ export default function CtaBanner({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
@@ -120,8 +122,8 @@ export default function CtaBanner({
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.5, duration: 0.5 }}
             className="text-gray-600 text-sm mt-4 md:mt-8"
           >
             Respuesta en menos de 24 horas · Consulta de 30 minutos
