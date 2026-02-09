@@ -72,7 +72,7 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
@@ -93,7 +93,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
@@ -113,7 +113,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.85)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.85)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -151,7 +151,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.7)] backdrop-blur-[8px] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[rgba(17,17,17,0.85)] border border-[var(--card-border)] text-white placeholder-gray-500 focus:outline-none focus:border-[rgba(245,181,26,0.4)] focus:shadow-[0_0_0_3px_rgba(245,181,26,0.1)] transition-all resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
@@ -237,7 +237,7 @@ export default function Contact() {
 
           {/* Contact info */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}

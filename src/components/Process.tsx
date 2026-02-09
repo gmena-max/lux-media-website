@@ -58,7 +58,7 @@ export default function Process() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
@@ -80,10 +80,10 @@ export default function Process() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group relative"
             >
               {/* Connecting line (desktop) */}
@@ -93,7 +93,7 @@ export default function Process() {
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                     className="h-full bg-gradient-to-r from-[var(--accent)]/30 to-transparent origin-left"
                   />
                 </div>

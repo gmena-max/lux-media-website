@@ -79,6 +79,18 @@ body {
   border: 1px solid rgba(51, 51, 51, 0.6);
 }
 
+/* Reduce glass blur on mobile for GPU performance */
+@media (max-width: 767px) {
+  .glass {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .glass-card {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
 .glass-card-hover {
   transition: all 0.3s ease;
 }

@@ -12,8 +12,8 @@ export default function Hero() {
         background: "linear-gradient(180deg, #070707 0%, #0a0808 50%, #060606 100%)",
       }}
     >
-      {/* Aurora blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Aurora blobs — hidden on mobile for GPU performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         {/* Blob 1 - top left */}
         <motion.div
           className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full"
@@ -92,6 +92,14 @@ export default function Hero() {
         />
       </div>
 
+      {/* Mobile: static warm glow — no GPU cost */}
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background: "radial-gradient(ellipse at 50% 40%, rgba(212, 168, 67, 0.1) 0%, transparent 70%)",
+        }}
+      />
+
       {/* Mesh overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -107,7 +115,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-[900px] mx-auto text-center px-6 pt-28 pb-16 md:py-24">
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
           className="font-extrabold mb-6"
@@ -134,7 +142,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
           className="font-light text-xl md:text-2xl mb-12 max-w-2xl mx-auto"
@@ -145,7 +153,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55 }}
           className="flex flex-col sm:flex-row justify-center gap-4 mb-16"
@@ -172,9 +180,8 @@ export default function Hero() {
             href="#portafolio"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-[14px] transition-all hover:border-white/20"
             style={{
-              background: "rgba(255,255,255,0.03)",
+              background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.1)",
-              backdropFilter: "blur(8px)",
               color: "rgba(255,255,255,0.7)",
             }}
           >
@@ -187,7 +194,7 @@ export default function Hero() {
 
         {/* Stats strip */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
           className="flex flex-wrap justify-center gap-4 md:gap-6"
@@ -202,9 +209,8 @@ export default function Hero() {
               key={stat.label}
               className="px-3 py-3 md:px-5 md:py-4 rounded-[12px] transition-all hover:-translate-y-0.5 cursor-default"
               style={{
-                background: "rgba(255,255,255,0.03)",
+                background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.07)",
-                backdropFilter: "blur(12px)",
               }}
             >
               <p className="text-2xl md:text-3xl font-extrabold text-[#D4A843] mb-0.5">{stat.value}</p>
