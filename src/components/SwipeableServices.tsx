@@ -87,7 +87,7 @@ export default function SwipeableServices() {
 
       {/* Accordion */}
       <div className="max-w-4xl mx-auto px-6">
-        <div className="bg-[rgba(17,17,17,0.5)] backdrop-blur-sm rounded-2xl p-6 border border-[var(--card-border)]/50">
+        <div className="bg-[rgba(17,17,17,0.6)] md:bg-[rgba(17,17,17,0.5)] md:backdrop-blur-sm rounded-2xl p-6 border border-[var(--card-border)]/50">
         <Accordion.Root type="single" collapsible className="w-full">
           {services.map((service, index) => (
             <motion.div

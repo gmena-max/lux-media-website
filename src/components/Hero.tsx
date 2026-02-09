@@ -127,7 +127,7 @@ export default function Hero() {
           <span className="text-white">Tu próximo cliente está en redes</span>
           <br />
           <span
-            className="inline-block animate-shimmer-text"
+            className="inline-block md:animate-shimmer-text"
             style={{
               background: "linear-gradient(135deg, #D4A843 0%, #f0d080 50%, #D4A843 100%)",
               backgroundSize: "200% auto",

@@ -5,6 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
 
+const BLUR_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAEElEQVR4nGMQEeKDIwacHAAv9wJxNLhVpwAAAABJRU5ErkJggg==";
+
 interface Project {
   id: number;
   title: string;
@@ -37,7 +39,7 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
           }`}
         >
           {!imageError && (
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent md:animate-shimmer" />
           )}
         </div>
 
@@ -47,6 +49,8 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
             alt={project.title}
             fill
             sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"}
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
             className={`object-cover transition-all duration-700 group-hover:scale-105 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
@@ -56,7 +60,7 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
         )}
 
         {/* Category badge on image */}
-        <span className="absolute bottom-3 left-3 text-[var(--accent)] text-xs font-medium uppercase tracking-wider bg-black/70 backdrop-blur-sm px-2.5 py-1 rounded-full">
+        <span className="absolute bottom-3 left-3 text-[var(--accent)] text-xs font-medium uppercase tracking-wider bg-black/80 px-2.5 py-1 rounded-full">
           {project.category}
         </span>
       </div>

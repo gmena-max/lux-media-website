@@ -72,7 +72,7 @@ export function useMarquee({
         }
 
         if (trackRef.current) {
-          trackRef.current.style.transform = `translateX(-${offsetRef.current}px)`;
+          trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
         }
       }
 
@@ -113,7 +113,7 @@ export function useMarquee({
 
       // Apply with a smooth CSS transition
       trackRef.current.style.transition = "transform 0.4s ease-out";
-      trackRef.current.style.transform = `translateX(-${offsetRef.current}px)`;
+      trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
 
       // Remove transition after it completes so rAF can take over smoothly
       const handleTransitionEnd = () => {
@@ -164,7 +164,7 @@ export function useMarquee({
       }
 
       offsetRef.current = newOffset;
-      trackRef.current.style.transform = `translateX(-${newOffset}px)`;
+      trackRef.current.style.transform = `translate3d(-${newOffset}px, 0, 0)`;
     },
     []
   );
