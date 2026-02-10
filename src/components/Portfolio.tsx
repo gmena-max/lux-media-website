@@ -23,11 +23,10 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+      viewport={{ once: true, margin: "50px" }}
+      transition={{ delay: index * 0.05, duration: 0.4 }}
       className="group relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(245,181,26,0.1)] hover:border-[rgba(245,181,26,0.25)] hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300 flex flex-col"
     >
       {/* Image area */}
@@ -51,9 +50,7 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
             sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"}
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
-            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
-              imageLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            className="object-cover group-hover:scale-105 transition-transform duration-700"
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageError(true)}
           />
@@ -79,8 +76,8 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
           <motion.div
             initial={{ opacity: 0, x: -5 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "50px" }}
+            transition={{ duration: 0.4 }}
             className="mt-2 inline-flex items-center gap-2 text-[var(--accent)] text-sm font-medium"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

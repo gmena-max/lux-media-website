@@ -31,10 +31,17 @@ export function useMarquee({
   const touchStartXRef = useRef(0);
   const touchOffsetAtStartRef = useRef(0);
 
-  // Measure one "set" of items (total scrollWidth / 3)
+  // Measure one "set" of items by comparing element positions
+  // (scrollWidth / 3 is inaccurate because flex gap doesn't divide evenly)
   const measure = useCallback(() => {
     if (!trackRef.current) return;
-    setWidthRef.current = trackRef.current.scrollWidth / 3;
+    const children = trackRef.current.children;
+    const itemsPerSet = Math.floor(children.length / 3);
+    if (itemsPerSet > 0 && children[itemsPerSet]) {
+      setWidthRef.current =
+        (children[itemsPerSet] as HTMLElement).offsetLeft -
+        (children[0] as HTMLElement).offsetLeft;
+    }
   }, []);
 
   // Animation loop

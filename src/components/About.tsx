@@ -97,10 +97,10 @@ export default function About() {
               {differentiators.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true, margin: "50px" }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
                   whileHover={{ x: 8, transition: { type: "spring", stiffness: 400, damping: 25 } }}
                   className="flex items-start gap-4 p-5 rounded-xl glass-card glass-card-hover cursor-default group icon-bounce"
                 >
