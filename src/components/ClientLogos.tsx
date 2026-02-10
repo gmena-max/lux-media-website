@@ -7,23 +7,23 @@ import { useMarquee } from "@/hooks/useMarquee";
 const clients = [
   { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png" },
   { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
-  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "w-64 h-48" },
+  { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "md:w-64 md:h-48" },
   { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
   { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png" },
   { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
-  { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "w-56 h-40" },
-  { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "w-64 h-48" },
+  { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "md:w-56 md:h-40" },
+  { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "md:w-64 md:h-48" },
 ];
 
 function LogoItem({ client }: { client: (typeof clients)[0] }) {
   return (
-    <div className={`flex-shrink-0 mx-4 md:mx-10 max-w-[120px] md:max-w-none ${client.size || "w-44 h-32"} relative`}>
+    <div className={`flex-shrink-0 mx-4 md:mx-10 w-32 h-24 md:w-44 md:h-32 ${client.size || ""} relative`}>
       <Image
         src={client.logo}
         alt={client.name}
         fill
         className="object-contain"
-        sizes="176px"
+        sizes="(max-width: 768px) 128px, 176px"
       />
     </div>
   );
