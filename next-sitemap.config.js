@@ -3,6 +3,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || "https://luxmediacr.com",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
+  exclude: ["/icon.png"],
   robotsTxtOptions: {
     policies: [
       {

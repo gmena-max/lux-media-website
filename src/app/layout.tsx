@@ -83,9 +83,66 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Add these when you set up Google Search Console
-    // google: "your-google-verification-code",
+    // TODO: Go to https://search.google.com/search-console → Add Property → URL prefix →
+    // luxmediacr.com → HTML tag method → copy the content="XXXX" value and paste it below:
+    // google: "your-verification-code-here",
   },
+};
+
+// JSON-LD FAQ Schema for Google rich snippets
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "¿Cuánto cuesta trabajar con ustedes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cada proyecto es diferente. Diseñamos planes según tus objetivos, canales y volumen de contenido. Escríbenos para una cotización personalizada.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Cómo es el proceso de trabajo?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Llamada inicial → propuesta → arranque → ejecución mensual con reportes y ajustes continuos. Nos adaptamos a tu ritmo y necesidades.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿En cuánto tiempo veo resultados?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Contenido orgánico: 2-3 meses para tracción real. Pauta: resultados desde la primera semana. En tu consulta definimos metas claras con plazos concretos.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Manejan la pauta o solo el contenido?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ambos. Podemos crear solo contenido, solo pauta, o la estrategia completa. Tú decides qué necesitas.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Trabajan con empresas fuera de Costa Rica?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Tenemos clientes en 6 países y creamos contenido en español, inglés y portugués.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Qué industrias manejan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Deportes, salud, tecnología, eventos, gastronomía, e-commerce y más. Trabajar con industrias distintas nos da perspectiva fresca para cada proyecto.",
+      },
+    },
+  ],
 };
 
 // JSON-LD Schema for Local Business
@@ -161,6 +218,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body
