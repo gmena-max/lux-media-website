@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
 
@@ -20,13 +20,15 @@ interface Project {
 function PortfolioCard({ project, index, featured = false }: { project: Project; index: number; featured?: boolean }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => { setIsMobile(window.innerWidth < 768); }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
+      initial={isMobile ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "50px" }}
-      transition={{ delay: index * 0.05, duration: 0.4 }}
+      transition={{ delay: isMobile ? 0 : index * 0.05, duration: 0.4 }}
       className="group relative rounded-2xl overflow-hidden cursor-pointer border border-[rgba(245,181,26,0.1)] hover:border-[rgba(245,181,26,0.25)] hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300 flex flex-col"
     >
       {/* Image area */}
@@ -74,7 +76,7 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
 
         {project.result && (
           <motion.div
-            initial={{ opacity: 0, x: -5 }}
+            initial={isMobile ? false : { opacity: 0, x: -5 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "50px" }}
             transition={{ duration: 0.4 }}
