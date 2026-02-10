@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Sparkles, Users, Zap, Target } from "lucide-react";
 
 const differentiators = [
@@ -27,6 +28,9 @@ const differentiators = [
 ];
 
 export default function About() {
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => { setIsMobile(window.innerWidth < 768); }, []);
+
   return (
     <section id="nosotros" className="py-16 md:py-24 bg-[var(--card-bg)] relative overflow-hidden">
       {/* Decorative elements */}
@@ -97,10 +101,10 @@ export default function About() {
               {differentiators.map((item, index) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={isMobile ? false : { opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "50px" }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  transition={{ delay: isMobile ? 0 : index * 0.05, duration: 0.4 }}
                   whileHover={{ x: 8, transition: { type: "spring", stiffness: 400, damping: 25 } }}
                   className="flex items-start gap-4 p-5 rounded-xl glass-card glass-card-hover cursor-default group icon-bounce"
                 >
