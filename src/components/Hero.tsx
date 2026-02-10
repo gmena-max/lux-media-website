@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CONTACT } from "@/constants/contact";
+import { trackEvent } from "@/lib/gtag";
 
 export default function Hero() {
   return (
@@ -153,6 +154,7 @@ export default function Hero() {
             href={CONTACT.getWhatsAppUrl("Hola, quiero una consulta gratuita para mi marca.")}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { event_label: "Hero CTA" })}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-black rounded-[14px] transition-all hover:scale-[1.02]"
             style={{
               background: "linear-gradient(135deg, #D4A843, #c49a35)",
@@ -169,6 +171,7 @@ export default function Hero() {
           </a>
           <a
             href="#portafolio"
+            onClick={() => trackEvent("cta_click", { event_label: "Hero - Ver nuestro trabajo" })}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-[14px] transition-all hover:border-white/20"
             style={{
               background: "rgba(255,255,255,0.06)",

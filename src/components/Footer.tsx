@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CONTACT, SOCIAL } from "@/constants/contact";
+import { trackEvent } from "@/lib/gtag";
 
 const socialLinks = [
   {
@@ -103,6 +104,7 @@ export default function Footer() {
             href={CONTACT.getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { event_label: "Footer" })}
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
             <svg className="w-5 h-5 text-[var(--accent)]" fill="currentColor" viewBox="0 0 24 24">
@@ -114,6 +116,7 @@ export default function Footer() {
           {/* Email */}
           <a
             href={`mailto:${CONTACT.email}`}
+            onClick={() => trackEvent("email_click", { event_label: "Footer" })}
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
             <svg className="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,6 +140,7 @@ export default function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent(link.label === "WhatsApp" ? "whatsapp_click" : "social_click", { event_label: `Footer - ${link.label}` })}
               className="w-12 h-12 flex items-center justify-center rounded-full text-gray-400 hover:text-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all"
               aria-label={link.label}
             >

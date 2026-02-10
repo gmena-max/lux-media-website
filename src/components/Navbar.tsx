@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
+import { trackEvent } from "@/lib/gtag";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -87,6 +88,7 @@ export default function Navbar() {
             href={CONTACT.getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { event_label: "Navbar CTA" })}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="px-6 py-2.5 text-sm font-semibold transition-all"
@@ -168,6 +170,7 @@ export default function Navbar() {
                 href={CONTACT.getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("whatsapp_click", { event_label: "Navbar Mobile CTA" })}
                 className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold text-center"
               >
                 Contáctanos

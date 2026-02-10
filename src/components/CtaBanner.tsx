@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CONTACT } from "@/constants/contact";
+import { trackEvent } from "@/lib/gtag";
 
 interface CtaBannerProps {
   title?: string;
@@ -105,6 +106,7 @@ export default function CtaBanner({
               href={CONTACT.getWhatsAppUrl(whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("whatsapp_click", { event_label: "CTA Banner" })}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--accent)] text-black font-semibold rounded-full hover:bg-[var(--accent-light)] transition-all duration-300 md:animate-glow-pulse"
@@ -117,6 +119,7 @@ export default function CtaBanner({
 
             <a
               href="#contacto"
+              onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Escríbenos directo" })}
               className="text-gray-400 hover:text-white transition-colors px-6 py-4"
             >
               Escríbenos directo

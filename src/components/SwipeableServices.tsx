@@ -2,6 +2,7 @@
 
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/gtag";
 
 const services = [
   {
@@ -133,6 +134,7 @@ export default function SwipeableServices() {
                     </p>
                     <a
                       href="#contacto"
+                      onClick={() => trackEvent("service_inquiry", { event_label: service.title })}
                       className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
                     >
                       Consultar

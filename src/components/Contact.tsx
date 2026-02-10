@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { CONTACT, EMAILJS } from "@/constants/contact";
+import { trackEvent } from "@/lib/gtag";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -39,6 +40,7 @@ export default function Contact() {
         EMAILJS.publicKey
       );
 
+      trackEvent("generate_lead", { event_category: "Contact", event_label: "Contact Form" });
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "", website: "" });
 
@@ -254,6 +256,7 @@ export default function Contact() {
                   href={CONTACT.getWhatsAppUrl("Hola, me interesa conocer más sobre sus servicios.")}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent("whatsapp_click", { event_label: "Contact Section" })}
                   className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-green-500/30 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500/20 transition-colors">
@@ -272,6 +275,7 @@ export default function Contact() {
                 {/* Email */}
                 <a
                   href={`mailto:${CONTACT.email}`}
+                  onClick={() => trackEvent("email_click", { event_label: "Contact Section" })}
                   className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors">
