@@ -114,10 +114,7 @@ export default function Hero() {
       {/* Main content - centered */}
       <div className="relative z-10 max-w-[900px] mx-auto text-center px-6 pt-28 pb-16 md:py-24">
         {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
+        <h1
           className="font-extrabold mb-6"
           style={{
             fontSize: "clamp(40px, 5.5vw, 72px)",
@@ -138,24 +135,18 @@ export default function Hero() {
           >
             Nosotros lo traemos
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+        <p
           className="font-light text-xl md:text-2xl mb-12 max-w-2xl mx-auto"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
           Contenido + pauta + IA. Resultados que se miden.
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55 }}
+        <div
           className="flex flex-col sm:flex-row justify-center gap-4 mb-16"
         >
           <a
@@ -190,13 +181,10 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </a>
-        </motion.div>
+        </div>
 
         {/* Stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
+        <div
           className="flex flex-wrap justify-center gap-4 md:gap-6"
         >
           {[
@@ -222,7 +210,7 @@ export default function Hero() {
               </p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
