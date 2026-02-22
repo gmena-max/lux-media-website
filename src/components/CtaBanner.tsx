@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
@@ -9,27 +10,25 @@ interface CtaBannerProps {
   subtitle?: string;
   buttonText?: string;
   whatsappMessage?: string;
-  urgency?: string;
 }
 
 export default function CtaBanner({
-  title = "Tu competencia no está esperando",
-  subtitle = "Cada día sin una estrategia digital es un día que pierdes clientes potenciales.",
-  buttonText = "Empezar ahora",
-  whatsappMessage = "Hola, quiero empezar a trabajar mi estrategia digital.",
-  urgency,
+  title = "Cada cliente nuevo recibe nuestro 100%",
+  subtitle = "Por eso trabajamos con pocas marcas a la vez. Agenda tu llamada de diagnóstico — 30 minutos, cero compromiso.",
+  buttonText = "Reservar mi llamada",
+  whatsappMessage = "Hola, quiero reservar una llamada de diagnóstico para mi marca.",
 }: CtaBannerProps) {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="contacto" className="py-20 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--card-bg)] to-[var(--background)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--card-bg)] to-[var(--background)] pointer-events-none" />
 
       {/* Warm aurora glow behind content */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(245,181,26,0.06)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(245,181,26,0.06)_0%,transparent_60%)] pointer-events-none" />
 
       {/* Animated accent — desktop only */}
       <motion.div
-        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--accent)]/10 rounded-full blur-[100px]"
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[var(--accent)]/10 rounded-full blur-[100px] pointer-events-none"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.1, 0.15, 0.1],
@@ -42,13 +41,13 @@ export default function CtaBanner({
       />
       {/* Mobile: static glow — no GPU cost */}
       <div
-        className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] rounded-full"
+        className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(ellipse, rgba(245,181,26,0.08) 0%, transparent 70%)" }}
       />
 
       {/* Border accents */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
@@ -58,20 +57,6 @@ export default function CtaBanner({
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          {/* Urgency badge */}
-          {urgency && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-              <span className="text-[var(--accent)] text-sm font-medium">{urgency}</span>
-            </motion.div>
-          )}
-
           {/* Title */}
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
@@ -117,13 +102,13 @@ export default function CtaBanner({
               {buttonText}
             </motion.a>
 
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto"
               onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Escríbenos directo" })}
               className="text-gray-400 hover:text-white transition-colors px-6 py-4"
             >
               Escríbenos directo
-            </a>
+            </Link>
           </motion.div>
 
           {/* Trust indicator */}

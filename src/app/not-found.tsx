@@ -14,7 +14,7 @@ export default function NotFound() {
           Página no encontrada
         </h2>
         <p className="text-gray-400 max-w-md mx-auto mb-8">
-          Lo sentimos, la página que buscas no existe o ha sido movida.
+          Esta página no existe o fue movida. Pero tu marca sigue necesitando resultados.
         </p>
 
         {/* Back to home button */}

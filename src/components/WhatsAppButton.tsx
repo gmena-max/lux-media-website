@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
-const WHATSAPP_MESSAGE = "Hola, me interesa conocer más sobre sus servicios de marketing digital.";
+const WHATSAPP_MESSAGE = "Hola, me interesa una consulta gratuita para mi marca. Vi su sitio web.";
 
 export default function WhatsAppButton() {
   return (

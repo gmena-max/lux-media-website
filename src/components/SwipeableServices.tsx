@@ -2,6 +2,7 @@
 
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { trackEvent } from "@/lib/gtag";
 
 const services = [
@@ -77,11 +78,11 @@ export default function SwipeableServices() {
             Servicios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            Todo para crecer{" "}
+            Lo que hacemos por{" "}
             <span className="gradient-text">tu marca</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Contenido. Pauta. Web. Automatización. Todo conectado, todo medible.
+            Estrategia, contenido, publicidad y tecnología — bajo un mismo equipo.
           </p>
         </motion.div>
       </div>
@@ -132,12 +133,12 @@ export default function SwipeableServices() {
                     <p className="text-gray-400 mb-4 max-w-2xl leading-relaxed">
                       {service.description}
                     </p>
-                    <a
-                      href="#contacto"
+                    <Link
+                      href="/contacto"
                       onClick={() => trackEvent("service_inquiry", { event_label: service.title })}
                       className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
                     >
-                      Consultar
+                      Agendar consulta
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -151,7 +152,7 @@ export default function SwipeableServices() {
                           d="M17 8l4 4m0 0l-4 4m4-4H3"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </Accordion.Content>
               </Accordion.Item>

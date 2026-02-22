@@ -114,11 +114,10 @@ export default function Testimonials() {
             Testimonios
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            Clientes que <span className="gradient-text">confían</span> en
-            nosotros
+            Lo dicen <span className="gradient-text">ellos</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            No lo decimos nosotros. Lo dicen ellos.
+            Resultados reales de marcas reales.
           </p>
         </motion.div>
       </div>

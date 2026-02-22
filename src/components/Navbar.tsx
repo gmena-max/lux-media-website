@@ -1,45 +1,87 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
-const navLinks = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#portafolio", label: "Portafolio" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#contacto", label: "Contacto" },
+// Section IDs on the homepage that correspond to each nav link
+const NAV_ITEMS = [
+  { path: "/", hash: "inicio", label: "Inicio" },
+  { path: "/servicios", hash: "servicios", label: "Servicios" },
+  { path: "/portafolio", hash: "portafolio", label: "Portafolio" },
+  { path: "/nosotros", hash: "nosotros", label: "Nosotros" },
+  { path: "/contacto", hash: "contacto", label: "Contacto" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("#inicio");
+  const [activeHash, setActiveHash] = useState("inicio");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+  // Scroll-based active section detection (homepage only)
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
 
-      // Determine active section
-      const sections = navLinks.map((link) => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(`#${section}`);
-            break;
-          }
+    if (!isHome) return;
+
+    const hashes = NAV_ITEMS.map((item) => item.hash);
+    for (const hash of [...hashes].reverse()) {
+      const element = document.getElementById(hash);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150) {
+          setActiveHash(hash);
+          break;
         }
       }
-    };
+    }
+  }, [isHome]);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Smooth-scroll to a section, accounting for fixed navbar height
+  function scrollToSection(hash: string) {
+    const el = document.getElementById(hash);
+    if (!el) return;
+    const navbarHeight = 80; // approximate fixed navbar height
+    const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  // Determine href and active state for each nav item
+  function getNavHref(item: (typeof NAV_ITEMS)[number]) {
+    if (isHome) {
+      return `#${item.hash}`;
+    }
+    return item.path;
+  }
+
+  function isActive(item: (typeof NAV_ITEMS)[number]) {
+    if (isHome) {
+      return activeHash === item.hash;
+    }
+    // Exact match for "/" or startsWith for nested routes like /servicios/slug
+    if (item.path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(item.path);
+  }
 
   return (
     <motion.nav
@@ -51,39 +93,59 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo - larger with glow effect */}
-        <a
-          href="#inicio"
-          className="relative group"
-        >
-          {/* Glow effect on hover */}
+        {/* Logo */}
+        <Link href="/" className="relative group">
           <div className="absolute inset-0 bg-[var(--accent)]/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <Image
             src="/logo-full.png"
             alt="Lux Media"
             width={160}
             height={70}
-            sizes="(max-width: 768px) 64px, 144px"
+            sizes="(max-width: 768px) 146px, 330px"
+            quality={90}
             className="h-16 md:h-36 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
             priority
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-sm transition-colors line-animation pb-1 ${
-                activeSection === link.href
-                  ? "text-[var(--accent)]"
-                  : "text-gray-300 hover:text-white"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const href = getNavHref(item);
+            const active = isActive(item);
+
+            // On homepage, use button for programmatic scroll; on other pages, use <Link>
+            if (isHome) {
+              return (
+                <button
+                  key={item.hash}
+                  type="button"
+                  onClick={() => scrollToSection(item.hash)}
+                  className={`text-sm transition-colors line-animation pb-1 ${
+                    active
+                      ? "text-[var(--accent)]"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={item.hash}
+                href={href}
+                className={`text-sm transition-colors line-animation pb-1 ${
+                  active
+                    ? "text-[var(--accent)]"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <motion.a
             href={CONTACT.getWhatsAppUrl()}
             target="_blank"
@@ -107,14 +169,14 @@ export default function Navbar() {
               e.currentTarget.style.borderColor = "rgba(212, 168, 67, 0.4)";
             }}
           >
-            Contáctanos
+            Agendar consulta
           </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white hover:text-[var(--accent)] transition-colors duration-200 p-2"
           aria-label="Toggle menu"
         >
           <svg
@@ -152,20 +214,45 @@ export default function Navbar() {
             className="md:hidden glass mt-4"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`transition-colors ${
-                    activeSection === link.href
-                      ? "text-[var(--accent)]"
-                      : "text-gray-300 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const href = getNavHref(item);
+                const active = isActive(item);
+
+                if (isHome) {
+                  return (
+                    <button
+                      key={item.hash}
+                      type="button"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        // Small delay so menu closes before scroll starts
+                        setTimeout(() => scrollToSection(item.hash), 150);
+                      }}
+                      className={`text-left transition-colors ${
+                        active
+                          ? "text-[var(--accent)]"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.hash}
+                    href={href}
+                    className={`transition-colors ${
+                      active
+                        ? "text-[var(--accent)]"
+                        : "text-gray-300 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <a
                 href={CONTACT.getWhatsAppUrl()}
                 target="_blank"
@@ -173,7 +260,7 @@ export default function Navbar() {
                 onClick={() => trackEvent("whatsapp_click", { event_label: "Navbar Mobile CTA" })}
                 className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold text-center"
               >
-                Contáctanos
+                Agendar consulta
               </a>
             </div>
           </motion.div>

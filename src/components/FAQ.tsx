@@ -7,32 +7,32 @@ const faqs = [
   {
     question: "¿Cuánto cuesta trabajar con ustedes?",
     answer:
-      "Cada proyecto es diferente. Diseñamos planes según tus objetivos, canales y volumen de contenido. Escríbenos para una cotización personalizada.",
+      "Gestión de redes sociales arranca desde $500/mes. Estrategia completa (contenido + pauta + reportes) desde $1,500/mes. En la consulta de diagnóstico definimos qué necesitás y cuánto cuesta exactamente — sin sorpresas.",
   },
   {
     question: "¿Cómo es el proceso de trabajo?",
     answer:
-      "Llamada inicial → propuesta → arranque → ejecución mensual con reportes y ajustes continuos. Nos adaptamos a tu ritmo y necesidades.",
+      "Rápido. Día 1: diagnóstico de tu marca. Día 3-5: propuesta con metas claras. Semana 1: arrancamos ejecución. Cada semana recibís avances, cada mes un reporte con números reales.",
   },
   {
     question: "¿En cuánto tiempo veo resultados?",
     answer:
-      "Contenido orgánico: 2-3 meses para tracción real. Pauta: resultados desde la primera semana. En tu consulta definimos metas claras con plazos concretos.",
+      "Pauta pagada: leads desde la primera semana. Contenido orgánico: tracción real en 60-90 días. Te damos metas con fechas concretas desde el día 1 — no promesas vagas.",
   },
   {
     question: "¿Manejan la pauta o solo el contenido?",
     answer:
-      "Ambos. Podemos crear solo contenido, solo pauta, o la estrategia completa. Tú decides qué necesitas.",
+      "Todo. Estrategia, creativos, configuración técnica, pauta, optimización y reportes. Vos solo aprobás el contenido y cerrás ventas.",
   },
   {
     question: "¿Trabajan con empresas fuera de Costa Rica?",
     answer:
-      "Sí. Tenemos clientes en 6 países y creamos contenido en español, inglés y portugués.",
+      "Nuestros clientes actuales están en Costa Rica, pero trabajamos de forma 100% remota y podemos atender marcas en cualquier país de habla hispana.",
   },
   {
     question: "¿Qué industrias manejan?",
     answer:
-      "Deportes, salud, tecnología, eventos, gastronomía, e-commerce y más. Trabajar con industrias distintas nos da perspectiva fresca para cada proyecto.",
+      "Salud (clínicas), deportes (TV nacional), tecnología (eventos internacionales) y educación. Trabajar con industrias distintas nos da un ángulo fresco que agencias de nicho no tienen.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-16 md:py-24 bg-[var(--background)] relative overflow-hidden">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--accent)]/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--accent)]/[0.02] to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Section header */}
@@ -55,10 +55,10 @@ export default function FAQ() {
             Preguntas Frecuentes
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 font-display">
-            ¿Tienes <span className="gradient-text">dudas</span>?
+            Preguntas <span className="gradient-text">frecuentes</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Respondemos las preguntas más comunes sobre cómo trabajamos.
+            Lo que necesitás saber antes de trabajar con nosotros.
           </p>
         </motion.div>
 
