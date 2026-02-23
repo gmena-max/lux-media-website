@@ -108,15 +108,15 @@ export default function DashboardTeaser() {
               Metodología KPI-Driven
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-5 font-display leading-tight">
-              Medimos. Cortamos.{" "}
-              <span className="gradient-text">Escalamos. Repetimos.</span>
+              Si no se mide,{" "}
+              <span className="gradient-text">no se mejora.</span>
             </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Lanzamos campañas, medimos cada KPI en tiempo real. Lo que no vende,
-              muere. Lo que sí vende, lo multiplicamos x10. Y volvemos a medir.
+              Cada campaña tiene KPIs definidos desde el día 1. Lo que no vende,
+              muere. Lo que sí vende, lo escalamos x10. Y volvemos a medir.
             </p>
             <p className="text-gray-500 leading-relaxed mb-8 text-sm">
-              Ese loop es lo que separa resultados reales de invertir a ciegas.
+              Eso no es un eslogan — es nuestro proceso.
             </p>
             <Link
               href="/dashboard"

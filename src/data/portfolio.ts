@@ -96,6 +96,10 @@ export const projects: CaseStudy[] = [
           description: "Engagement constante entre transmisiones dominicales",
         },
         {
+          metric: "0 → 3M views/mes",
+          description: "Crecimiento de vistas mensuales en redes sociales desde cero",
+        },
+        {
           metric: "Contenido multiplataforma",
           description: "Presencia optimizada en Instagram, Facebook, TikTok y YouTube",
         },

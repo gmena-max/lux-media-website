@@ -13,8 +13,8 @@ interface CtaBannerProps {
 }
 
 export default function CtaBanner({
-  title = "Cada cliente nuevo recibe nuestro 100%",
-  subtitle = "Por eso trabajamos con pocas marcas a la vez. Agenda tu llamada de diagnóstico — 30 minutos, cero compromiso.",
+  title = "Solo tomamos 2-3 marcas nuevas por trimestre",
+  subtitle = "Por eso la atención es real, no delegada. Agendá tu diagnóstico antes de que cerremos cupos — 30 minutos, sin compromiso.",
   buttonText = "Reservar mi llamada",
   whatsappMessage = "Hola, quiero reservar una llamada de diagnóstico para mi marca.",
 }: CtaBannerProps) {

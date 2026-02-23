@@ -3,54 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMarquee } from "@/hooks/useMarquee";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Daniel Bejarano",
-    role: "CEO, DOJO Coding",
-    content:
-      "Lux Media no construyó DOJO — amplificó todo lo que somos. Esa es la diferencia entre una agencia y un partner real.",
-    avatar: "DB",
-    highlight: "Partner real",
-  },
-  {
-    id: 2,
-    name: "Dr. Diego Mena",
-    role: "Oftalmólogo, Oftalmológica Mena",
-    content:
-      "Las campañas que me han hecho me han llenado la agenda de consultas constantemente.",
-    avatar: "DM",
-    highlight: "Agenda llena",
-  },
-  {
-    id: 3,
-    name: "Erick Lonnis",
-    role: "Director, Deporte+",
-    content:
-      "Pasamos de cero presencia digital a 3 millones de vistas al mes. Los ratings del show también subieron.",
-    avatar: "EL",
-    highlight: "3M vistas/mes",
-  },
-  {
-    id: 4,
-    name: "Dr. Arnoldo Steinvorth",
-    role: "Ortodoncista",
-    content:
-      "Lux Media entiende cómo comunicar lo que hacemos con profesionalismo. Crearon toda mi presencia digital desde cero y ahora mis pacientes me encuentran en redes.",
-    avatar: "AS",
-    highlight: "De cero a presencia digital",
-  },
-  {
-    id: 5,
-    name: "Juan Guerrero",
-    role: "CEO, Blockchain Jungle",
-    content:
-      "Necesitábamos un equipo que aguantara el ritmo del evento tech más grande de Latinoamérica. Lux Media respondió con velocidad, calidad y consistencia.",
-    avatar: "JG",
-    highlight: "50+ piezas de contenido",
-  },
-];
+import { testimonials } from "@/data/testimonials";
 
 function TestimonialCard({
   testimonial,

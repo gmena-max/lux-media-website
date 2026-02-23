@@ -6,7 +6,7 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    description: "Analizamos tu marca, tu competencia y tu oportunidad digital. 30 minutos.",
+    description: "Auditamos tu marca, competencia y oportunidad real. 30 minutos que valen más que meses de prueba y error.",
     duration: "Día 1",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -17,7 +17,7 @@ const steps = [
   {
     number: "02",
     title: "Propuesta",
-    description: "Plan con metas claras, presupuesto definido y timeline. Sin sorpresas.",
+    description: "Plan con metas en números, presupuesto exacto y calendario de ejecución. Cero sorpresas.",
     duration: "Día 3-5",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -28,7 +28,7 @@ const steps = [
   {
     number: "03",
     title: "Lanzamiento",
-    description: "Contenido, pauta y automatización arrancando. Resultados medibles desde semana 1.",
+    description: "Contenido, pauta y automatización arrancando. Primeros leads desde la primera semana.",
     duration: "Semana 1",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -39,7 +39,7 @@ const steps = [
   {
     number: "04",
     title: "Crecimiento",
-    description: "Datos reales, ajustes semanales, reportes que entendés. Cada mes mejor que el anterior.",
+    description: "Datos reales, ajustes semanales, reportes que entendés. Cada mes más barato y más efectivo.",
     duration: "Cada mes",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>

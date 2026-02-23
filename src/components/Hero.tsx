@@ -144,7 +144,7 @@ export default function Hero() {
           className="font-light text-xl md:text-2xl mb-12 max-w-2xl mx-auto"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
-          Estrategia + contenido + pauta. Resultados medibles desde el mes 1.
+          Estrategia, contenido y pauta que llenan tu agenda — no solo tus métricas de vanidad.
         </p>
 
         {/* CTAs */}

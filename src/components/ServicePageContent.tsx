@@ -247,7 +247,11 @@ export default function ServicePageContent({
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
-            ¿Listo para ver resultados?
+            {service.category === "growth"
+              ? "¿Listo para llenar tu agenda?"
+              : service.category === "content"
+                ? "¿Listo para que tu marca se vea como cobra?"
+                : "¿Listo para automatizar tu crecimiento?"}
           </h2>
           <p className="text-gray-400 mb-8">
             30 minutos de diagnóstico. Sin compromiso, sin humo — solo

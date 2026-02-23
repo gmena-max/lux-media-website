@@ -39,7 +39,7 @@ export const services: Service[] = [
     metaDescription:
       "Campañas de Meta Ads con resultados desde la primera semana. Segmentación, creativos y optimización semanal. Cada colón invertido se mide.",
     shortDescription:
-      "Campañas en Meta diseñadas para generar leads y ventas reales, no métricas vacías.",
+      "Más leads, más ventas, menos costo por adquisición — resultados medibles desde la primera semana.",
     icon: "📣",
     painPoints: [
       {
@@ -98,7 +98,7 @@ export const services: Service[] = [
     metaDescription:
       "Campañas de Google Ads que capturan demanda existente. Search, Display y YouTube Ads con tracking de conversiones y ROAS medible.",
     shortDescription:
-      "Aparecé cuando tu cliente busca. Campañas de búsqueda y display optimizadas para conversión.",
+      "Aparecer primero cuando tu cliente busca. Cada clic medido, cada lead rastreado.",
     icon: "🔍",
     painPoints: [
       {
@@ -152,7 +152,7 @@ export const services: Service[] = [
     metaDescription:
       "Posicionamiento orgánico, Google Business Profile y gestión de reseñas. Tráfico calificado que llega sin pagar por cada clic.",
     shortDescription:
-      "Que te encuentren cuando buscan. SEO, Google Business Profile y gestión de reseñas.",
+      "Dominá Google de punta a punta: SEO, keywords, Business Profile, reseñas, Analytics y Search Console. Orgánico + pagado, todo medido.",
     icon: "📈",
     painPoints: [
       {
@@ -206,7 +206,7 @@ export const services: Service[] = [
     metaDescription:
       "CRM configurado a tu proceso de ventas. Pipeline visual, seguimiento automático y métricas de conversión. Cada lead tiene su siguiente paso claro.",
     shortDescription:
-      "Pipeline de ventas automatizado. Seguimiento, nurturing y métricas para cerrar más.",
+      "Dejá de perder leads en el camino. Pipeline visual, seguimiento automático, más cierres.",
     icon: "🎯",
     painPoints: [
       {
@@ -262,7 +262,7 @@ export const services: Service[] = [
     metaDescription:
       "Gestión de redes sociales con estrategia, contenido y comunidad. Instagram, Facebook, TikTok y LinkedIn — resultados medibles cada mes.",
     shortDescription:
-      "Contenido que conecta con tu audiencia y genera resultados medibles en todas las plataformas.",
+      "De publicar sin rumbo a una comunidad que genera clientes. Estrategia + contenido + resultados.",
     icon: "📱",
     painPoints: [
       {
@@ -316,7 +316,7 @@ export const services: Service[] = [
     metaDescription:
       "Producción de video y reels que detienen el scroll. Concepto, grabación y edición optimizada para máximo alcance en cada plataforma.",
     shortDescription:
-      "Producción ágil de video que comunica tu mensaje en segundos y domina el algoritmo.",
+      "Video que detiene el scroll y vende. Concepto, grabación y edición — listo para cada plataforma.",
     icon: "🎬",
     painPoints: [
       {
@@ -370,7 +370,7 @@ export const services: Service[] = [
     metaDescription:
       "Identidad visual que hace tu marca reconocible y profesional. Logo, paleta, tipografía y guía de marca — consistencia en cada punto de contacto.",
     shortDescription:
-      "Identidad visual que hace tu marca reconocible y profesional en cada punto de contacto.",
+      "Una marca que se ve como cobra. Identidad visual que genera confianza desde el primer contacto.",
     icon: "✨",
     painPoints: [
       {
@@ -424,7 +424,7 @@ export const services: Service[] = [
     metaDescription:
       "Producción y cobertura profesional de eventos. Drones, video, streaming y contenido para redes en tiempo real. Cada evento genera meses de contenido.",
     shortDescription:
-      "Producción, cobertura y promoción profesional con drones, cámaras y equipo en sitio.",
+      "Cada evento genera meses de contenido. Producción con drones, cámaras y equipo profesional.",
     icon: "🎪",
     painPoints: [
       {
@@ -480,7 +480,7 @@ export const services: Service[] = [
     metaDescription:
       "Automatización de marketing con IA. Flujos que eliminan trabajo manual, contenido acelerado y optimización en tiempo real. Tu competencia ya lo usa.",
     shortDescription:
-      "Flujos de trabajo automatizados, contenido potenciado con IA y métricas en tiempo real.",
+      "Lo que tu equipo hace en horas, una automatización lo hace en segundos. IA aplicada a marketing.",
     icon: "🤖",
     painPoints: [
       {
@@ -534,7 +534,7 @@ export const services: Service[] = [
     metaDescription:
       "Landing pages y sitios web que generan leads. Diseño moderno, velocidad sub-segundo y SEO incluido. No usamos WordPress ni templates genéricos.",
     shortDescription:
-      "Landing pages y sitios web que convierten, con diseño moderno y velocidad optimizada.",
+      "Sitios rápidos, modernos y diseñados para convertir visitantes en clientes. Cada página con un propósito claro.",
     icon: "💻",
     painPoints: [
       {
@@ -588,7 +588,7 @@ export const services: Service[] = [
     metaDescription:
       "Chatbots de ventas con IA para WhatsApp e Instagram. Atención 24/7, calificación de leads automática. Cada mensaje contestado en segundos.",
     shortDescription:
-      "Chatbots inteligentes que atienden, califican y cierran ventas 24/7 por WhatsApp.",
+      "Cero leads perdidos. Chatbots de ventas con IA entrenados para tu negocio — atienden, califican y cierran 24/7.",
     icon: "💬",
     painPoints: [
       {
@@ -642,7 +642,7 @@ export const services: Service[] = [
     metaDescription:
       "Dashboard de marketing en tiempo real. Meta, Google, CRM y web centralizados. Sabés exactamente qué funciona y qué no — sin esperar reportes mensuales.",
     shortDescription:
-      "Métricas de marketing centralizadas en un dashboard que se actualiza en tiempo real.",
+      "Tu dashboard de marketing en una sola pantalla. Meta, Google, CRM y web — datos en tiempo real para decidir rápido.",
     icon: "📊",
     painPoints: [
       {

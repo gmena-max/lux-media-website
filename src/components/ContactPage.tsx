@@ -27,9 +27,9 @@ const deliverables = [
 ];
 
 const bullets = [
-  "Resultados medibles desde el primer mes",
-  "Hablás directo con los fundadores — siempre",
-  "Cada colón invertido se rastrea y se optimiza",
+  "Resultados medibles desde el primer mes — o ajustamos sin costo",
+  "Hablás directo con los fundadores, no con un ejecutivo de cuenta",
+  "Cada colón invertido se rastrea hasta el WhatsApp de tu cliente",
 ];
 
 export default function ContactPage() {
@@ -128,18 +128,18 @@ export default function ContactPage() {
               className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <blockquote className="text-lg text-gray-300 italic leading-relaxed">
-                &ldquo;No vendemos paquetes de posts. Vendemos crecimiento que
-                se mide en clientes nuevos, no en likes.&rdquo;
+                &ldquo;Lux Media no construyó DOJO — amplificó todo lo que somos.
+                Esa es la diferencia entre una agencia y un partner real.&rdquo;
               </blockquote>
               <div className="flex items-center gap-3 mt-6">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
-                  J&G
+                  DB
                 </div>
                 <div>
                   <p className="text-white font-medium text-sm">
-                    Jeaustin & Gabriel
+                    Daniel Bejarano
                   </p>
-                  <p className="text-gray-400 text-xs">Fundadores</p>
+                  <p className="text-gray-400 text-xs">CEO, DOJO Coding</p>
                 </div>
               </div>
             </motion.div>
