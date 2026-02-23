@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <main className="min-h-screen bg-[var(--background)] pt-32 md:pt-40 pb-16 md:pb-24">
+    <main className="min-h-screen bg-[var(--background)] pt-36 md:pt-52 pb-16 md:pb-24">
       <div className="max-w-6xl mx-auto px-6">
         <Breadcrumbs
           items={[

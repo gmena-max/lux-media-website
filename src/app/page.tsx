@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
+import ResultsTicker from "@/components/ResultsTicker";
 import ServicesPreview from "@/components/ServicesPreview";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
+import DashboardTeaser from "@/components/DashboardTeaser";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
@@ -81,9 +83,11 @@ export default function Home() {
       <main id="main-content" className="min-h-screen bg-[var(--background)] aurora-bg">
         <Hero />
         <ClientLogos />
+        <ResultsTicker />
         <ServicesPreview />
         <Portfolio />
         <Process />
+        <DashboardTeaser />
         <Testimonials />
         <About />
         <FAQ />
