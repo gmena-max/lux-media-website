@@ -46,7 +46,7 @@ const team = [
     name: "Jeaustin Campos",
     role: "CEO & Director Creativo",
     initials: "JC",
-    bio: "Dirige la producción de Deporte+ en Teletica — 500K televidentes cada domingo, +20M impresiones acumuladas. Lidera la estrategia creativa de cada cuenta y la visión de la agencia.",
+    bio: "Estrategia creativa y dirección de cada cuenta. Produjo Deporte+ en Teletica (500K televidentes, +20M impresiones) — ahora aplica esa experiencia para hacer crecer tu marca.",
     linkedin: "https://www.linkedin.com/in/jeaustin-campos/",
     instagram: "https://www.instagram.com/jeaustincampos/",
   },
@@ -54,17 +54,9 @@ const team = [
     name: "Gabriel Mena",
     role: "Co-Fundador & CTO",
     initials: "GM",
-    bio: "Arquitecto de cada campaña de performance: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Obsesionado con que cada colón invertido genere retorno medible.",
+    bio: "La tecnología detrás de cada resultado: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Si se puede medir, se puede mejorar.",
     linkedin: "https://www.linkedin.com/in/gabriel-mena-cr/",
     instagram: "https://www.instagram.com/gabrielmena.cr/",
-  },
-  {
-    name: "Fernando Córdoba",
-    role: "Productor AV & Editor",
-    initials: "FC",
-    bio: "Único productor a cargo de video, edición y diseño gráfico para todos los clientes. Reels, aftermovies, drones, motion graphics — Fernando ejecuta toda la visión creativa.",
-    linkedin: "",
-    instagram: "",
   },
 ];
 
@@ -251,7 +243,7 @@ export default function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
