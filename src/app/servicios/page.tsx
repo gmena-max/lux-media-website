@@ -29,7 +29,7 @@ export default function ServiciosPage() {
             Todo lo que tu marca necesita
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Estrategia, contenido, publicidad y tecnología — integrados bajo un
+            Estrategia, contenido, publicidad y datos — integrados bajo un
             mismo equipo para maximizar tu crecimiento.
           </p>
         </div>

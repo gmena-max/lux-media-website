@@ -9,7 +9,7 @@ const highlights = [
   { icon: <Zap className="w-5 h-5" />, text: "IA aplicada a tu marketing" },
   { icon: <Users className="w-5 h-5" />, text: "Equipo dedicado, cero intermediarios" },
   { icon: <Target className="w-5 h-5" />, text: "Cada colón se mide" },
-  { icon: <Sparkles className="w-5 h-5" />, text: "Contenido + pauta + tech, un equipo" },
+  { icon: <Sparkles className="w-5 h-5" />, text: "Estrategia + ejecución + datos, un equipo" },
 ];
 
 export default function About() {

@@ -35,7 +35,7 @@ const differentiators = [
     icon: <Sparkles className="w-6 h-6" />,
     title: "Todo bajo un mismo equipo",
     description:
-      "Contenido, ads, web y automatización. Una estrategia coherente en vez de 4 proveedores que no se hablan entre sí.",
+      "Ads, SEO, redes, web, dashboards y automatización. Una estrategia coherente en vez de 4 proveedores que no se hablan entre sí.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
               Tu departamento de marketing. Sin la planilla.
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Contenido, publicidad, automatización e inteligencia artificial — un equipo que hace todo,
+              Publicidad, SEO, redes, analytics, web y automatización con IA — un equipo que hace todo,
               para que vos solo te preocupés por cerrar ventas.
             </p>
           </motion.div>

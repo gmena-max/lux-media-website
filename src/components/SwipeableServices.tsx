@@ -82,7 +82,7 @@ export default function SwipeableServices() {
             <span className="gradient-text">tu marca</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Estrategia, contenido, publicidad y tecnología — bajo un mismo equipo.
+            Estrategia, contenido, publicidad y datos — bajo un mismo equipo.
           </p>
         </motion.div>
       </div>
