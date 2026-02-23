@@ -9,8 +9,7 @@ const clients = [
   { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
   { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "md:w-64 md:h-48" },
   { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
-  { name: "Retainer Brite", logo: "/logos/retainer-brite-white.png" },
-  { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
+{ name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
   { name: "Electric Animals", logo: "/logos/electric-animals.png", size: "md:w-56 md:h-40" },
   { name: "Centro Médico Cariari", logo: "/logos/centro-medico-cariari.png", size: "md:w-64 md:h-48" },
 ];
@@ -23,7 +22,8 @@ function LogoItem({ client }: { client: (typeof clients)[0] }) {
         alt={client.name}
         fill
         className="object-contain"
-        sizes="(max-width: 768px) 128px, 176px"
+        sizes="(max-width: 768px) 128px, 256px"
+        quality={90}
       />
     </div>
   );
@@ -44,13 +44,13 @@ export default function ClientLogos() {
 
   return (
     <section className="py-8 overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <p className="text-center text-xs uppercase tracking-widest mb-6">
           <span className="text-gray-500">Marcas que </span>
-          <span className="text-[var(--accent)]">confían</span>
-          <span className="text-gray-500"> en nosotros</span>
+          <span className="text-[var(--accent)]">generan resultados</span>
+          <span className="text-gray-500"> con nosotros</span>
         </p>
       </div>
 

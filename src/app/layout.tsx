@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -89,63 +93,7 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD FAQ Schema for Google rich snippets
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "¿Cuánto cuesta trabajar con ustedes?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Cada proyecto es diferente. Diseñamos planes según tus objetivos, canales y volumen de contenido. Escríbenos para una cotización personalizada.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Cómo es el proceso de trabajo?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Llamada inicial → propuesta → arranque → ejecución mensual con reportes y ajustes continuos. Nos adaptamos a tu ritmo y necesidades.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿En cuánto tiempo veo resultados?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Contenido orgánico: 2-3 meses para tracción real. Pauta: resultados desde la primera semana. En tu consulta definimos metas claras con plazos concretos.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Manejan la pauta o solo el contenido?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ambos. Podemos crear solo contenido, solo pauta, o la estrategia completa. Tú decides qué necesitas.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Trabajan con empresas fuera de Costa Rica?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sí. Tenemos clientes en 6 países y creamos contenido en español, inglés y portugués.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "¿Qué industrias manejan?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Deportes, salud, tecnología, eventos, gastronomía, e-commerce y más. Trabajar con industrias distintas nos da perspectiva fresca para cada proyecto.",
-      },
-    },
-  ],
-};
-
-// JSON-LD Schema for Local Business
+// JSON-LD Schema for Local Business (site-wide)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
@@ -192,7 +140,7 @@ const jsonLd = {
     {
       "@type": "Person",
       name: "Gabriel Mena",
-      jobTitle: "COO",
+      jobTitle: "CTO",
     },
   ],
   knowsAbout: [
@@ -214,14 +162,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="canonical" href="https://luxmediacr.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body
@@ -231,7 +174,11 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Saltar al contenido
         </a>
+        <ScrollProgress />
+        <Navbar />
         {children}
+        <Footer />
+        <WhatsAppButton />
 
         {/* Google Analytics (GA4) */}
         <Script

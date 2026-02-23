@@ -84,10 +84,10 @@ export default function Contact() {
             Contacto
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
-            Hablemos de tu <span className="gradient-text">proyecto</span>
+            Tu próximo <span className="gradient-text">paso</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Déjanos un mensaje o contáctanos por WhatsApp.
+            Dejanos un mensaje o escribinos por WhatsApp.
             Respondemos en menos de 24 horas.
           </p>
         </motion.div>
@@ -209,7 +209,7 @@ export default function Contact() {
                   <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-300">Resultados en 30 días</span>
+                  <span className="text-gray-300">Resultados medibles desde mes 1</span>
                 </span>
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
                   style={{
@@ -231,7 +231,7 @@ export default function Contact() {
                   <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-300">Consulta de 30 minutos</span>
+                  <span className="text-gray-300">Diagnóstico gratuito, cero compromiso</span>
                 </span>
               </div>
             </form>
@@ -253,7 +253,7 @@ export default function Contact() {
               <div className="space-y-6">
                 {/* WhatsApp */}
                 <a
-                  href={CONTACT.getWhatsAppUrl("Hola, me interesa conocer más sobre sus servicios.")}
+                  href={CONTACT.getWhatsAppUrl("Hola, me interesa una consulta gratuita para mi marca. Vi su sitio web.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent("whatsapp_click", { event_label: "Contact Section" })}

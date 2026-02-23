@@ -66,7 +66,8 @@ export default function Footer() {
             alt="Lux Media"
             width={180}
             height={60}
-            sizes="(max-width: 768px) 80px, 128px"
+            sizes="(max-width: 768px) 240px, 384px"
+            quality={90}
             className="h-20 md:h-32 w-auto"
           />
         </motion.div>
@@ -79,7 +80,7 @@ export default function Footer() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-center text-white text-lg font-medium mb-10"
         >
-          Estrategia digital para marcas que quieren crecer
+          Tu departamento de marketing. Sin la planilla.
         </motion.p>
 
         {/* Contact info row */}
