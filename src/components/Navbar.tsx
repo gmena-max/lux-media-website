@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { path: "/servicios", hash: "servicios", label: "Servicios" },
   { path: "/portafolio", hash: "portafolio", label: "Portafolio" },
   { path: "/nosotros", hash: "nosotros", label: "Nosotros" },
+  { path: "/blog", hash: "blog", label: "Blog" },
   { path: "/contacto", hash: "contacto", label: "Contacto" },
 ];
 
