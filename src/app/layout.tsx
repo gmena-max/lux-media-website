@@ -176,7 +176,7 @@ export default function RootLayout({
         </a>
         <ScrollProgress />
         <Navbar />
-        {children}
+        <div id="main-content">{children}</div>
         <Footer />
         <WhatsAppButton />
 
