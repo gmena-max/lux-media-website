@@ -23,26 +23,9 @@ export default function Navbar() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("inicio");
-
-  // Scroll-based active section detection (homepage only)
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
-
-    if (!isHome) return;
-
-    const hashes = NAV_ITEMS.map((item) => item.hash);
-    for (const hash of [...hashes].reverse()) {
-      const element = document.getElementById(hash);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 150) {
-          setActiveHash(hash);
-          break;
-        }
-      }
-    }
-  }, [isHome]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -55,28 +38,7 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Smooth-scroll to a section, accounting for fixed navbar height
-  function scrollToSection(hash: string) {
-    const el = document.getElementById(hash);
-    if (!el) return;
-    const navbarHeight = 80; // approximate fixed navbar height
-    const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
-
-  // Determine href and active state for each nav item
-  function getNavHref(item: (typeof NAV_ITEMS)[number]) {
-    if (isHome) {
-      return `#${item.hash}`;
-    }
-    return item.path;
-  }
-
   function isActive(item: (typeof NAV_ITEMS)[number]) {
-    if (isHome) {
-      return activeHash === item.hash;
-    }
-    // Exact match for "/" or startsWith for nested routes like /servicios/slug
     if (item.path === "/") {
       return pathname === "/";
     }
@@ -111,16 +73,15 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => {
-            const href = getNavHref(item);
             const active = isActive(item);
 
-            // On homepage, use button for programmatic scroll; on other pages, use <Link>
-            if (isHome) {
+            // "Inicio" on homepage scrolls to top; otherwise always navigate to the page
+            if (item.path === "/" && isHome) {
               return (
                 <button
                   key={item.hash}
                   type="button"
-                  onClick={() => scrollToSection(item.hash)}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                   className={`text-sm transition-colors line-animation pb-1 ${
                     active
                       ? "text-[var(--accent)]"
@@ -135,7 +96,7 @@ export default function Navbar() {
             return (
               <Link
                 key={item.hash}
-                href={href}
+                href={item.path}
                 className={`text-sm transition-colors line-animation pb-1 ${
                   active
                     ? "text-[var(--accent)]"
@@ -215,18 +176,16 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {NAV_ITEMS.map((item) => {
-                const href = getNavHref(item);
                 const active = isActive(item);
 
-                if (isHome) {
+                if (item.path === "/" && isHome) {
                   return (
                     <button
                       key={item.hash}
                       type="button"
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        // Small delay so menu closes before scroll starts
-                        setTimeout(() => scrollToSection(item.hash), 150);
+                        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 150);
                       }}
                       className={`text-left transition-colors ${
                         active
@@ -242,7 +201,7 @@ export default function Navbar() {
                 return (
                   <Link
                     key={item.hash}
-                    href={href}
+                    href={item.path}
                     className={`transition-colors ${
                       active
                         ? "text-[var(--accent)]"
