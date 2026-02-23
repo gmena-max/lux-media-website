@@ -105,18 +105,18 @@ export default function DashboardTeaser() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
-              Metodología KPI-Driven
+              Reportes en Tiempo Real
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-5 font-display leading-tight">
-              Si no se mide,{" "}
-              <span className="gradient-text">no se mejora.</span>
+              Sabés exactamente{" "}
+              <span className="gradient-text">a dónde va cada colón.</span>
             </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Cada campaña tiene KPIs definidos desde el día 1. Lo que no vende,
-              muere. Lo que sí vende, lo escalamos x10. Y volvemos a medir.
+              Nada de PDFs mensuales que nadie lee. Tenés un dashboard con tus leads,
+              tu inversión y tus resultados — actualizado en tiempo real, accesible desde el celular.
             </p>
             <p className="text-gray-500 leading-relaxed mb-8 text-sm">
-              Eso no es un eslogan — es nuestro proceso.
+              Si algo no funciona, lo ves antes que nosotros. Y ya lo estamos ajustando.
             </p>
             <Link
               href="/dashboard"

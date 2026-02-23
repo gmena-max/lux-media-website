@@ -13,8 +13,8 @@ interface CtaBannerProps {
 }
 
 export default function CtaBanner({
-  title = "Solo tomamos 2-3 marcas nuevas por trimestre",
-  subtitle = "Por eso la atención es real, no delegada. Agendá tu diagnóstico antes de que cerremos cupos — 30 minutos, sin compromiso.",
+  title = "¿Querés resultados así para tu marca?",
+  subtitle = "Agendá un diagnóstico gratuito de 30 minutos. Analizamos tu marca, tu competencia y tu oportunidad real — sin compromiso.",
   buttonText = "Reservar mi llamada",
   whatsappMessage = "Hola, quiero reservar una llamada de diagnóstico para mi marca.",
 }: CtaBannerProps) {
@@ -104,10 +104,10 @@ export default function CtaBanner({
 
             <Link
               href="/contacto"
-              onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Escríbenos directo" })}
-              className="text-gray-400 hover:text-white transition-colors px-6 py-4"
+              onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Contacto" })}
+              className="inline-flex items-center gap-2 px-8 py-4 font-medium rounded-full border border-white/20 text-white/80 hover:bg-white/[0.08] hover:border-white/40 hover:text-white transition-all duration-200"
             >
-              Escríbenos directo
+              Ver todas las formas de contacto
             </Link>
           </motion.div>
 

@@ -54,7 +54,7 @@ const team = [
     name: "Gabriel Mena",
     role: "Co-Fundador & CTO",
     initials: "GM",
-    bio: "Arquitecto de cada campaña de performance: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Ingeniero de formación, obsesionado con que cada colón invertido genere retorno medible.",
+    bio: "Arquitecto de cada campaña de performance: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Obsesionado con que cada colón invertido genere retorno medible.",
     linkedin: "https://www.linkedin.com/in/gabriel-mena-cr/",
     instagram: "https://www.instagram.com/gabrielmena.cr/",
   },
@@ -95,11 +95,11 @@ export default function AboutPage() {
               Sobre Nosotros
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 font-display">
-              Tu departamento de marketing. Sin la planilla.
+              Detrás de +20M impresiones y 500K televidentes cada domingo.
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Somos una agencia de marketing digital en Costa Rica que funciona como extensión de tu equipo.
-              Contenido, publicidad, automatización e inteligencia artificial — sin fragmentar entre 4 proveedores distintos.
+              Contenido, publicidad, automatización e inteligencia artificial — un equipo que hace todo,
+              para que vos solo te preocupés por cerrar ventas.
             </p>
           </motion.div>
         </div>
@@ -141,20 +141,18 @@ export default function AboutPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
-                Nuestra misión
+                Cómo trabajamos
               </h2>
               <div className="space-y-4 text-gray-400 leading-relaxed">
                 <p>
-                  Fundamos Lux Media con una idea simple:{" "}
+                  Producimos Deporte+ en Teletica, gestionamos las campañas de clínicas que llenan su agenda por WhatsApp,
+                  y cubrimos los eventos tech más grandes de la región.{" "}
                   <strong className="text-white">
-                    las marcas en Costa Rica merecen un equipo que se obsesione con sus resultados como si fueran propios.
+                    Cada cliente trabaja directo con los fundadores — no con un ejecutivo de cuenta.
                   </strong>
                 </p>
                 <p>
-                  No vendemos horas de diseño ni paquetes de posts. Vendemos crecimiento medible. Si tu marca no crece, nosotros no estamos haciendo nuestro trabajo.
-                </p>
-                <p>
-                  Nuestro modelo integra contenido, publicidad, web y automatización bajo un mismo techo. Un equipo, una estrategia, cero fragmentación.
+                  Contenido, publicidad, web y automatización bajo un mismo equipo. Vos aprobás, nosotros ejecutamos y medimos todo.
                 </p>
               </div>
             </motion.div>
