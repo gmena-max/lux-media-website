@@ -30,9 +30,14 @@ export default function Hero() {
     const show = () => setVideoReady(true);
     video.addEventListener("playing", show, { once: true });
 
-    video.play().catch(() => {
-      // Autoplay blocked — poster stays visible
-    });
+    // If autoPlay already fired before the listener attached, catch up
+    if (!video.paused) {
+      show();
+    } else {
+      video.play().catch(() => {
+        // Autoplay blocked — poster stays visible
+      });
+    }
 
     return () => video.removeEventListener("playing", show);
   }, [mounted]);

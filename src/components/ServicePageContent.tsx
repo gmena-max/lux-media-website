@@ -1,12 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ComponentType } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowRight, Check, AlertTriangle } from "lucide-react";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 import type { Service } from "@/data/services";
+
+const ComponentMap: Record<string, ComponentType> = {
+  DashboardDemo: dynamic(() => import("./DashboardDemo"), { ssr: false }),
+};
 
 interface ServicePageContentProps {
   service: Service;
@@ -100,6 +105,30 @@ export default function ServicePageContent({
           </p>
         </motion.div>
       </section>
+
+      {/* Custom Component (e.g. Dashboard Demo) */}
+      {service.customComponent && ComponentMap[service.customComponent] && (() => {
+        const CustomComponent = ComponentMap[service.customComponent!];
+        return (
+          <section id="demo">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
+                Probalo en vivo
+              </h2>
+            </motion.div>
+            <div className="min-h-[400px] -mx-4 md:-mx-8 lg:-mx-16">
+              <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-16">
+                <CustomComponent />
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Deliverables */}
       <section>

@@ -119,7 +119,7 @@ export default function DashboardTeaser() {
               Si algo no funciona, lo ves antes que nosotros. Y ya lo estamos ajustando.
             </p>
             <Link
-              href="/dashboard"
+              href="/servicios/dashboards#demo"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--accent)] text-black font-semibold hover:bg-[var(--accent-light)] transition-all duration-300 group shadow-lg shadow-[var(--accent)]/20"
             >
               Ver dashboard en vivo
@@ -146,7 +146,7 @@ export default function DashboardTeaser() {
 
             {/* The floating dashboard panel */}
             <Link
-              href="/dashboard"
+              href="/servicios/dashboards#demo"
               className="block relative z-10 rounded-2xl overflow-hidden border border-[var(--accent)]/20 bg-[#111111] shadow-2xl shadow-black/50 hover:border-[var(--accent)]/40 hover:shadow-[var(--accent)]/10 transition-all duration-300 cursor-pointer"
               style={{
                 transform: isMobile ? "none" : "perspective(1200px) rotateY(-4deg) rotateX(2deg)",
@@ -160,7 +160,7 @@ export default function DashboardTeaser() {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                 </div>
                 <span className="text-[10px] text-gray-500 ml-2 font-mono">
-                  luxmediacr.com/dashboard
+                  luxmediacr.com/servicios/dashboards
                 </span>
               </div>
 

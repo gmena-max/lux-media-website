@@ -20,6 +20,7 @@ export interface Service {
   whatsappMessage: string;
   relatedSlugs: string[];
   icon: string;
+  customComponent?: string;
 }
 
 export const CATEGORY_LABELS: Record<ServiceCategory, string> = {
@@ -638,11 +639,11 @@ export const services: Service[] = [
     title: "Dashboards en Tiempo Real",
     category: "technology",
     categoryLabel: "Technology",
-    metaTitle: "Dashboards — Todos tus números en una sola pantalla",
+    metaTitle: "Dashboards — Todos tus números en una sola pantalla (demo interactivo)",
     metaDescription:
-      "Dashboard de marketing en tiempo real. Meta, Google, CRM y web centralizados. Sabés exactamente qué funciona y qué no — sin esperar reportes mensuales.",
+      "Dashboard de marketing en tiempo real. Meta, Google, CRM y web centralizados. Probá el demo interactivo y ve exactamente qué funciona y qué no.",
     shortDescription:
-      "Tu dashboard de marketing en una sola pantalla. Meta, Google, CRM y web — datos en tiempo real para decidir rápido.",
+      "Tu dashboard de marketing en una sola pantalla. Meta, Google, CRM y web — datos en tiempo real para decidir rápido. Probá el demo interactivo abajo.",
     icon: "📊",
     painPoints: [
       {
@@ -686,6 +687,7 @@ export const services: Service[] = [
     ],
     whatsappMessage: "Hola, me interesa un dashboard de métricas para mi marketing. Vi su sitio web.",
     relatedSlugs: ["automatizacion-ia", "publicidad-meta", "publicidad-google"],
+    customComponent: "DashboardDemo",
   },
 ];
 
