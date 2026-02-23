@@ -7,28 +7,36 @@ import { trackEvent } from "@/lib/gtag";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [sourcesReady, setSourcesReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const mobile = window.innerWidth < 768;
     setIsMobile(mobile);
-    setSourcesReady(true);
+    setMounted(true);
 
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Respect prefers-reduced-motion: show poster only
+    // Respect prefers-reduced-motion — poster stays
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReduced) return;
 
-    // Play once sources are set
-    video.load();
-    video.play().catch(() => {
-      // Autoplay blocked — poster stays visible, no action needed
-    });
+    // Small delay on mobile to let poster paint first
+    const timer = setTimeout(() => {
+      const video = videoRef.current;
+      if (!video) return;
+
+      const onCanPlay = () => setVideoReady(true);
+      video.addEventListener("canplay", onCanPlay, { once: true });
+
+      video.load();
+      video.play().catch(() => {
+        // Autoplay blocked — poster stays visible
+      });
+    }, mobile ? 100 : 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -36,19 +44,34 @@ export default function Hero() {
       id="inicio"
       className="relative h-screen overflow-hidden"
     >
-      {/* Background video */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={isMobile ? "/video/hero-poster-mobile.jpg" : "/video/hero-poster.jpg"}
-        aria-hidden="true"
+      {/* Poster image as CSS background — always visible instantly, no state dependency */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
       >
-        {sourcesReady && (
-          isMobile ? (
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/video/hero-poster-mobile.jpg" />
+          <img
+            src="/video/hero-poster.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+        </picture>
+      </div>
+
+      {/* Video — fades in once loaded, serves mobile or desktop sources */}
+      {mounted && (
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        >
+          {isMobile ? (
             <>
               <source src="/video/hero-bg-mobile.webm" type="video/webm" />
               <source src="/video/hero-bg-mobile.mp4" type="video/mp4" />
@@ -58,9 +81,9 @@ export default function Hero() {
               <source src="/video/hero-bg.webm" type="video/webm" />
               <source src="/video/hero-bg.mp4" type="video/mp4" />
             </>
-          )
-        )}
-      </video>
+          )}
+        </video>
+      )}
 
       {/* Subtle overall darkening for navbar legibility */}
       <div
