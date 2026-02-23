@@ -12,37 +12,30 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const mobile = window.innerWidth < 768;
-    setIsMobile(mobile);
+    setIsMobile(window.innerWidth < 768);
     setMounted(true);
+  }, []);
 
-    // Respect prefers-reduced-motion — poster stays
+  useEffect(() => {
+    if (!mounted) return;
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReduced) return;
 
-    // Small delay on mobile to let poster paint first
-    const timer = setTimeout(() => {
-      const video = videoRef.current;
-      if (!video) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-      const onCanPlay = () => setVideoReady(true);
-      video.addEventListener("canplay", onCanPlay, { once: true });
+    const show = () => setVideoReady(true);
+    video.addEventListener("playing", show, { once: true });
 
-      // If already loaded (cached), show immediately
-      if (video.readyState >= 3) {
-        setVideoReady(true);
-      }
+    video.play().catch(() => {
+      // Autoplay blocked — poster stays visible
+    });
 
-      video.load();
-      video.play().catch(() => {
-        // Autoplay blocked — poster stays visible
-      });
-    }, mobile ? 100 : 0);
-
-    return () => clearTimeout(timer);
-  }, []);
+    return () => video.removeEventListener("playing", show);
+  }, [mounted]);
 
   return (
     <section
@@ -70,6 +63,7 @@ export default function Hero() {
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
+          autoPlay
           muted
           loop
           playsInline
