@@ -60,7 +60,7 @@ export default function ContactPage() {
               30 minutos con los fundadores. Analizamos tu marca, tu competencia
               y tu oportunidad real de crecimiento — sin compromiso.
             </p>
-            <p className="text-gray-500 text-sm mt-4 max-w-xl mx-auto">
+            <p className="text-gray-400 text-sm mt-4 max-w-xl mx-auto">
               Trabajamos con pocas marcas a la vez para dar atención real.
               Empezá con una conversación.
             </p>
@@ -81,6 +81,7 @@ export default function ContactPage() {
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
               Qué incluye tu diagnóstico
             </span>
+            <h2 className="sr-only">Qué incluye tu diagnóstico</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -102,7 +103,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-white mb-2 font-display">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-gray-400 leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -138,7 +139,7 @@ export default function ContactPage() {
                   <p className="text-white font-medium text-sm">
                     Jeaustin & Gabriel
                   </p>
-                  <p className="text-gray-500 text-xs">Fundadores</p>
+                  <p className="text-gray-400 text-xs">Fundadores</p>
                 </div>
               </div>
             </motion.div>
