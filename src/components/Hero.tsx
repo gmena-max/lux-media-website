@@ -186,7 +186,7 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center gap-3 md:gap-4">
           {[
             "500K televidentes cada domingo",
-            "Resultados medibles desde mes 1",
+            "Aliados de Deporte+ en Teletica",
             "Respuesta en 24h",
           ].map((item) => (
             <span

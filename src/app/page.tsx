@@ -80,7 +80,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <main id="main-content" className="min-h-screen bg-[var(--background)] aurora-bg">
+      <main className="min-h-screen bg-[var(--background)] aurora-bg">
         <Hero />
         <ClientLogos />
         <ResultsTicker />

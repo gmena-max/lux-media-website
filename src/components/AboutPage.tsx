@@ -52,7 +52,7 @@ const team = [
   },
   {
     name: "Gabriel Mena",
-    role: "CTO & Director de Tecnología",
+    role: "Co-Fundador & CTO",
     initials: "GM",
     bio: "El cerebro técnico detrás de cada campaña: automatizaciones, campañas en Meta Ads, dashboards en tiempo real e inteligencia artificial aplicada. Ingeniero de formación, obsesionado con que cada colón invertido se mida.",
     linkedin: "https://www.linkedin.com/in/gabriel-mena-cr/",

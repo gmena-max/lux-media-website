@@ -126,11 +126,7 @@ const jsonLd = {
     opens: "09:00",
     closes: "18:00",
   },
-  sameAs: [
-    "https://www.instagram.com/luxmedia.cr/",
-    "https://www.facebook.com/luxmedia.cr",
-    "https://www.linkedin.com/company/luxmedia-cr/",
-  ],
+  // sameAs added when social profiles have content
   founder: [
     {
       "@type": "Person",
