@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Contact from "@/components/Contact";
+import ContactPage from "@/components/ContactPage";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <main className="min-h-screen bg-[var(--background)] pt-32 md:pt-40">
-      <Contact />
+      <ContactPage />
     </main>
   );
 }
