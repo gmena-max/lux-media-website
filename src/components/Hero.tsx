@@ -30,6 +30,11 @@ export default function Hero() {
       const onCanPlay = () => setVideoReady(true);
       video.addEventListener("canplay", onCanPlay, { once: true });
 
+      // If already loaded (cached), show immediately
+      if (video.readyState >= 3) {
+        setVideoReady(true);
+      }
+
       video.load();
       video.play().catch(() => {
         // Autoplay blocked — poster stays visible
@@ -65,7 +70,6 @@ export default function Hero() {
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
-          autoPlay
           muted
           loop
           playsInline
