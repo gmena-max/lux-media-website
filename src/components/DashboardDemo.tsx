@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import {
-  Card,
-  Metric,
-  Text,
-  Flex,
-  BadgeDelta,
-  Grid,
-} from "@tremor/react";
+/* ── Tremor replacements (plain Tailwind) ── */
+function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`p-6 ${className}`}>{children}</div>;
+}
+function Grid({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ${className}`}>{children}</div>;
+}
 import {
   AreaChart,
   Area,
@@ -147,15 +146,16 @@ interface KPI {
 }
 
 function KPICard({ kpi }: { kpi: KPI }) {
+  const isPositive = kpi.deltaType === "increase" || kpi.deltaType === "moderateIncrease";
   return (
     <Card className="bg-[#1a1a1a] ring-1 ring-white/10 rounded-xl">
-      <Text className="text-gray-400">{kpi.title}</Text>
-      <Flex justifyContent="start" alignItems="baseline" className="space-x-3 mt-2">
-        <Metric className="text-white">{kpi.metric}</Metric>
-        <BadgeDelta deltaType={kpi.deltaType} size="sm">
-          {kpi.delta}
-        </BadgeDelta>
-      </Flex>
+      <p className="text-gray-400 text-sm">{kpi.title}</p>
+      <div className="flex items-baseline gap-3 mt-2">
+        <p className="text-white text-3xl font-semibold tracking-tight">{kpi.metric}</p>
+        <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${isPositive ? "bg-emerald-500/15 text-emerald-400" : "bg-rose-500/15 text-rose-400"}`}>
+          {isPositive ? "↑" : "↓"} {kpi.delta}
+        </span>
+      </div>
     </Card>
   );
 }
@@ -238,7 +238,7 @@ export default function DashboardDemo() {
       </div>
 
       {/* KPI Cards */}
-      <Grid numItemsSm={2} numItemsLg={4} className="gap-4">
+      <Grid className="gap-4">
         {kpis.map((kpi) => (
           <KPICard key={kpi.title} kpi={kpi} />
         ))}
