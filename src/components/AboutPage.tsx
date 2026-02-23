@@ -7,8 +7,6 @@ import {
   Users,
   Zap,
   Target,
-  Linkedin,
-  Instagram,
 } from "lucide-react";
 import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
@@ -47,21 +45,17 @@ const team = [
     role: "CEO & Director Creativo",
     initials: "JC",
     bio: "Estrategia creativa y dirección de cada cuenta. Produjo Deporte+ en Teletica (500K televidentes, +20M impresiones) — ahora aplica esa experiencia para hacer crecer tu marca.",
-    linkedin: "https://www.linkedin.com/in/jeaustin-campos/",
-    instagram: "https://www.instagram.com/jeaustincampos/",
   },
   {
     name: "Gabriel Mena",
     role: "Co-Fundador & CTO",
     initials: "GM",
     bio: "La tecnología detrás de cada resultado: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Si se puede medir, se puede mejorar.",
-    linkedin: "https://www.linkedin.com/in/gabriel-mena-cr/",
-    instagram: "https://www.instagram.com/gabrielmena.cr/",
   },
 ];
 
 const stats = [
-  { value: "+20M", label: "Impresiones generadas (Deporte+ en Teletica)" },
+  { value: "+20M", label: "Impresiones generadas para nuestros clientes" },
   { value: "24h", label: "Tiempo de respuesta promedio" },
   { value: "4", label: "Industrias: salud, deportes, tech, educación" },
 ];
@@ -87,7 +81,7 @@ export default function AboutPage() {
               Sobre Nosotros
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 font-display">
-              Detrás de +20M impresiones y 500K televidentes cada domingo.
+              Tu departamento de marketing. Sin la planilla.
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Contenido, publicidad, automatización e inteligencia artificial — un equipo que hace todo,
@@ -137,7 +131,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-400 leading-relaxed">
                 <p>
-                  Producimos Deporte+ en Teletica, gestionamos las campañas de clínicas que llenan su agenda por WhatsApp,
+                  Gestionamos campañas que llenan agendas por WhatsApp, producimos contenido para televisión nacional,
                   y cubrimos los eventos tech más grandes de la región.{" "}
                   <strong className="text-white">
                     Cada cliente trabaja directo con los fundadores — no con un ejecutivo de cuenta.
@@ -271,31 +265,6 @@ export default function AboutPage() {
                   {member.bio}
                 </p>
 
-                {/* Social links */}
-                <div className="flex justify-center gap-3 mt-4">
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-[var(--accent)] hover:bg-white/10 transition-colors"
-                      aria-label={`LinkedIn de ${member.name}`}
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.instagram && (
-                    <a
-                      href={member.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-[var(--accent)] hover:bg-white/10 transition-colors"
-                      aria-label={`Instagram de ${member.name}`}
-                    >
-                      <Instagram className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
               </motion.div>
             ))}
           </div>
