@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
+import MobileHeroDashboard from "./MobileHeroDashboard";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -88,7 +89,10 @@ export default function Hero() {
         </picture>
       </div>
 
-      {/* Video — fades in once loaded, serves mobile or desktop sources */}
+      {/* Mobile: animated dashboard background */}
+      {isMobile && mounted && <MobileHeroDashboard />}
+
+      {/* Video — fades in once loaded (desktop only) */}
       {!isMobile && mounted && (
         <video
           ref={videoRef}
