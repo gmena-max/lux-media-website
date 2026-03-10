@@ -10,6 +10,8 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import CtaBanner from "@/components/CtaBanner";
+import BlogPreview from "@/components/BlogPreview";
+import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   alternates: {
@@ -74,6 +76,8 @@ const faqJsonLd = {
 };
 
 export default function Home() {
+  const posts = getAllPosts().slice(0, 3);
+
   return (
     <>
       <script
@@ -90,6 +94,7 @@ export default function Home() {
         <DashboardTeaser />
         <Testimonials />
         <About />
+        <BlogPreview posts={posts} />
         <FAQ />
         <CtaBanner />
       </main>

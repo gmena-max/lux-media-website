@@ -76,6 +76,7 @@ const BUDGET_OPTIONS = [
 
 export default function AuditoriaPage() {
   const formRef = useRef<HTMLFormElement>(null);
+  const hasFiredFormStart = useRef(false);
   const [formData, setFormData] = useState({
     name: "",
     business: "",
@@ -135,6 +136,16 @@ export default function AuditoriaPage() {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleFocus = () => {
+    if (!hasFiredFormStart.current) {
+      hasFiredFormStart.current = true;
+      trackEvent("form_start", {
+        event_category: "Audit",
+        event_label: "Audit Form Started",
+      });
     }
   };
 
@@ -324,6 +335,7 @@ export default function AuditoriaPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  onFocus={handleFocus}
                   required
                   className={inputClass}
                   placeholder="Gabriel Mena"

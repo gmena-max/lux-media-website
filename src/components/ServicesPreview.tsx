@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
+import { trackEvent } from "@/lib/gtag";
 
 // Show a curated selection of services — one from each category
 const featuredSlugs = [
@@ -64,6 +65,12 @@ export default function ServicesPreview() {
             >
               <Link
                 href={`/servicios/${service!.slug}`}
+                onClick={() =>
+                  trackEvent("service_click", {
+                    event_label: service!.title,
+                    link_url: `/servicios/${service!.slug}`,
+                  })
+                }
                 className="block p-5 rounded-xl glass-card glass-card-hover group h-full transition-all duration-300"
               >
                 <span className="text-2xl mb-2 block">{service!.icon}</span>

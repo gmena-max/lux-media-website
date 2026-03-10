@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/portfolio";
+import { trackEvent } from "@/lib/gtag";
 
 const BLUR_DATA_URL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAEElEQVR4nGMQEeKDIwacHAAv9wJxNLhVpwAAAABJRU5ErkJggg==";
@@ -52,6 +53,12 @@ export default function PortfolioGrid() {
             {project.caseStudy ? (
               <Link
                 href={`/portafolio/${project.slug}`}
+                onClick={() =>
+                  trackEvent("portfolio_click", {
+                    event_label: project.title,
+                    link_url: `/portafolio/${project.slug}`,
+                  })
+                }
                 className="group block rounded-2xl overflow-hidden border border-[rgba(245,181,26,0.1)] hover:border-[rgba(245,181,26,0.25)] hover:shadow-[0_0_20px_rgba(245,181,26,0.08)] transition-all duration-300"
               >
                 <ProjectCard project={project} />

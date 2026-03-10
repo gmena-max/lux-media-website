@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { projects as allProjects } from "@/data/portfolio";
+import { trackEvent } from "@/lib/gtag";
 
 const BLUR_DATA_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAEElEQVR4nGMQEeKDIwacHAAv9wJxNLhVpwAAAABJRU5ErkJggg==";
 
@@ -94,7 +95,16 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
       transition={{ delay: isMobile ? 0 : index * 0.05, duration: 0.4 }}
     >
       {project.caseStudy ? (
-        <Link href={`/portafolio/${project.slug}`} className={cardClasses}>
+        <Link
+          href={`/portafolio/${project.slug}`}
+          className={cardClasses}
+          onClick={() =>
+            trackEvent("portfolio_click", {
+              event_label: project.title,
+              link_url: `/portafolio/${project.slug}`,
+            })
+          }
+        >
           <CardContent project={project} featured={featured} />
         </Link>
       ) : (

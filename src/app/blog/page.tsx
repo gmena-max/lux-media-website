@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts } from "@/lib/blog";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import BlogCardTracker from "@/components/BlogCardTracker";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -37,17 +38,20 @@ export default function BlogPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
-            <Link
+            <BlogCardTracker
               key={post.slug}
               href={`/blog/${post.slug}`}
+              title={post.title}
               className="group block rounded-2xl overflow-hidden glass-card glass-card-hover"
             >
               {post.image && (
-                <div className="aspect-video bg-[var(--card-bg)] overflow-hidden">
-                  <img
+                <div className="aspect-video bg-[var(--card-bg)] overflow-hidden relative">
+                  <Image
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               )}
@@ -79,7 +83,7 @@ export default function BlogPage() {
                   </span>
                 </div>
               </div>
-            </Link>
+            </BlogCardTracker>
           ))}
         </div>
       </div>
