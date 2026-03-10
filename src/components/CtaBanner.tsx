@@ -103,11 +103,11 @@ export default function CtaBanner({
             </motion.a>
 
             <Link
-              href="/contacto"
-              onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Contacto" })}
+              href="/auditoria"
+              onClick={() => trackEvent("cta_click", { event_label: "CTA Banner - Auditoría" })}
               className="inline-flex items-center gap-2 px-8 py-4 font-medium rounded-full border border-white/20 text-white/80 hover:bg-white/[0.08] hover:border-white/40 hover:text-white transition-all duration-200"
             >
-              Ver todas las formas de contacto
+              O pedí tu auditoría gratis
             </Link>
           </motion.div>
 

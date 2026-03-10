@@ -109,7 +109,9 @@ export default function Navbar() {
             );
           })}
           <motion.a
-            href={CONTACT.getWhatsAppUrl()}
+            href={CONTACT.getWhatsAppUrl(
+              "Hola, me interesa una consulta para mi marca."
+            )}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent("whatsapp_click", { event_label: "Navbar CTA" })}
@@ -131,7 +133,7 @@ export default function Navbar() {
               e.currentTarget.style.borderColor = "rgba(212, 168, 67, 0.4)";
             }}
           >
-            Agendar consulta
+            Consulta gratis
           </motion.a>
         </div>
 
@@ -214,13 +216,15 @@ export default function Navbar() {
                 );
               })}
               <a
-                href={CONTACT.getWhatsAppUrl()}
+                href={CONTACT.getWhatsAppUrl(
+                  "Hola, me interesa una consulta para mi marca."
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("whatsapp_click", { event_label: "Navbar Mobile CTA" })}
                 className="bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] text-black px-6 py-2.5 rounded-full text-sm font-semibold text-center"
               >
-                Agendar consulta
+                Consulta gratis
               </a>
             </div>
           </motion.div>

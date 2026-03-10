@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
+import MobileHeroDashboard from "./MobileHeroDashboard";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,8 +13,11 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
     setMounted(true);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   useEffect(() => {
@@ -39,7 +43,32 @@ export default function Hero() {
       });
     }
 
-    return () => video.removeEventListener("playing", show);
+    // Resilience: browsers silently pause looping autoplay videos after ~5 min
+    const onPause = () => {
+      if (document.visibilityState === "visible") {
+        video.play().catch(() => {});
+      }
+    };
+    const onEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+    const onVisChange = () => {
+      if (document.visibilityState === "visible" && video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    video.addEventListener("pause", onPause);
+    video.addEventListener("ended", onEnded);
+    document.addEventListener("visibilitychange", onVisChange);
+
+    return () => {
+      video.removeEventListener("playing", show);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("ended", onEnded);
+      document.removeEventListener("visibilitychange", onVisChange);
+    };
   }, [mounted]);
 
   return (
@@ -47,24 +76,31 @@ export default function Hero() {
       id="inicio"
       className="relative h-screen overflow-hidden"
     >
-      {/* Poster image as CSS background — always visible instantly, no state dependency */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
-      >
-        <picture>
-          <source media="(max-width: 767px)" srcSet="/video/hero-poster-mobile.jpg" />
+      {/* Mobile: solid dark bg + animated dashboard */}
+      {isMobile && mounted && (
+        <>
+          <div className="absolute inset-0 bg-[var(--background)]" />
+          <MobileHeroDashboard />
+        </>
+      )}
+
+      {/* Desktop: poster image as fallback before video loads */}
+      {!isMobile && (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
+        >
           <img
             src="/video/hero-poster.jpg"
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
           />
-        </picture>
-      </div>
+        </div>
+      )}
 
-      {/* Video — fades in once loaded, serves mobile or desktop sources */}
-      {mounted && (
+      {/* Video — fades in once loaded (desktop only) */}
+      {!isMobile && mounted && (
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
@@ -74,38 +110,36 @@ export default function Hero() {
           playsInline
           aria-hidden="true"
         >
-          {isMobile ? (
-            <>
-              <source src="/video/hero-bg-mobile.webm" type="video/webm" />
-              <source src="/video/hero-bg-mobile.mp4" type="video/mp4" />
-            </>
-          ) : (
-            <>
-              <source src="/video/hero-bg.webm" type="video/webm" />
-              <source src="/video/hero-bg.mp4" type="video/mp4" />
-            </>
-          )}
+          <source src="/video/hero-bg.webm" type="video/webm" />
+          <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
       )}
 
-      {/* Subtle overall darkening for navbar legibility */}
+      {/* Subtle overall darkening — desktop only (mobile dashboard has its own dark bg) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{ background: "rgba(0,0,0,0.15)" }}
       />
 
       {/* Bottom gradient for text readability */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 25%, transparent 42%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 20%, transparent 45%)",
         }}
       />
 
-      {/* Top vignette for navbar */}
+      {/* Top vignette for navbar — desktop only (mobile navbar has bg-black/80) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 20%)",
@@ -113,14 +147,14 @@ export default function Hero() {
       />
 
       {/* Content overlay — anchored to bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 pb-14 md:pb-16 px-6 text-center">
-        {/* SEO headline */}
-        <h1 className="text-base md:text-lg font-medium uppercase tracking-[0.2em] text-white/70 mb-3">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-12 md:pb-16 px-6 text-center">
+        {/* SEO headline — visually hidden on mobile (dashboard is the visual hero) */}
+        <h1 className="sr-only md:not-sr-only md:text-lg md:font-medium md:uppercase md:tracking-[0.2em] md:text-white/70 md:mb-3">
           Agencia de marketing digital que convierte — Costa Rica
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-white/55 mb-8 max-w-xl mx-auto">
+        <p className="text-lg md:text-xl text-white/55 mb-10 md:mb-8 max-w-xl mx-auto">
           IA, datos y estrategia para marcas que quieren crecer.
         </p>
 
@@ -167,7 +201,7 @@ export default function Hero() {
             href="/portafolio"
             onClick={() =>
               trackEvent("cta_click", {
-                event_label: "Hero - Ver resultados",
+                event_label: "Hero - Ver Resultados",
               })
             }
             className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-[14px] transition-all duration-200 bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12] hover:border-white/25 hover:text-white"
@@ -183,7 +217,7 @@ export default function Hero() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M19 9l-7 7-7-7"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
           </Link>

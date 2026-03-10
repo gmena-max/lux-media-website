@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
@@ -34,15 +35,17 @@ export default function Footer() {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-6"
         >
-          <Image
-            src="/logo-full.png"
-            alt="Lux Media"
-            width={180}
-            height={60}
-            sizes="(max-width: 768px) 240px, 384px"
-            quality={90}
-            className="h-20 md:h-32 w-auto"
-          />
+          <Link href="/" className="inline-block">
+            <Image
+              src="/logo-full.png"
+              alt="Lux Media"
+              width={180}
+              height={60}
+              sizes="(max-width: 768px) 240px, 384px"
+              quality={90}
+              className="h-20 md:h-32 w-auto"
+            />
+          </Link>
         </motion.div>
 
         {/* Tagline */}
@@ -86,6 +89,18 @@ export default function Footer() {
             </svg>
             <span>WhatsApp: {CONTACT.phoneDisplay}</span>
           </a>
+
+          {/* Auditoría */}
+          <Link
+            href="/auditoria"
+            onClick={() => trackEvent("cta_click", { event_label: "Footer - Auditoría" })}
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <svg className="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            <span>Auditoría Gratis</span>
+          </Link>
 
           {/* Email */}
           <a
