@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
@@ -34,15 +35,17 @@ export default function Footer() {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-6"
         >
-          <Image
-            src="/logo-full.png"
-            alt="Lux Media"
-            width={180}
-            height={60}
-            sizes="(max-width: 768px) 240px, 384px"
-            quality={90}
-            className="h-20 md:h-32 w-auto"
-          />
+          <Link href="/" className="inline-block">
+            <Image
+              src="/logo-full.png"
+              alt="Lux Media"
+              width={180}
+              height={60}
+              sizes="(max-width: 768px) 240px, 384px"
+              quality={90}
+              className="h-20 md:h-32 w-auto"
+            />
+          </Link>
         </motion.div>
 
         {/* Tagline */}

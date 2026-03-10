@@ -39,7 +39,32 @@ export default function Hero() {
       });
     }
 
-    return () => video.removeEventListener("playing", show);
+    // Resilience: browsers silently pause looping autoplay videos after ~5 min
+    const onPause = () => {
+      if (document.visibilityState === "visible") {
+        video.play().catch(() => {});
+      }
+    };
+    const onEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+    const onVisChange = () => {
+      if (document.visibilityState === "visible" && video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    video.addEventListener("pause", onPause);
+    video.addEventListener("ended", onEnded);
+    document.addEventListener("visibilitychange", onVisChange);
+
+    return () => {
+      video.removeEventListener("playing", show);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("ended", onEnded);
+      document.removeEventListener("visibilitychange", onVisChange);
+    };
   }, [mounted]);
 
   return (
@@ -64,7 +89,7 @@ export default function Hero() {
       </div>
 
       {/* Video — fades in once loaded, serves mobile or desktop sources */}
-      {mounted && (
+      {!isMobile && mounted && (
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
@@ -96,7 +121,14 @@ export default function Hero() {
 
       {/* Bottom gradient for text readability */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 30%, transparent 55%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 20%, transparent 45%)",
@@ -113,14 +145,14 @@ export default function Hero() {
       />
 
       {/* Content overlay — anchored to bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 pb-14 md:pb-16 px-6 text-center">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-20 md:pb-16 px-6 text-center">
         {/* SEO headline */}
-        <h1 className="text-base md:text-lg font-medium uppercase tracking-[0.2em] text-white/70 mb-3">
+        <h1 className="text-lg md:text-lg font-medium uppercase tracking-[0.2em] text-white/70 mb-3">
           Agencia de marketing digital que convierte — Costa Rica
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-white/55 mb-8 max-w-xl mx-auto">
+        <p className="text-lg md:text-xl text-white/55 mb-10 md:mb-8 max-w-xl mx-auto">
           IA, datos y estrategia para marcas que quieren crecer.
         </p>
 
@@ -167,7 +199,7 @@ export default function Hero() {
             href="/portafolio"
             onClick={() =>
               trackEvent("cta_click", {
-                event_label: "Hero - Ver resultados",
+                event_label: "Hero - Ver Resultados",
               })
             }
             className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-[14px] transition-all duration-200 bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12] hover:border-white/25 hover:text-white"
@@ -183,7 +215,7 @@ export default function Hero() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M19 9l-7 7-7-7"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
           </Link>

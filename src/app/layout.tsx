@@ -104,7 +104,7 @@ const jsonLd = {
   logo: "https://luxmediacr.com/logo-full.png",
   image: "https://luxmediacr.com/og-image.png",
   telephone: "+506-8905-2828",
-  email: "contacto@luxmediacr.com",
+  email: "gabriel@luxmediacr.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "San José",

@@ -2,14 +2,14 @@
 // Update these values in one place and they'll propagate throughout the site
 
 export const CONTACT = {
-  // Phone number in international format (Costa Rica)
+  // Primary WhatsApp number (Costa Rica)
   phone: "50689052828",
 
   // Formatted phone number for display
   phoneDisplay: "+506 8905-2828",
 
   // Primary email
-  email: "contacto@luxmediacr.com",
+  email: "gabriel@luxmediacr.com",
 
   // Physical location
   location: "San José, Costa Rica",
@@ -28,7 +28,6 @@ export const SOCIAL = {
   instagram: "https://www.instagram.com/luxmedia.cr/",
   facebook: "https://www.facebook.com/luxmedia.cr",
   linkedin: "https://www.linkedin.com/company/luxmedia-cr/",
-  // Add more as needed
 } as const;
 
 // EmailJS configuration
