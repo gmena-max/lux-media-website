@@ -83,7 +83,7 @@ export default function MobileHeroDashboard() {
       <style>{styles}</style>
 
       {/* ── Data flow lines (connecting bands) ── */}
-      {[33, 58, 72].map((top) => (
+      {[28, 48, 60].map((top) => (
         <div key={top} className="absolute left-0 right-0 h-px" style={{ top: `${top}%`, background: "rgba(212,168,67,0.04)" }}>
           <div className="absolute top-[-2px] w-1 h-1 rounded-full" style={{ background: "rgba(212,168,67,0.35)", animation: "data-flow 5s linear infinite" }} />
           <div className="absolute top-[-2px] w-1 h-1 rounded-full" style={{ background: "rgba(212,168,67,0.35)", animation: "data-flow 5s linear infinite", animationDelay: "-2.5s" }} />
@@ -93,7 +93,7 @@ export default function MobileHeroDashboard() {
       {/* ── Band 1: Metric Ticker ── */}
       <div
         className="absolute left-0 right-0 h-6 flex items-center overflow-hidden"
-        style={{ top: "6%", borderTop: "1px solid rgba(212,168,67,0.1)", borderBottom: "1px solid rgba(212,168,67,0.1)" }}
+        style={{ top: "8%", borderTop: "1px solid rgba(212,168,67,0.1)", borderBottom: "1px solid rgba(212,168,67,0.1)" }}
       >
         <div
           className="flex gap-6 whitespace-nowrap text-[10px] font-semibold tracking-wide"
@@ -111,7 +111,7 @@ export default function MobileHeroDashboard() {
       </div>
 
       {/* ── Band 2: Progress Rings ── */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex gap-2" style={{ top: "11%" }}>
+      <div className="absolute left-1/2 -translate-x-1/2 flex gap-2" style={{ top: "13%" }}>
         {RINGS.map((ring, i) => {
           const offset = CIRCUMFERENCE - (ring.percent / 100) * CIRCUMFERENCE;
           return (
@@ -157,8 +157,8 @@ export default function MobileHeroDashboard() {
       <motion.div
         className="absolute left-[6%] right-[6%] rounded-xl p-3"
         style={{
-          top: "36%",
-          height: "20%",
+          top: "30%",
+          height: "18%",
           background: "rgba(17,17,17,0.7)",
           border: "1px solid rgba(212,168,67,0.1)",
         }}
@@ -228,7 +228,7 @@ export default function MobileHeroDashboard() {
       </motion.div>
 
       {/* ── Band 4: Stats Strip ── */}
-      <div className="absolute left-[4%] right-[4%] flex gap-[6px]" style={{ top: "60%" }}>
+      <div className="absolute left-[4%] right-[4%] flex gap-[6px]" style={{ top: "50%" }}>
         {STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -252,7 +252,7 @@ export default function MobileHeroDashboard() {
       </div>
 
       {/* ── Band 5: Platform Icons ── */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex gap-[10px]" style={{ top: "73%" }}>
+      <div className="absolute left-1/2 -translate-x-1/2 flex gap-[10px]" style={{ top: "61%" }}>
         {PLATFORMS.map((p, i) => (
           <motion.div
             key={p.name}

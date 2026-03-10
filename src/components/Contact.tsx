@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import Link from "next/link";
+import { ClipboardCheck } from "lucide-react";
 import { CONTACT, EMAILJS } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
@@ -302,6 +304,21 @@ export default function Contact() {
                     <p className="text-sm text-gray-500">{CONTACT.location}</p>
                   </div>
                 </div>
+
+                {/* Auditoría Digital */}
+                <Link
+                  href="/auditoria"
+                  onClick={() => trackEvent("cta_click", { event_label: "Contact Section - Auditoría" })}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-[var(--background)] border border-[var(--card-border)] hover:border-[var(--accent)]/30 transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/20 transition-colors">
+                    <ClipboardCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">Auditoría Digital Gratis</p>
+                    <p className="text-sm text-gray-500">Análisis completo en 30 min. Cero compromiso.</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </motion.div>

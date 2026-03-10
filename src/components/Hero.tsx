@@ -13,8 +13,11 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
     setMounted(true);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   useEffect(() => {
@@ -73,24 +76,28 @@ export default function Hero() {
       id="inicio"
       className="relative h-screen overflow-hidden"
     >
-      {/* Poster image as CSS background — always visible instantly, no state dependency */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
-      >
-        <picture>
-          <source media="(max-width: 767px)" srcSet="/video/hero-poster-mobile.jpg" />
+      {/* Mobile: solid dark bg + animated dashboard */}
+      {isMobile && mounted && (
+        <>
+          <div className="absolute inset-0 bg-[var(--background)]" />
+          <MobileHeroDashboard />
+        </>
+      )}
+
+      {/* Desktop: poster image as fallback before video loads */}
+      {!isMobile && (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
+        >
           <img
             src="/video/hero-poster.jpg"
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"
           />
-        </picture>
-      </div>
-
-      {/* Mobile: animated dashboard background */}
-      {isMobile && mounted && <MobileHeroDashboard />}
+        </div>
+      )}
 
       {/* Video — fades in once loaded (desktop only) */}
       {!isMobile && mounted && (
@@ -103,23 +110,14 @@ export default function Hero() {
           playsInline
           aria-hidden="true"
         >
-          {isMobile ? (
-            <>
-              <source src="/video/hero-bg-mobile.webm" type="video/webm" />
-              <source src="/video/hero-bg-mobile.mp4" type="video/mp4" />
-            </>
-          ) : (
-            <>
-              <source src="/video/hero-bg.webm" type="video/webm" />
-              <source src="/video/hero-bg.mp4" type="video/mp4" />
-            </>
-          )}
+          <source src="/video/hero-bg.webm" type="video/webm" />
+          <source src="/video/hero-bg.mp4" type="video/mp4" />
         </video>
       )}
 
-      {/* Subtle overall darkening for navbar legibility */}
+      {/* Subtle overall darkening — desktop only (mobile dashboard has its own dark bg) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{ background: "rgba(0,0,0,0.15)" }}
       />
 
@@ -128,7 +126,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none md:hidden"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 30%, transparent 55%)",
+            "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 25%, transparent 42%)",
         }}
       />
       <div
@@ -139,9 +137,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Top vignette for navbar */}
+      {/* Top vignette for navbar — desktop only (mobile navbar has bg-black/80) */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 20%)",
@@ -149,9 +147,9 @@ export default function Hero() {
       />
 
       {/* Content overlay — anchored to bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 pb-20 md:pb-16 px-6 text-center">
-        {/* SEO headline */}
-        <h1 className="text-lg md:text-lg font-medium uppercase tracking-[0.2em] text-white/70 mb-3">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-12 md:pb-16 px-6 text-center">
+        {/* SEO headline — visually hidden on mobile (dashboard is the visual hero) */}
+        <h1 className="sr-only md:not-sr-only md:text-lg md:font-medium md:uppercase md:tracking-[0.2em] md:text-white/70 md:mb-3">
           Agencia de marketing digital que convierte — Costa Rica
         </h1>
 

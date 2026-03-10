@@ -24,12 +24,6 @@ export const CONTACT = {
   },
 } as const;
 
-export const SOCIAL = {
-  instagram: "https://www.instagram.com/luxmedia.cr/",
-  facebook: "https://www.facebook.com/luxmedia.cr",
-  linkedin: "https://www.linkedin.com/company/luxmedia-cr/",
-} as const;
-
 // EmailJS configuration
 // You'll need to create an account at https://www.emailjs.com/
 // Free tier: 200 emails/month
