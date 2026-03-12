@@ -159,7 +159,7 @@ export default function DashboardTeaser() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                 </div>
-                <span className="text-[10px] text-gray-500 ml-2 font-mono">
+                <span className="text-[10px] text-gray-400 ml-2 font-mono">
                   luxmediacr.com/servicios/dashboards
                 </span>
               </div>
@@ -173,7 +173,7 @@ export default function DashboardTeaser() {
                       key={kpi.label}
                       className="bg-[#1a1a1a] rounded-lg p-2.5 border-t-2 border-[var(--accent)]/40"
                     >
-                      <p className="text-[9px] text-gray-500 uppercase tracking-wide">
+                      <p className="text-[9px] text-gray-400 uppercase tracking-wide">
                         {kpi.label}
                       </p>
                       <p className="text-white font-bold text-sm md:text-base mt-0.5">
@@ -190,7 +190,7 @@ export default function DashboardTeaser() {
                 <div className="grid grid-cols-5 gap-2">
                   {/* Area chart — takes 3 cols */}
                   <div className="col-span-3 bg-[#1a1a1a] rounded-lg p-3">
-                    <p className="text-[9px] text-gray-500 uppercase tracking-wide mb-2">
+                    <p className="text-[9px] text-gray-400 uppercase tracking-wide mb-2">
                       Leads por mes
                     </p>
                     <div className="h-16">
@@ -199,7 +199,7 @@ export default function DashboardTeaser() {
                   </div>
                   {/* Bar chart — takes 2 cols */}
                   <div className="col-span-2 bg-[#1a1a1a] rounded-lg p-3">
-                    <p className="text-[9px] text-gray-500 uppercase tracking-wide mb-2">
+                    <p className="text-[9px] text-gray-400 uppercase tracking-wide mb-2">
                       Ingresos
                     </p>
                     <div className="h-16">

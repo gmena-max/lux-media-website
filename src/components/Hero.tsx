@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
@@ -86,17 +87,15 @@ export default function Hero() {
 
       {/* Desktop: poster image as fallback before video loads */}
       {!isMobile && (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/video/hero-poster.jpg')" }}
-        >
-          <img
-            src="/video/hero-poster.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-            aria-hidden="true"
-          />
-        </div>
+        <Image
+          src="/video/hero-poster.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          aria-hidden="true"
+        />
       )}
 
       {/* Video — fades in once loaded (desktop only) */}
