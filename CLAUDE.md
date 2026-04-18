@@ -2,6 +2,22 @@
 
 Project-specific context for the Lux Media marketing website.
 
+## v2 Positioning — Durable Decisions (April 2026)
+
+Active repositioning to **Lux Growth Engine** brand with **Business Brain** as the productized AI offering. These four rules are load-bearing across all copy, service pages, and marketing assets — do not override without Gabriel's explicit approval.
+
+1. **Product name lock — Business Brain.** The productized AI system is branded **"Business Brain."** Never "Claude Brain," "AI Brain," "Cerebro de Operaciones," or "cerebro-operaciones." URL slug is `/servicios/business-brain`.
+
+2. **No public pricing, no qualification gates.** Every service page drives to a discovery booking — no fixed tiers, no ranges, no "desde $X," no "Ideal para…" filters. Gabriel's explicit call: broad-market inbound, qualify on the discovery call. Trade-off accepted: more discovery calls (some wrong-fit) in exchange for wider top-of-funnel.
+
+3. **No simulated demos.** Service pages carry themselves with strong copy + real interface screenshots + booking CTA. No mock dashboards, no canned conversation UIs, no "Casos de éxito próximamente" badges. If prospects ask to see something live on a sales call, Gabriel figures it out then.
+
+4. **Spanish editorial gate.** Every copy sub-PR goes through an AI-assisted Spanish polish pass (Claude reviews for regionalisms, calques, awkward phrasing, tone), then Gabriel approves before merge. Not self-skim, not external editor — structured AI pass with human sign-off.
+
+Named system across site: **Lux Growth Engine** replaces "agencia de marketing" / "departamento externo" / "departamento de marketing" framing.
+
+Plan and segment breakdown: `~/.claude/plans/we-haven-t-checked-the-linear-pond.md`.
+
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router)
@@ -155,22 +171,17 @@ Note: Original repo (Juuice10/Lux-media-website) exists but isn't connected. Gab
 - WhatsApp number: 50686555888
 - Always test with `npm run build` before pushing
 
-## Current Status
+## Current Status (April 2026)
 
-**Completed:**
-- Full landing page with all sections
-- Glassmorphism + gold aurora design system
-- Image optimization (93% reduction)
-- Portfolio with real project images
-- OG image for social sharing
-- Scroll progress indicator
-- Client logos marquee
-- Deployed to Vercel (luxmediacr.com)
-- Domain connected via GoDaddy DNS
+**Live:**
+- Full landing page + glassmorphism/gold aurora design system
+- Portfolio with real projects, OG image, scroll progress, client logos marquee
+- Deployed to Vercel (luxmediacr.com); domain via GoDaddy DNS
 - Google Analytics GA4 (G-XKSDRLY742)
 - EmailJS contact form (service_fne0p1e / template_ekh8oaa)
-- Real testimonials (quotes are real, no photos needed)
-- Spanish copy overhaul across all sections
-- Footer tagline: "Estrategia digital para marcas que quieren crecer"
+- Spanish copy across all sections, footer tagline current
 
-**No pending items.** Website is feature-complete for launch.
+**In progress — v2 repositioning (Lux Growth Engine + Business Brain):**
+See plan at `~/.claude/plans/we-haven-t-checked-the-linear-pond.md`. Active segments:
+- PR 1: David Montero + bio rebalance (direct to main)
+- Branch `feat/lux-growth-engine`: positioning copy + 4 new service pages + navbar update + motion polish + GEO content engine
