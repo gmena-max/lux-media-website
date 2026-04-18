@@ -149,12 +149,12 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 z-10 pb-12 md:pb-16 px-6 text-center">
         {/* SEO headline — visually hidden on mobile (dashboard is the visual hero) */}
         <h1 className="sr-only md:not-sr-only md:text-lg md:font-medium md:uppercase md:tracking-[0.2em] md:text-white/70 md:mb-3">
-          Agencia de marketing digital que convierte — Costa Rica
+          Lux Growth Engine — motor de crecimiento con IA y pauta para PYMEs en Costa Rica
         </h1>
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl text-white/55 mb-10 md:mb-8 max-w-xl mx-auto">
-          IA, datos y estrategia para marcas que quieren crecer.
+          Publicidad, automatización y datos bajo un mismo equipo. Cada peso se mide. Cada resultado se escala.
         </p>
 
         {/* CTAs */}

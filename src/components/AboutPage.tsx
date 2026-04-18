@@ -87,11 +87,11 @@ export default function AboutPage() {
               Sobre Nosotros
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 font-display">
-              Tu departamento de marketing. Sin la planilla.
+              Lux Growth Engine: tu motor de crecimiento, sin la planilla.
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Publicidad, SEO, redes, analytics, web y automatización con IA — un equipo que hace todo,
-              para que vos solo te preocupés por cerrar ventas.
+              Publicidad, SEO, redes, analytics, automatización, agentes de IA y dashboards — un motor
+              integrado, un solo equipo. Vos solo te enfocás en cerrar ventas.
             </p>
           </motion.div>
         </div>

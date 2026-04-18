@@ -14,6 +14,9 @@ import BlogPreview from "@/components/BlogPreview";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
+  title: "Lux Growth Engine — Motor de Crecimiento con IA y Pauta para PYMEs en Costa Rica",
+  description:
+    "Lux Growth Engine: publicidad, IA, automatización, contenido y datos bajo un mismo equipo. Un motor de crecimiento integrado para PYMEs costarricenses — cada peso se mide, cada resultado se escala.",
   alternates: {
     canonical: "https://luxmediacr.com",
   },
