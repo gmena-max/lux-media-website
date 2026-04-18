@@ -44,13 +44,19 @@ const team = [
     name: "Jeaustin Campos",
     role: "CEO & Director Creativo",
     initials: "JC",
-    bio: "Estrategia creativa y dirección de cada cuenta. Produjo Deporte+ en Teletica (500K televidentes, +20M impresiones) — ahora aplica esa experiencia para hacer crecer tu marca.",
+    bio: "Dirección creativa y rumbo de cada cuenta. Produjo Deporte+ en Teletica (500K televidentes, +20M impresiones) — ahora aplica esa experiencia para hacer crecer tu marca.",
+  },
+  {
+    name: "David Montero",
+    role: "Co-Fundador & Director de Proyectos",
+    initials: "DM",
+    bio: "Gestión de proyectos, planificación de contenido y ejecución de campañas. Conecta la visión creativa con los objetivos del cliente para que todo llegue a tiempo y con impacto.",
   },
   {
     name: "Gabriel Mena",
     role: "Co-Fundador & CTO",
     initials: "GM",
-    bio: "La tecnología detrás de cada resultado: Meta Ads, Google Ads, automatizaciones con IA y dashboards en tiempo real. Si se puede medir, se puede mejorar.",
+    bio: "La tecnología detrás de cada resultado: Meta Ads, Google Ads, automatización con IA y dashboards en tiempo real. Si se puede medir, se puede mejorar.",
   },
 ];
 
@@ -155,13 +161,13 @@ export default function AboutPage() {
               </blockquote>
               <div className="flex items-center gap-3 mt-6">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] flex items-center justify-center text-black font-semibold text-sm">
-                  J&G
+                  LM
                 </div>
                 <div>
                   <p className="text-white font-medium text-sm">
-                    Jeaustin & Gabriel
+                    Los fundadores
                   </p>
-                  <p className="text-gray-500 text-xs">Fundadores</p>
+                  <p className="text-gray-500 text-xs">Jeaustin, David & Gabriel</p>
                 </div>
               </div>
             </motion.div>
@@ -237,7 +243,7 @@ export default function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
