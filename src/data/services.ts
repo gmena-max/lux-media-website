@@ -489,7 +489,7 @@ export const services: Service[] = [
     metaDescription:
       "Business Brain: un cerebro AI entrenado con tu negocio que responde en WhatsApp, Instagram y Facebook, califica leads, agenda citas, nutre contactos y automatiza procesos — 24/7, en español.",
     shortDescription:
-      "Un cerebro AI personalizado para tu empresa — aprende tu negocio, responde en WhatsApp/IG/FB, califica leads, agenda citas y automatiza lo que tu equipo repite todos los días.",
+      "Un cerebro que aprende tu negocio y vende mientras vos dormís — 24/7, en WhatsApp, IG y FB.",
     icon: "🧠",
     painPoints: [
       {
