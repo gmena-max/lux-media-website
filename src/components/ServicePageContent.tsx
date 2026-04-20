@@ -341,17 +341,19 @@ export default function ServicePageContent({
               </svg>
               Agendar consulta gratuita
             </motion.a>
-            <Link
-              href="/contacto"
+            <a
+              href={CONTACT.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() =>
-                trackEvent("cta_click", {
-                  event_label: `Service - ${service.title} - Escríbenos`,
+                trackEvent("booking_click", {
+                  event_label: `Service - ${service.title}`,
                 })
               }
-              className="inline-flex items-center justify-center px-8 py-4 text-gray-400 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-full border border-white/20 text-white/80 hover:bg-white/[0.08] hover:border-white/40 hover:text-white transition-all duration-200"
             >
-              Escríbenos directo
-            </Link>
+              📅 Agendá 30 min con Gabriel
+            </a>
           </div>
         </motion.div>
       </section>
