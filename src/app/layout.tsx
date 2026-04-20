@@ -107,7 +107,7 @@ const jsonLd = {
   url: "https://luxmediacr.com",
   logo: "https://luxmediacr.com/logo-full.png",
   image: "https://luxmediacr.com/og-image.png",
-  telephone: "+506-8655-5888",
+  telephone: "+506-7191-1587",
   email: "gabriel@luxmediacr.com",
   address: {
     "@type": "PostalAddress",

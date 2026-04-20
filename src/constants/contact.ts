@@ -3,10 +3,10 @@
 
 export const CONTACT = {
   // Primary WhatsApp number (Costa Rica)
-  phone: "50689052828",
+  phone: "50671911587",
 
   // Formatted phone number for display
-  phoneDisplay: "+506 8905-2828",
+  phoneDisplay: "+506 7191-1587",
 
   // Primary email
   email: "gabriel@luxmediacr.com",

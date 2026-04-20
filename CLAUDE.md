@@ -168,7 +168,7 @@ Note: Original repo (Juuice10/Lux-media-website) exists but isn't connected. Gab
 - Portfolio images should be horizontal (4:3 ratio) — vertical gets cropped
 - OG image is NOT displayed on website — it's for link previews on WhatsApp/social
 - Optimize images before adding (use sips: `sips -s format jpeg -s formatOptions 80 -Z 1200 input.png --out output.jpg`)
-- WhatsApp number: 50686555888
+- WhatsApp number: 50671911587 (single canonical — see `src/constants/contact.ts`)
 - Always test with `npm run build` before pushing
 
 ## Current Status (April 2026)

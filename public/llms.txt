@@ -1,6 +1,6 @@
 # Lux Media — Lux Growth Engine
 
-> Agencia costarricense especializada en crecimiento digital para PYMEs. Lux Growth Engine es un motor integrado que combina publicidad (Meta Ads, Google Ads), agentes de voz con IA, qualifier omnichannel (WhatsApp + Instagram + Facebook), Business Brain (sistema de IA empresarial), posicionamiento GEO, SEO y dashboards en tiempo real bajo un mismo equipo. Cada peso invertido se mide; cada resultado se escala. Ubicación: San José, Costa Rica. Cobertura: toda Costa Rica, remoto para habla hispana.
+> Agencia costarricense especializada en crecimiento digital para PYMEs. Lux Growth Engine es un motor integrado que combina publicidad (Meta Ads, Google Ads), agentes de voz con IA, Business Brain (sistema de IA empresarial — umbrella que cubre WhatsApp, Instagram DM, Facebook Messenger, CRM, lead nurture, campañas, knowledge base, agenda automática y procesos internos), posicionamiento GEO, SEO y dashboards en tiempo real bajo un mismo equipo. Cada peso invertido se mide; cada resultado se escala. Ubicación: San José, Costa Rica. Cobertura: toda Costa Rica, remoto para habla hispana.
 
 ## Acerca de Lux Media
 
@@ -26,7 +26,7 @@
 
 ## Contacto
 
-- WhatsApp: +506 8655 5888
+- WhatsApp: +506 7191 1587
 - Email: gabriel@luxmediacr.com
 - [Auditoría gratuita](https://luxmediacr.com/auditoria)
 - [Contacto directo](https://luxmediacr.com/contacto)
