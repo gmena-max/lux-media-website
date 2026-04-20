@@ -143,26 +143,58 @@ export default function ServicePageContent({
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-3">
-          {service.deliverables.map((item, index) => (
-            <motion.div
-              key={item}
-              initial={isMobile ? false : { opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{
-                delay: isMobile ? 0 : index * 0.03,
-                duration: 0.3,
-              }}
-              className="flex items-start gap-3 p-3"
-            >
-              <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+        {service.deliverableGroups ? (
+          <div className="space-y-10">
+            {service.deliverableGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">
+                  {group.title}
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {group.items.map((item, index) => (
+                    <motion.div
+                      key={item}
+                      initial={isMobile ? false : { opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
+                      transition={{
+                        delay: isMobile ? 0 : index * 0.03,
+                        duration: 0.3,
+                      }}
+                      className="flex items-start gap-3 p-3"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+                      </div>
+                      <span className="text-gray-300">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              <span className="text-gray-300">{item}</span>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 gap-3">
+            {service.deliverables.map((item, index) => (
+              <motion.div
+                key={item}
+                initial={isMobile ? false : { opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{
+                  delay: isMobile ? 0 : index * 0.03,
+                  duration: 0.3,
+                }}
+                className="flex items-start gap-3 p-3"
+              >
+                <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+                </div>
+                <span className="text-gray-300">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* FAQ */}

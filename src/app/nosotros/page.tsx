@@ -4,7 +4,7 @@ import AboutPage from "@/components/AboutPage";
 export const metadata: Metadata = {
   title: "Nosotros",
   description:
-    "Conoce al equipo detrás de Lux Media. Somos una agencia de marketing digital en Costa Rica obsesionada con resultados medibles para tu marca.",
+    "Conoce al equipo detrás de Lux Media — Jeaustin Campos, David Montero y Gabriel Mena. Lux Growth Engine: un motor de crecimiento con IA, pauta y automatización para PYMEs en Costa Rica, obsesionado con resultados medibles.",
   alternates: {
     canonical: "https://luxmediacr.com/nosotros",
   },

@@ -5,6 +5,11 @@ export interface ServiceFAQ {
   answer: string;
 }
 
+export interface DeliverableGroup {
+  title: string;
+  items: string[];
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -15,7 +20,10 @@ export interface Service {
   shortDescription: string;
   painPoints: { title: string; description: string }[];
   solution: string;
+  /** Flat list of deliverables; always required (used for SEO schema + fallback). */
   deliverables: string[];
+  /** Optional grouped view of deliverables; when present the service page renders groups instead of the flat list. */
+  deliverableGroups?: DeliverableGroup[];
   faqs: ServiceFAQ[];
   whatsappMessage: string;
   relatedSlugs: string[];
@@ -515,6 +523,35 @@ export const services: Service[] = [
       "⚙️ Automatizaciones — procesos repetitivos que se ejecutan solos",
       "📊 Reportes mensuales — métricas de conversación, leads y conversión",
       "🔧 Tuning mensual — ajustes según lo que funciona en tu operación",
+    ],
+    deliverableGroups: [
+      {
+        title: "Canales 24/7",
+        items: [
+          "📱 WhatsApp AI — responde, califica leads, agenda citas, hace follow-up",
+          "📷 Instagram DM — el mismo cerebro responde en IG automáticamente",
+          "💬 Facebook Messenger — cobertura completa en redes Meta",
+        ],
+      },
+      {
+        title: "Inteligencia",
+        items: [
+          "📋 CRM integrado — cada conversación guardada, pipeline por etapas",
+          "📚 Base de conocimiento — lee tus docs, precios, FAQs y políticas",
+          "🧑‍💼 Uso interno — tus empleados consultan al cerebro desde WhatsApp o Slack",
+        ],
+      },
+      {
+        title: "Automatización",
+        items: [
+          "📅 Agenda automática — citas directo en Google Calendar",
+          "🔁 Nurture + follow-up — secuencias automáticas para quienes no responden",
+          "📢 Campañas masivas — envíos segmentados por canal y etapa del pipeline",
+          "⚙️ Automatizaciones — procesos repetitivos que se ejecutan solos",
+          "📊 Reportes mensuales — métricas de conversación, leads y conversión",
+          "🔧 Tuning mensual — ajustes según lo que funciona en tu operación",
+        ],
+      },
     ],
     faqs: [
       {
