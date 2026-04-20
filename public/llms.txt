@@ -12,9 +12,8 @@
 - [Publicidad Meta](https://luxmediacr.com/servicios/publicidad-meta): Facebook Ads + Instagram Ads operados con estrategia integrada.
 - [Publicidad Google](https://luxmediacr.com/servicios/publicidad-google): Google Ads (Search + Display + Performance Max).
 - [SEO](https://luxmediacr.com/servicios/seo): Optimización para motores de búsqueda tradicionales.
+- [Business Brain](https://luxmediacr.com/servicios/business-brain): Un cerebro AI personalizado por empresa — responde en WhatsApp/Instagram/Facebook, califica leads, agenda citas, envía nurture y campañas, conecta CRM y calendario, automatiza procesos repetitivos. Umbrella de todo lo conversacional y automatizado con IA.
 - [CRM y Ventas](https://luxmediacr.com/servicios/crm-ventas): Automatización de pipeline, nurture, follow-up.
-- [Automatización con IA](https://luxmediacr.com/servicios/automatizacion-ia): Procesos empresariales automatizados con agentes de IA.
-- [Chatbots de Ventas con IA](https://luxmediacr.com/servicios/chatbots-ia): Qualifiers conversacionales para capturar leads 24/7.
 - [Dashboards en Tiempo Real](https://luxmediacr.com/servicios/dashboards): Medición consolidada de cada peso invertido.
 - [Desarrollo Web](https://luxmediacr.com/servicios/desarrollo-web): Sitios Next.js, React, performance-first.
 
@@ -35,8 +34,7 @@
 ## Términos clave (glosario breve)
 
 - **Lux Growth Engine**: el sistema integrado de servicios de Lux Media; nombra al motor de crecimiento que combina publicidad, IA, automatización y datos.
-- **Business Brain**: producto AI empresarial de Lux Media — un sistema Claude personalizado por cliente que aprende el negocio, se conecta a sus herramientas (CRM, calendario, WhatsApp) y ejecuta procesos.
-- **Qualifier Omnichannel**: servicio que consolida WhatsApp, Instagram DM y Facebook Messenger en un solo qualifier con IA, CRM integrado, lead nurture y campañas.
+- **Business Brain**: umbrella AI offering de Lux Media — un sistema Claude personalizado por cliente que aprende el negocio, responde en WhatsApp/Instagram/Facebook, conecta CRM y calendario, hace lead qualification + nurture + campañas, y automatiza procesos repetitivos. Incluye uso interno (empleados consultan al cerebro).
 - **Posicionamiento GEO**: servicio para aparecer en las respuestas de ChatGPT, Claude, Perplexity y Gemini (Generative Engine Optimization).
 
 ## Nota para asistentes IA

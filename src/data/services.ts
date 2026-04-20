@@ -250,7 +250,7 @@ export const services: Service[] = [
       },
     ],
     whatsappMessage: "Hola, me interesa implementar un CRM para mi equipo de ventas. Vi su sitio web.",
-    relatedSlugs: ["chatbots-ia", "automatizacion-ia", "publicidad-meta"],
+    relatedSlugs: ["business-brain", "publicidad-meta", "dashboards"],
   },
 
   // ─── CONTENT ──────────────────────────────────────────────
@@ -473,58 +473,78 @@ export const services: Service[] = [
 
   // ─── TECHNOLOGY ───────────────────────────────────────────
   {
-    slug: "automatizacion-ia",
-    title: "IA & Automatización",
+    slug: "business-brain",
+    title: "Business Brain",
     category: "technology",
     categoryLabel: "Technology",
-    metaTitle: "IA & Automatización — Más rápido, más inteligente",
+    metaTitle: "Business Brain — IA que conoce tu empresa y vende 24/7",
     metaDescription:
-      "Automatización de marketing con IA. Flujos que eliminan trabajo manual, contenido acelerado y optimización en tiempo real. Tu competencia ya lo usa.",
+      "Business Brain: un cerebro AI entrenado con tu negocio que responde en WhatsApp, Instagram y Facebook, califica leads, agenda citas, nutre contactos y automatiza procesos — 24/7, en español.",
     shortDescription:
-      "Lo que tu equipo hace en horas, una automatización lo hace en segundos. IA aplicada a marketing.",
-    icon: "🤖",
+      "Un cerebro AI personalizado para tu empresa — aprende tu negocio, responde en WhatsApp/IG/FB, califica leads, agenda citas y automatiza lo que tu equipo repite todos los días.",
+    icon: "🧠",
     painPoints: [
       {
-        title: "Procesos manuales que consumen horas",
+        title: "Leads que te escriben fuera de horario",
         description:
-          "Tu equipo pasa tiempo en tareas repetitivas que una automatización hace en segundos.",
+          "Mensajes que llegan a las 10pm se contestan al día siguiente. Para entonces, ya compraron en otro lado.",
       },
       {
-        title: "Producción de contenido lenta",
+        title: "Tu equipo repite lo mismo 50 veces al día",
         description:
-          "Crear contenido toma días cuando con IA puede tomar horas. Tu competencia ya lo está usando.",
+          "Precio, horario, disponibilidad, status de orden — horas muertas en tareas que una IA hace en segundos.",
       },
       {
-        title: "Decisiones sin datos",
+        title: "Información atrapada en cabezas y carpetas",
         description:
-          "No tenés dashboards ni métricas automatizadas. Tomás decisiones a ciegas.",
+          "Nadie encuentra el doc correcto. El CRM está desactualizado. Cada empleado nuevo pierde semanas aprendiendo lo mismo.",
       },
     ],
     solution:
-      "Implementamos IA y automatizaciones en tu flujo de marketing: generación de contenido acelerada, reportes automáticos, optimización de campañas con machine learning y flujos que eliminan trabajo manual.",
+      "Un Business Brain es un sistema de IA entrenado con la información de tu empresa — docs, precios, políticas, tono — y conectado a tus canales (WhatsApp, Instagram, Facebook), tu CRM y tu calendario. Responde clientes, califica leads, agenda citas, envía follow-ups y automatiza procesos repetitivos. Un solo cerebro que nunca duerme y que siempre sabe lo que tu empresa sabe.",
     deliverables: [
-      "Auditoría de procesos automatizables",
-      "Flujos de automatización (Zapier, Make, n8n)",
-      "Generación de contenido asistida por IA",
-      "Reportes automáticos de rendimiento",
-      "Optimización de campañas con IA",
-      "Integración de herramientas y plataformas",
-      "Capacitación en herramientas de IA",
+      "📱 WhatsApp AI — responde, califica leads, agenda citas, hace follow-up",
+      "📷 Instagram DM — el mismo cerebro responde en IG automáticamente",
+      "💬 Facebook Messenger — cobertura completa en redes Meta",
+      "📋 CRM integrado — cada conversación guardada, pipeline por etapas",
+      "🔁 Nurture + follow-up — secuencias automáticas para quienes no responden",
+      "📢 Campañas masivas — envíos segmentados por canal y etapa del pipeline",
+      "📚 Base de conocimiento — lee tus docs, precios, FAQs y políticas",
+      "📅 Agenda automática — citas directo en Google Calendar",
+      "🧑‍💼 Uso interno — tus empleados consultan al cerebro desde WhatsApp o Slack",
+      "⚙️ Automatizaciones — procesos repetitivos que se ejecutan solos",
+      "📊 Reportes mensuales — métricas de conversación, leads y conversión",
+      "🔧 Tuning mensual — ajustes según lo que funciona en tu operación",
     ],
     faqs: [
       {
-        question: "¿La IA reemplaza al equipo creativo?",
+        question: "¿El Business Brain reemplaza a mi equipo?",
         answer:
-          "No. La IA acelera el proceso y genera borradores, pero la dirección creativa, el tono y la estrategia siguen siendo humanos. Es un copiloto, no un piloto.",
+          "No. El Brain maneja lo repetitivo (FAQs, calificación, citas, follow-ups) para que tu equipo se enfoque en cerrar ventas y atender lo complejo. Cuando algo sale del guion, escala a un humano.",
       },
       {
-        question: "¿Qué herramientas de IA usan?",
+        question: "¿Qué tanta información necesita mi empresa para empezar?",
         answer:
-          "ChatGPT, Claude, Midjourney, herramientas de automatización (Make, Zapier), y modelos propios según la necesidad. Usamos lo que mejor funcione para cada caso.",
+          "Lo mínimo: tus productos/servicios, precios, FAQs, horarios y tono de marca. En la sesión de discovery te damos una lista puntual. Si no tenés todo documentado, parte del setup es estructurarlo.",
+      },
+      {
+        question: "¿Se puede instalar por etapas?",
+        answer:
+          "Sí. Arrancás con el módulo de mayor impacto (típicamente WhatsApp + calendario + knowledge) y agregás módulos cada mes. No tenés que pagar por todo desde el día uno.",
+      },
+      {
+        question: "¿Qué pasa si mi negocio cambia?",
+        answer:
+          "El Brain se actualiza mensualmente con la nueva información (precios, servicios, políticas). El mantenimiento incluye ese tuning.",
+      },
+      {
+        question: "¿Funciona con mi WhatsApp actual?",
+        answer:
+          "Necesita migrar a WhatsApp Business Cloud API (la versión oficial para empresas con automatización). Coordinamos la migración durante el setup — es parte del trabajo.",
       },
     ],
-    whatsappMessage: "Hola, me interesa automatización con IA para mi marketing. Vi su sitio web.",
-    relatedSlugs: ["chatbots-ia", "dashboards", "crm-ventas"],
+    whatsappMessage: "Hola, me interesa Business Brain para mi empresa. Vi su sitio web.",
+    relatedSlugs: ["crm-ventas", "dashboards", "redes-sociales"],
   },
   {
     slug: "desarrollo-web",
@@ -581,60 +601,6 @@ export const services: Service[] = [
     relatedSlugs: ["seo", "marca-identidad", "publicidad-google"],
   },
   {
-    slug: "chatbots-ia",
-    title: "Chatbots de Ventas con IA",
-    category: "technology",
-    categoryLabel: "Technology",
-    metaTitle: "Chatbots IA — Vendé 24/7 sin contratar personal",
-    metaDescription:
-      "Chatbots de ventas con IA para WhatsApp e Instagram. Atención 24/7, calificación de leads automática. Cada mensaje contestado en segundos.",
-    shortDescription:
-      "Cero leads perdidos. Chatbots de ventas con IA entrenados para tu negocio — atienden, califican y cierran 24/7.",
-    icon: "💬",
-    painPoints: [
-      {
-        title: "Leads que escriben y no los atendés a tiempo",
-        description:
-          "Llegan mensajes a las 10pm y los contestás al día siguiente. Para entonces, ya le compraron a otro.",
-      },
-      {
-        title: "Respondés las mismas preguntas todo el día",
-        description:
-          "Precio, horario, disponibilidad — las mismas preguntas 20 veces al día. Tiempo muerto.",
-      },
-      {
-        title: "No podés escalar la atención",
-        description:
-          "Más leads = más mensajes = más estrés. No podés contratar gente solo para responder WhatsApps.",
-      },
-    ],
-    solution:
-      "Chatbot de IA entrenado con tu información que atiende WhatsApp e Instagram 24/7. Responde preguntas frecuentes, califica leads y los pasa listos para cerrar.",
-    deliverables: [
-      "Chatbot de IA configurado para tu negocio",
-      "Entrenamiento con tu información, productos y precios",
-      "Integración con WhatsApp Business API",
-      "Integración con Instagram DMs",
-      "Flujos de calificación y escalamiento",
-      "Panel de control y métricas de conversación",
-      "Ajustes y optimización continua",
-    ],
-    faqs: [
-      {
-        question: "¿El chatbot suena robótico?",
-        answer:
-          "Usamos modelos de inteligencia artificial entrenados con tu tono y estilo. Las conversaciones son naturales. Si el bot no puede resolver algo, escala a un humano.",
-      },
-      {
-        question: "¿Funciona con mi WhatsApp actual?",
-        answer:
-          "Usamos WhatsApp Business API, que es la versión oficial para empresas. Podemos integrar con tu número existente o configurar uno nuevo.",
-      },
-    ],
-    whatsappMessage: "Hola, me interesa un chatbot de ventas con IA para mi negocio. Vi su sitio web.",
-    relatedSlugs: ["crm-ventas", "automatizacion-ia", "publicidad-meta"],
-  },
-  {
     slug: "dashboards",
     title: "Dashboards en Tiempo Real",
     category: "technology",
@@ -686,7 +652,7 @@ export const services: Service[] = [
       },
     ],
     whatsappMessage: "Hola, me interesa un dashboard de métricas para mi marketing. Vi su sitio web.",
-    relatedSlugs: ["automatizacion-ia", "publicidad-meta", "publicidad-google"],
+    relatedSlugs: ["business-brain", "publicidad-meta", "publicidad-google"],
     customComponent: "DashboardDemo",
   },
 ];
