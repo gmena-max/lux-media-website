@@ -32,7 +32,7 @@ const faqJsonLd = {
       name: "¿Cuánto cuesta trabajar con ustedes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Gestión de redes sociales arranca desde $500/mes. Estrategia completa (contenido + pauta + reportes) desde $1,500/mes. En la consulta de diagnóstico definimos qué necesitás y cuánto cuesta exactamente — sin sorpresas.",
+        text: "Trabajamos con PYMEs de Costa Rica en tres formatos: gestión de canal puntual (Meta o Google Ads), estrategia integral multicanal, o implementación completa con Business Brain (IA + CRM + dashboards). El precio se define en la llamada de diagnóstico según tu industria, canales y objetivos — propuesta en 48 horas, sin contratos anuales.",
       },
     },
     {

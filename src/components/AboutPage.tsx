@@ -62,7 +62,7 @@ const team = [
 
 const stats = [
   { value: "+20M", label: "Impresiones generadas para nuestros clientes" },
-  { value: "24h", label: "Tiempo de respuesta promedio" },
+  { value: "100%", label: "Clientes con dashboard en vivo 24/7" },
   { value: "4", label: "Industrias: salud, deportes, tech, educación" },
 ];
 

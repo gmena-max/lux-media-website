@@ -59,7 +59,7 @@ export default function ServicePageContent({
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-            ¿Tu negocio enfrenta esto?
+            Si te pasa esto, seguí leyendo
           </h2>
         </motion.div>
 
@@ -98,7 +98,7 @@ export default function ServicePageContent({
           className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
-            Nuestra solución
+            Así lo resolvemos con vos
           </h2>
           <p className="text-gray-300 leading-relaxed text-lg">
             {service.solution}
@@ -139,7 +139,7 @@ export default function ServicePageContent({
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-            Qué incluye
+            Qué ponemos a correr
           </h2>
         </motion.div>
 
@@ -207,7 +207,7 @@ export default function ServicePageContent({
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-              Preguntas frecuentes
+              Antes de que preguntés
             </h2>
           </motion.div>
 
