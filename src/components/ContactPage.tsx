@@ -69,13 +69,13 @@ export default function ContactPage() {
       </section>
 
       {/* What You'll Get */}
-      <section className="py-12 md:py-16 bg-[var(--card-bg)] border-y border-white/5">
+      <section className="py-10 md:py-14 bg-[var(--card-bg)] border-y border-white/5">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             className="text-center mb-10"
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
@@ -88,12 +88,13 @@ export default function ContactPage() {
             {deliverables.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={isMobile ? false : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.1,
-                  duration: 0.4,
+                  delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
                 className="p-6 rounded-2xl glass-card text-center"
               >
@@ -121,10 +122,10 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Founder quote */}
             <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <blockquote className="text-lg text-gray-300 italic leading-relaxed">
@@ -146,21 +147,22 @@ export default function ContactPage() {
 
             {/* Check-marked bullets */}
             <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               className="space-y-5"
             >
               {bullets.map((text, index) => (
                 <motion.div
                   key={text}
-                  initial={isMobile ? false : { opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
+                  initial={isMobile ? false : { y: 8 }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{
-                    delay: isMobile ? 0 : 0.2 + index * 0.1,
-                    duration: 0.4,
+                    delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                    duration: 0.22,
+                    ease: "easeOut",
                   }}
                   className="flex items-start gap-4"
                 >

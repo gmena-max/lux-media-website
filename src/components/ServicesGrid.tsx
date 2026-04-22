@@ -34,10 +34,10 @@ export default function ServicesGrid() {
         return (
           <section key={category}>
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               className="mb-8"
             >
               <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
@@ -52,12 +52,13 @@ export default function ServicesGrid() {
               {categoryServices.map((service, index) => (
                 <motion.div
                   key={service.slug}
-                  initial={isMobile ? false : { opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
+                  initial={isMobile ? false : { y: 8 }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{
-                    delay: isMobile ? 0 : index * 0.05,
-                    duration: 0.4,
+                    delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                    duration: 0.22,
+                    ease: "easeOut",
                   }}
                 >
                   <Link

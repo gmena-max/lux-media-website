@@ -45,10 +45,10 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -68,10 +68,10 @@ export default function FAQ() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 8 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
               >
                 <Accordion.Item
                   value={`faq-${index}`}

@@ -29,10 +29,10 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto px-6 py-16">
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="flex justify-center mb-6"
         >
           <Link href="/" className="inline-block">
@@ -50,10 +50,10 @@ export default function Footer() {
 
         {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.1, duration: 0.5 }}
+          transition={{ delay: 0.05, duration: 0.22, ease: "easeOut" }}
           className="text-center text-white text-lg font-medium mb-10"
         >
           Lux Growth Engine: tu motor de crecimiento.
@@ -61,10 +61,10 @@ export default function Footer() {
 
         {/* Contact info row */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.22, ease: "easeOut" }}
           className="flex flex-wrap justify-center items-center gap-6 md:gap-10 mb-10 text-gray-400"
         >
           {/* Location */}
@@ -117,10 +117,10 @@ export default function Footer() {
 
         {/* Social icons */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
           className="flex justify-center gap-6 mb-12"
         >
           {socialLinks.map((link) => (
@@ -140,10 +140,10 @@ export default function Footer() {
 
         {/* Copyright */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
           className="text-center text-gray-500 text-sm"
         >
           <p>LUX MEDIA © {currentYear}. Todos los derechos reservados.</p>

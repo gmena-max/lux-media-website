@@ -53,10 +53,10 @@ export default function ServicePageContent({
       {/* Pain Points */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
             Si te pasa esto, seguí leyendo
@@ -67,12 +67,13 @@ export default function ServicePageContent({
           {service.painPoints.map((point, index) => (
             <motion.div
               key={point.title}
-              initial={isMobile ? false : { opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              initial={isMobile ? false : { y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                delay: isMobile ? 0 : index * 0.05,
-                duration: 0.4,
+                delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                duration: 0.22,
+                ease: "easeOut",
               }}
               className="p-5 rounded-xl glass-card"
             >
@@ -91,10 +92,10 @@ export default function ServicePageContent({
       {/* Solution */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
@@ -112,10 +113,10 @@ export default function ServicePageContent({
         return (
           <section id="demo">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
                 Probalo en vivo
@@ -133,10 +134,10 @@ export default function ServicePageContent({
       {/* Deliverables */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
             Qué ponemos a correr
@@ -154,12 +155,13 @@ export default function ServicePageContent({
                   {group.items.map((item, index) => (
                     <motion.div
                       key={item}
-                      initial={isMobile ? false : { opacity: 0, x: -8 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-20px" }}
+                      initial={isMobile ? false : { y: 8 }}
+                      whileInView={{ y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
                       transition={{
-                        delay: isMobile ? 0 : index * 0.03,
-                        duration: 0.3,
+                        delay: isMobile ? 0 : Math.min(index * 0.03, 0.15),
+                        duration: 0.22,
+                        ease: "easeOut",
                       }}
                       className="flex items-start gap-3 p-3"
                     >
@@ -178,12 +180,13 @@ export default function ServicePageContent({
             {service.deliverables.map((item, index) => (
               <motion.div
                 key={item}
-                initial={isMobile ? false : { opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.03,
-                  duration: 0.3,
+                  delay: isMobile ? 0 : Math.min(index * 0.03, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
                 className="flex items-start gap-3 p-3"
               >
@@ -201,10 +204,10 @@ export default function ServicePageContent({
       {service.faqs.length > 0 && (
         <section>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
               Antes de que preguntés
@@ -215,12 +218,13 @@ export default function ServicePageContent({
             {service.faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}
-                initial={isMobile ? false : { opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.05,
-                  duration: 0.3,
+                  delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
                 className="rounded-xl glass-card overflow-hidden"
               >
@@ -258,10 +262,10 @@ export default function ServicePageContent({
       {relatedServices.length > 0 && (
         <section>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
               Servicios relacionados
@@ -272,12 +276,13 @@ export default function ServicePageContent({
             {relatedServices.map((related, index) => (
               <motion.div
                 key={related.slug}
-                initial={isMobile ? false : { opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.05,
-                  duration: 0.4,
+                  delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
               >
                 <Link
@@ -302,10 +307,10 @@ export default function ServicePageContent({
       {/* CTA */}
       <section className="text-center py-8">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
             {service.category === "growth"

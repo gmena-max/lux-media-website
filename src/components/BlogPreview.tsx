@@ -23,10 +23,10 @@ export default function BlogPreview({ posts }: { posts: BlogPostPreview[] }) {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-14"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -45,10 +45,10 @@ export default function BlogPreview({ posts }: { posts: BlogPostPreview[] }) {
           {posts.map((post, index) => (
             <motion.div
               key={post.slug}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ delay: index * 0.05, duration: 0.4 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
             >
               <Link
                 href={`/blog/${post.slug}`}
@@ -105,10 +105,10 @@ export default function BlogPreview({ posts }: { posts: BlogPostPreview[] }) {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
           className="text-center mt-10"
         >
           <Link

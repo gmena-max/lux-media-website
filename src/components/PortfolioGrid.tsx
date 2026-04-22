@@ -42,12 +42,13 @@ export default function PortfolioGrid() {
         {projects.map((project, index) => (
           <motion.div
             key={project.slug}
-            initial={isMobile ? false : { opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
+            initial={isMobile ? false : { y: 8 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{
-              delay: isMobile ? 0 : index * 0.05,
-              duration: 0.4,
+              delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+              duration: 0.22,
+              ease: "easeOut",
             }}
           >
             {project.caseStudy ? (

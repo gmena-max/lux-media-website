@@ -24,10 +24,10 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left content */}
           <motion.div
-            initial={{ opacity: 0, x: -15 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
               Sobre Nosotros
@@ -57,19 +57,19 @@ export default function About() {
 
           {/* Right content - Compact highlights */}
           <motion.div
-            initial={{ opacity: 0, x: 15 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.text}
-                  initial={isMobile ? false : { opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "50px" }}
-                  transition={{ delay: isMobile ? 0 : index * 0.05, duration: 0.4 }}
+                  initial={isMobile ? false : { y: 8 }}
+                  whileInView={{ y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: isMobile ? 0 : Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
                   className="flex items-center gap-3 p-4 rounded-xl glass-card"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] flex-shrink-0">

@@ -97,16 +97,16 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="py-12 bg-[var(--card-bg)] border-y border-white/5">
+      <section className="py-10 md:py-14 bg-[var(--card-bg)] border-y border-white/5">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={isMobile ? false : { opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: isMobile ? 0 : index * 0.1, duration: 0.4 }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: isMobile ? 0 : Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
                 className="text-center"
               >
                 <p className="text-3xl md:text-4xl font-bold text-[var(--accent)] font-display">
@@ -126,10 +126,10 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
                 Cómo trabajamos
@@ -149,10 +149,10 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
             >
               <blockquote className="text-lg text-gray-300 italic leading-relaxed">
@@ -180,10 +180,10 @@ export default function AboutPage() {
 
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             className="text-center mb-12"
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
@@ -198,12 +198,13 @@ export default function AboutPage() {
             {differentiators.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={isMobile ? false : { opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "50px" }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.05,
-                  duration: 0.4,
+                  delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
                 className="flex items-start gap-4 p-6 rounded-xl glass-card"
               >
@@ -228,10 +229,10 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             className="text-center mb-12"
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
@@ -246,12 +247,13 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={isMobile ? false : { opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={isMobile ? false : { y: 8 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  delay: isMobile ? 0 : index * 0.1,
-                  duration: 0.5,
+                  delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                  duration: 0.22,
+                  ease: "easeOut",
                 }}
                 className="p-6 rounded-2xl glass-card text-center"
               >
@@ -280,10 +282,10 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-[var(--card-bg)] border-t border-white/5">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
               ¿Querés saber si somos el equipo correcto para tu marca?

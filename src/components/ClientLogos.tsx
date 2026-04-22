@@ -43,7 +43,7 @@ export default function ClientLogos() {
   } = useMarquee({ speed: 80, nudgeDistance: 280 });
 
   return (
-    <section className="py-8 overflow-hidden relative">
+    <section className="py-10 md:py-14 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

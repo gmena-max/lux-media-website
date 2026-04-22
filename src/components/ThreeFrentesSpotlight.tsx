@@ -57,10 +57,10 @@ export default function ThreeFrentesSpotlight() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header block */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -83,14 +83,13 @@ export default function ThreeFrentesSpotlight() {
           {frentes.map((frente, index) => (
             <motion.div
               key={frente.title}
-              initial={
-                isMobile ? { opacity: 0 } : { opacity: 0, y: 20 }
-              }
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{
-                duration: isMobile ? 0.3 : 0.5,
-                delay: isMobile ? 0 : index * 0.1,
+                duration: 0.22,
+                ease: "easeOut",
+                delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
               }}
               className="h-full"
             >
@@ -128,10 +127,10 @@ export default function ThreeFrentesSpotlight() {
         {/* Closing bridge line — no fragile count, reinforces "motor" metaphor,
             arrow bridges visually into ServicesPreview below. */}
         <motion.p
-          initial={isMobile ? { opacity: 0 } : { opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={isMobile ? false : { y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: isMobile ? 0.3 : 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-gray-500 text-base md:text-lg text-center flex items-center justify-center gap-2 mt-16"
         >
           Meta Ads, SEO, video, web — lo demás del motor, abajo.

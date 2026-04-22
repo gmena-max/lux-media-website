@@ -99,10 +99,10 @@ export default function DashboardTeaser() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left column — KPI methodology copy */}
           <motion.div
-            initial={isMobile ? false : { opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={isMobile ? false : { y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
               Reportes en Tiempo Real
@@ -129,10 +129,10 @@ export default function DashboardTeaser() {
 
           {/* Right column — Floating dashboard preview */}
           <motion.div
-            initial={isMobile ? false : { opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={isMobile ? false : { y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: isMobile ? 0 : 0.2 }}
+            transition={{ duration: 0.22, ease: "easeOut", delay: isMobile ? 0 : 0.1 }}
             className="relative"
           >
             {/* Glow behind the panel */}
