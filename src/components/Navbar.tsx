@@ -1,14 +1,21 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
+import MegaMenuPanel from "./MegaMenuPanel";
+import {
+  services,
+  CATEGORY_LABELS,
+  type Service,
+  type ServiceCategory,
+} from "@/data/services";
 
-// Section IDs on the homepage that correspond to each nav link
+// Top-level nav items. "Servicios" is rendered separately (mega-menu trigger).
 const NAV_ITEMS = [
   { path: "/", hash: "inicio", label: "Inicio" },
   { path: "/servicios", hash: "servicios", label: "Servicios" },
@@ -18,12 +25,34 @@ const NAV_ITEMS = [
   { path: "/contacto", hash: "contacto", label: "Contacto" },
 ];
 
+// Mobile drawer order for grouped services
+const MOBILE_COLUMN_ORDER: ServiceCategory[] = [
+  "growth",
+  "content",
+  "technology",
+];
+
+function groupServicesByCategory(): Record<ServiceCategory, Service[]> {
+  return MOBILE_COLUMN_ORDER.reduce((acc, category) => {
+    acc[category] = services.filter((s) => s.category === category);
+    return acc;
+  }, {} as Record<ServiceCategory, Service[]>);
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+
+  // Hover intent timers (desktop mega-menu)
+  const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
   }, []);
@@ -34,10 +63,94 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Close mobile menu on route change
+  // Close menus on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsMegaMenuOpen(false);
+    setIsMobileServicesOpen(false);
   }, [pathname]);
+
+  // Auto-close mega-menu on scroll
+  useEffect(() => {
+    if (!isMegaMenuOpen) return;
+
+    function handleScrollClose() {
+      setIsMegaMenuOpen(false);
+    }
+
+    window.addEventListener("scroll", handleScrollClose, { passive: true });
+    return () => window.removeEventListener("scroll", handleScrollClose);
+  }, [isMegaMenuOpen]);
+
+  // Escape key closes mega-menu + returns focus to trigger
+  useEffect(() => {
+    if (!isMegaMenuOpen) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsMegaMenuOpen(false);
+        triggerRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMegaMenuOpen]);
+
+  // Reset mobile Servicios submenu when drawer closes
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      setIsMobileServicesOpen(false);
+    }
+  }, [isMobileMenuOpen]);
+
+  // Clean up any pending timers on unmount
+  useEffect(() => {
+    return () => {
+      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  function clearTimers() {
+    if (openTimerRef.current) {
+      clearTimeout(openTimerRef.current);
+      openTimerRef.current = null;
+    }
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }
+
+  function handleMegaEnter() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    if (openTimerRef.current) return; // already queued
+    openTimerRef.current = setTimeout(() => {
+      setIsMegaMenuOpen(true);
+      openTimerRef.current = null;
+    }, 150);
+  }
+
+  function handleMegaLeave() {
+    if (openTimerRef.current) {
+      clearTimeout(openTimerRef.current);
+      openTimerRef.current = null;
+    }
+    if (closeTimerRef.current) return; // already queued
+    closeTimerRef.current = setTimeout(() => {
+      setIsMegaMenuOpen(false);
+      closeTimerRef.current = null;
+    }, 300);
+  }
+
+  function handleMegaToggleClick() {
+    clearTimers();
+    setIsMegaMenuOpen((prev) => !prev);
+  }
 
   function isActive(item: (typeof NAV_ITEMS)[number]) {
     if (item.path === "/") {
@@ -45,6 +158,9 @@ export default function Navbar() {
     }
     return pathname.startsWith(item.path);
   }
+
+  const servicesActive = pathname.startsWith("/servicios");
+  const groupedServices = groupServicesByCategory();
 
   return (
     <motion.nav
@@ -90,6 +206,47 @@ export default function Navbar() {
                   }`}
                 >
                   {item.label}
+                </button>
+              );
+            }
+
+            // "Servicios" = mega-menu trigger button (no <Link>)
+            if (item.path === "/servicios") {
+              return (
+                <button
+                  key={item.hash}
+                  id="mega-menu-trigger"
+                  ref={triggerRef}
+                  type="button"
+                  aria-expanded={isMegaMenuOpen}
+                  aria-haspopup="true"
+                  aria-controls="mega-menu-panel"
+                  onClick={handleMegaToggleClick}
+                  onMouseEnter={handleMegaEnter}
+                  onMouseLeave={handleMegaLeave}
+                  className={`text-sm transition-colors line-animation pb-1 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/50 rounded ${
+                    servicesActive || isMegaMenuOpen
+                      ? "text-[var(--accent)]"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                  <svg
+                    aria-hidden="true"
+                    className={`w-3 h-3 transition-transform duration-200 ${
+                      isMegaMenuOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </button>
               );
             }
@@ -168,6 +325,14 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Desktop mega-menu panel — rendered inside <nav> so it inherits z-50 */}
+      <MegaMenuPanel
+        isOpen={isMegaMenuOpen}
+        onClose={() => setIsMegaMenuOpen(false)}
+        onMouseEnter={handleMegaEnter}
+        onMouseLeave={handleMegaLeave}
+      />
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -175,7 +340,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass mt-4"
+            className="md:hidden glass mt-4 overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {NAV_ITEMS.map((item) => {
@@ -188,9 +353,12 @@ export default function Navbar() {
                       type="button"
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 150);
+                        setTimeout(
+                          () => window.scrollTo({ top: 0, behavior: "smooth" }),
+                          150
+                        );
                       }}
-                      className={`text-left transition-colors ${
+                      className={`text-left transition-colors min-h-11 flex items-center ${
                         active
                           ? "text-[var(--accent)]"
                           : "text-gray-300 hover:text-white"
@@ -201,11 +369,126 @@ export default function Navbar() {
                   );
                 }
 
+                // Servicios expands inline into a flat list with section headers
+                if (item.path === "/servicios") {
+                  return (
+                    <div key={item.hash} className="flex flex-col">
+                      <button
+                        type="button"
+                        aria-expanded={isMobileServicesOpen}
+                        aria-controls="mobile-services-panel"
+                        onClick={() =>
+                          setIsMobileServicesOpen((prev) => !prev)
+                        }
+                        className={`text-left transition-colors min-h-11 flex items-center justify-between gap-2 ${
+                          servicesActive
+                            ? "text-[var(--accent)]"
+                            : "text-gray-300 hover:text-white"
+                        }`}
+                      >
+                        <span>{item.label}</span>
+                        <svg
+                          aria-hidden="true"
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isMobileServicesOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {isMobileServicesOpen && (
+                          <motion.div
+                            id="mobile-services-panel"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pt-3 pb-1 flex flex-col gap-4">
+                              {MOBILE_COLUMN_ORDER.map((category) => {
+                                const items = groupedServices[category];
+                                if (!items.length) return null;
+
+                                return (
+                                  <div
+                                    key={category}
+                                    className="flex flex-col"
+                                  >
+                                    {/* Non-interactive section header */}
+                                    <div
+                                      className="flex items-center gap-3 py-2"
+                                      aria-hidden="true"
+                                    >
+                                      <span className="h-px flex-1 bg-[var(--card-border)]/60" />
+                                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--accent)] gold-glow-subtle">
+                                        {CATEGORY_LABELS[category]}
+                                      </span>
+                                      <span className="h-px flex-1 bg-[var(--card-border)]/60" />
+                                    </div>
+
+                                    <div className="flex flex-col">
+                                      {items.map((service) => (
+                                        <Link
+                                          key={service.slug}
+                                          href={`/servicios/${service.slug}`}
+                                          onClick={() =>
+                                            setIsMobileMenuOpen(false)
+                                          }
+                                          className="flex items-start gap-3 min-h-11 py-2 px-1 border-t border-[var(--card-border)]/50 first:border-t-0 hover:text-[var(--accent)] transition-colors"
+                                        >
+                                          <span
+                                            className="flex-shrink-0 text-lg leading-none pt-1"
+                                            aria-hidden="true"
+                                          >
+                                            {service.icon}
+                                          </span>
+                                          <div className="flex-1 min-w-0">
+                                            <div className="text-sm font-semibold text-white">
+                                              {service.title}
+                                            </div>
+                                            <p className="text-xs text-gray-400 leading-snug mt-0.5">
+                                              {service.shortDescription}
+                                            </p>
+                                          </div>
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+
+                              <Link
+                                href="/servicios"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-light)] min-h-11"
+                              >
+                                Ver todos los servicios
+                                <span aria-hidden="true">→</span>
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.hash}
                     href={item.path}
-                    className={`transition-colors ${
+                    className={`transition-colors min-h-11 flex items-center ${
                       active
                         ? "text-[var(--accent)]"
                         : "text-gray-300 hover:text-white"
