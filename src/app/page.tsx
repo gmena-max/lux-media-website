@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import ResultsTicker from "@/components/ResultsTicker";
+import ThreeFrentesSpotlight from "@/components/ThreeFrentesSpotlight";
 import ServicesPreview from "@/components/ServicesPreview";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
@@ -78,6 +79,35 @@ const faqJsonLd = {
   ],
 };
 
+// ItemList JSON-LD for the 3 flagship AI frentes — GEO citation bonus.
+// Card reading order (BB → Voice Agent → GEO) is preserved in the schema
+// so LLM citations reflect the homepage F-pattern.
+const threeFrentesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Lux Growth Engine — Servicios flagship de IA",
+  itemListElement: [
+    {
+      "@type": "Service",
+      position: 1,
+      name: "Business Brain",
+      url: "https://luxmediacr.com/servicios/business-brain",
+    },
+    {
+      "@type": "Service",
+      position: 2,
+      name: "Voice Agent",
+      url: "https://luxmediacr.com/servicios/voice-agent",
+    },
+    {
+      "@type": "Service",
+      position: 3,
+      name: "Posicionamiento GEO",
+      url: "https://luxmediacr.com/servicios/posicionamiento-geo",
+    },
+  ],
+};
+
 export default function Home() {
   const posts = getAllPosts().slice(0, 3);
 
@@ -87,10 +117,15 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(threeFrentesJsonLd) }}
+      />
       <main className="min-h-screen bg-[var(--background)] aurora-bg">
         <Hero />
         <ClientLogos />
         <ResultsTicker />
+        <ThreeFrentesSpotlight />
         <ServicesPreview />
         <Portfolio />
         <Process />
