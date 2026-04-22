@@ -56,7 +56,7 @@ export default function Footer() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-center text-white text-lg font-medium mb-10"
         >
-          Tu departamento de marketing. Sin la planilla.
+          Lux Growth Engine: tu motor de crecimiento.
         </motion.p>
 
         {/* Contact info row */}

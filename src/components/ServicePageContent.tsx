@@ -59,7 +59,7 @@ export default function ServicePageContent({
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-            ¿Tu negocio enfrenta esto?
+            Si te pasa esto, seguí leyendo
           </h2>
         </motion.div>
 
@@ -98,7 +98,7 @@ export default function ServicePageContent({
           className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
-            Nuestra solución
+            Así lo resolvemos con vos
           </h2>
           <p className="text-gray-300 leading-relaxed text-lg">
             {service.solution}
@@ -139,30 +139,62 @@ export default function ServicePageContent({
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-            Qué incluye
+            Qué ponemos a correr
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-3">
-          {service.deliverables.map((item, index) => (
-            <motion.div
-              key={item}
-              initial={isMobile ? false : { opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{
-                delay: isMobile ? 0 : index * 0.03,
-                duration: 0.3,
-              }}
-              className="flex items-start gap-3 p-3"
-            >
-              <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+        {service.deliverableGroups ? (
+          <div className="space-y-10">
+            {service.deliverableGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-[var(--accent)] text-sm font-semibold uppercase tracking-widest mb-4">
+                  {group.title}
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {group.items.map((item, index) => (
+                    <motion.div
+                      key={item}
+                      initial={isMobile ? false : { opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
+                      transition={{
+                        delay: isMobile ? 0 : index * 0.03,
+                        duration: 0.3,
+                      }}
+                      className="flex items-start gap-3 p-3"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+                      </div>
+                      <span className="text-gray-300">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-              <span className="text-gray-300">{item}</span>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 gap-3">
+            {service.deliverables.map((item, index) => (
+              <motion.div
+                key={item}
+                initial={isMobile ? false : { opacity: 0, x: -8 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{
+                  delay: isMobile ? 0 : index * 0.03,
+                  duration: 0.3,
+                }}
+                className="flex items-start gap-3 p-3"
+              >
+                <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-3.5 h-3.5 text-[var(--accent)]" />
+                </div>
+                <span className="text-gray-300">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* FAQ */}
@@ -175,7 +207,7 @@ export default function ServicePageContent({
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
-              Preguntas frecuentes
+              Antes de que preguntés
             </h2>
           </motion.div>
 
@@ -309,17 +341,19 @@ export default function ServicePageContent({
               </svg>
               Agendar consulta gratuita
             </motion.a>
-            <Link
-              href="/contacto"
+            <a
+              href={CONTACT.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() =>
-                trackEvent("cta_click", {
-                  event_label: `Service - ${service.title} - Escríbenos`,
+                trackEvent("booking_click", {
+                  event_label: `Service - ${service.title}`,
                 })
               }
-              className="inline-flex items-center justify-center px-8 py-4 text-gray-400 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-full border border-white/20 text-white/80 hover:bg-white/[0.08] hover:border-white/40 hover:text-white transition-all duration-200"
             >
-              Escríbenos directo
-            </Link>
+              📅 Agendá 30 min con Gabriel
+            </a>
           </div>
         </motion.div>
       </section>

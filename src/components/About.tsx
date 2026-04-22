@@ -33,13 +33,13 @@ export default function About() {
               Sobre Nosotros
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-6 font-display">
-              No somos una agencia más
+              Somos tu Lux Growth Engine
             </h2>
 
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                <strong className="text-white">Somos tu departamento de marketing externo.</strong>{" "}
-                Estrategia, contenido, pauta, automatización e inteligencia artificial — todo bajo un mismo equipo que conoce tu negocio.
+                <strong className="text-white">Publicidad, IA, automatización, contenido y datos — operados por un solo equipo que conoce tu negocio.</strong>{" "}
+                Eso es un motor de crecimiento, no una agencia tradicional.
               </p>
               <p>
                 Trabajamos con pocas marcas a la vez para darle a cada una la atención que merece. Sin intermediarios, sin excusas, sin métricas vacías.

@@ -6,7 +6,7 @@ Project-specific context for the Lux Media marketing website.
 
 Active repositioning to **Lux Growth Engine** brand with **Business Brain** as the productized AI offering. These four rules are load-bearing across all copy, service pages, and marketing assets — do not override without Gabriel's explicit approval.
 
-1. **Product name lock — Business Brain.** The productized AI system is branded **"Business Brain."** Never "Claude Brain," "AI Brain," "Cerebro de Operaciones," or "cerebro-operaciones." URL slug is `/servicios/business-brain`.
+1. **Product name lock — Business Brain.** The productized AI system is branded **"Business Brain."** Never "Claude Brain," "AI Brain," "Cerebro de Operaciones," or "cerebro-operaciones." URL slug is `/servicios/business-brain`. **Scope:** Business Brain is the *umbrella* AI offering — it covers WhatsApp + Instagram DM + Facebook Messenger qualifiers, embedded CRM, lead nurture + follow-up + campaigns, knowledge-base over client docs, calendar booking, internal-employee queries, and process automations. Deprecated separate services `/servicios/chatbots-ia` and `/servicios/automatizacion-ia` redirect permanently to `/servicios/business-brain`.
 
 2. **No public pricing, no qualification gates.** Every service page drives to a discovery booking — no fixed tiers, no ranges, no "desde $X," no "Ideal para…" filters. Gabriel's explicit call: broad-market inbound, qualify on the discovery call. Trade-off accepted: more discovery calls (some wrong-fit) in exchange for wider top-of-funnel.
 
@@ -168,7 +168,7 @@ Note: Original repo (Juuice10/Lux-media-website) exists but isn't connected. Gab
 - Portfolio images should be horizontal (4:3 ratio) — vertical gets cropped
 - OG image is NOT displayed on website — it's for link previews on WhatsApp/social
 - Optimize images before adding (use sips: `sips -s format jpeg -s formatOptions 80 -Z 1200 input.png --out output.jpg`)
-- WhatsApp number: 50686555888
+- WhatsApp number: 50671911587 (single canonical — see `src/constants/contact.ts`)
 - Always test with `npm run build` before pushing
 
 ## Current Status (April 2026)

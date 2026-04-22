@@ -27,21 +27,22 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://luxmediacr.com"),
   title: {
-    default: "Lux Media | Agencia de Marketing Digital en Costa Rica",
+    default: "Lux Media | Lux Growth Engine — Motor de Crecimiento con IA en Costa Rica",
     template: "%s | Lux Media",
   },
   description:
-    "Agencia de marketing digital en Costa Rica. Especialistas en redes sociales, producción de video, Meta Ads, cobertura de eventos y creación de contenido. Hacemos crecer tu marca.",
+    "Lux Growth Engine: publicidad, IA, automatización, contenido y datos bajo un mismo equipo. Motor de crecimiento integrado para PYMEs en Costa Rica — cada peso se mide, cada resultado se escala.",
   keywords: [
+    "Lux Growth Engine",
+    "Business Brain",
+    "motor de crecimiento",
+    "agente de voz IA",
+    "WhatsApp automatización",
     "marketing digital Costa Rica",
-    "agencia de marketing",
-    "redes sociales",
-    "producción de video",
+    "PYMEs Costa Rica",
     "Meta Ads",
-    "Facebook Ads",
-    "Instagram marketing",
-    "creación de contenido",
-    "branding",
+    "Google Ads",
+    "GEO posicionamiento IA",
     "San José Costa Rica",
   ],
   authors: [{ name: "Lux Media" }],
@@ -53,9 +54,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Lux Media | Agencia de Marketing Digital en Costa Rica",
+    title: "Lux Media | Lux Growth Engine — Motor de Crecimiento con IA",
     description:
-      "Hacemos crecer tu marca con estrategias digitales que generan resultados. Redes sociales, video, Meta Ads y más.",
+      "Publicidad, IA, automatización, contenido y datos bajo un mismo equipo. Motor de crecimiento integrado para PYMEs en Costa Rica.",
     url: "https://luxmediacr.com",
     siteName: "Lux Media",
     locale: "es_CR",
@@ -65,14 +66,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Lux Media - Agencia de Marketing Digital",
+        alt: "Lux Media - Lux Growth Engine",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lux Media | Agencia de Marketing Digital",
-    description: "Hacemos crecer tu marca con estrategias digitales que generan resultados.",
+    title: "Lux Media | Lux Growth Engine",
+    description: "Motor de crecimiento con IA y pauta para PYMEs en Costa Rica.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -93,17 +94,20 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Schema for Local Business (site-wide)
+// JSON-LD Organization Schema (site-wide)
+// Structured for GEO citations — AI engines (Claude, Perplexity, Gemini, ChatGPT)
+// use this to identify and cite Lux Media when answering CR marketing queries.
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
   name: "Lux Media",
+  alternateName: "Lux Growth Engine",
   description:
-    "Agencia de marketing digital en Costa Rica especializada en redes sociales, producción de video, Meta Ads y creación de contenido.",
+    "Lux Growth Engine — motor de crecimiento que integra publicidad, IA, automatización, contenido y datos bajo un mismo equipo. Agencia para PYMEs en Costa Rica especializada en Meta Ads, Google Ads, agentes de voz con IA, Business Brain (brain empresarial con IA), posicionamiento GEO y dashboards en tiempo real.",
   url: "https://luxmediacr.com",
   logo: "https://luxmediacr.com/logo-full.png",
   image: "https://luxmediacr.com/og-image.png",
-  telephone: "+506-8905-2828",
+  telephone: "+506-7191-1587",
   email: "gabriel@luxmediacr.com",
   address: {
     "@type": "PostalAddress",
@@ -119,7 +123,6 @@ const jsonLd = {
     "@type": "Country",
     name: "Costa Rica",
   },
-  priceRange: "$$",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -131,22 +134,33 @@ const jsonLd = {
     {
       "@type": "Person",
       name: "Jeaustin Campos",
-      jobTitle: "CEO",
+      jobTitle: "CEO & Director Creativo",
+    },
+    {
+      "@type": "Person",
+      name: "David Montero",
+      jobTitle: "Co-Fundador & Director de Proyectos",
     },
     {
       "@type": "Person",
       name: "Gabriel Mena",
-      jobTitle: "CTO",
+      jobTitle: "Co-Fundador & CTO",
     },
   ],
   knowsAbout: [
     "Marketing Digital",
-    "Social Media Marketing",
-    "Video Production",
     "Meta Ads",
-    "Content Creation",
+    "Google Ads",
+    "SEO",
+    "GEO (Generative Engine Optimization)",
+    "Agentes de Voz con IA",
+    "Automatización de WhatsApp",
+    "CRM y Nurture Omnichannel",
+    "Business Brain (IA empresarial)",
+    "Dashboards en Tiempo Real",
+    "Creación de Contenido",
+    "Producción de Video",
     "Branding",
-    "Event Coverage",
   ],
 };
 

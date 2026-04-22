@@ -11,7 +11,7 @@ import { trackEvent } from "@/lib/gtag";
 const featuredSlugs = [
   "publicidad-meta",
   "redes-sociales",
-  "chatbots-ia",
+  "business-brain",
   "seo",
   "video-reels",
   "desarrollo-web",

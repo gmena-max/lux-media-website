@@ -8,7 +8,6 @@ import {
   Zap,
   Target,
 } from "lucide-react";
-import Link from "next/link";
 import { CONTACT } from "@/constants/contact";
 import { trackEvent } from "@/lib/gtag";
 
@@ -62,7 +61,7 @@ const team = [
 
 const stats = [
   { value: "+20M", label: "Impresiones generadas para nuestros clientes" },
-  { value: "24h", label: "Tiempo de respuesta promedio" },
+  { value: "100%", label: "Clientes con dashboard en vivo 24/7" },
   { value: "4", label: "Industrias: salud, deportes, tech, educación" },
 ];
 
@@ -87,11 +86,11 @@ export default function AboutPage() {
               Sobre Nosotros
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 font-display">
-              Tu departamento de marketing. Sin la planilla.
+              Lux Growth Engine: tu motor de crecimiento, sin la planilla.
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Publicidad, SEO, redes, analytics, web y automatización con IA — un equipo que hace todo,
-              para que vos solo te preocupés por cerrar ventas.
+              Publicidad, SEO, redes, analytics, automatización, agentes de IA y dashboards — un motor
+              integrado, un solo equipo. Vos solo te enfocás en cerrar ventas.
             </p>
           </motion.div>
         </div>
@@ -317,17 +316,19 @@ export default function AboutPage() {
                 </svg>
                 Agendar diagnóstico
               </motion.a>
-              <Link
-                href="/contacto"
+              <a
+                href={CONTACT.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
-                  trackEvent("cta_click", {
-                    event_label: "About Page - Escríbenos",
+                  trackEvent("booking_click", {
+                    event_label: "About Page",
                   })
                 }
-                className="inline-flex items-center justify-center px-8 py-4 text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 font-medium rounded-full border border-white/20 text-white/80 hover:bg-white/[0.08] hover:border-white/40 hover:text-white transition-all duration-200"
               >
-                Escríbenos directo
-              </Link>
+                📅 Agendá 30 min con Gabriel
+              </a>
             </div>
           </motion.div>
         </div>

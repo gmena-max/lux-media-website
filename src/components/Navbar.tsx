@@ -66,7 +66,7 @@ export default function Navbar() {
             height={70}
             sizes="(max-width: 768px) 146px, 330px"
             quality={90}
-            className="h-16 md:h-36 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
+            className="h-16 md:h-24 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </Link>

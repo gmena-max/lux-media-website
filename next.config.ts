@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Redirects — consolidate deprecated service pages into Business Brain (the umbrella AI offering)
+  async redirects() {
+    return [
+      {
+        source: "/servicios/chatbots-ia",
+        destination: "/servicios/business-brain",
+        permanent: true,
+      },
+      {
+        source: "/servicios/automatizacion-ia",
+        destination: "/servicios/business-brain",
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers
   async headers() {
     return [
