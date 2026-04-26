@@ -6,7 +6,7 @@ import { useMarquee } from "@/hooks/useMarquee";
 
 const clients = [
   { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png" },
-  { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
+  { name: "Deporte+", logo: "/logos/deporte-plus-white.png" },
   { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "md:w-64 md:h-48" },
   { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
 { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
