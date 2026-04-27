@@ -82,7 +82,7 @@ export const services: Service[] = [
       {
         question: "¿Cuánto debo invertir en Meta Ads?",
         answer:
-          "Mínimo $300-500/mes en pauta para resultados consistentes. En la consulta de diagnóstico definimos el presupuesto exacto según tu industria y objetivos.",
+          "Depende de tu industria, mercado y objetivos. En la llamada de diagnóstico revisamos tu situación actual, definimos un presupuesto que tenga sentido para tu volumen de ventas, y te enviamos una propuesta con números exactos en 48 horas.",
       },
       {
         question: "¿Cuánto tardan en verse resultados?",
@@ -782,7 +782,7 @@ export const services: Service[] = [
       {
         question: "¿Cuánto cuesta un sitio web?",
         answer:
-          "Una landing page arranca desde $800. Un sitio multi-página desde $2,000. El precio depende de la complejidad y funcionalidades. Cotizamos según tu proyecto.",
+          "Depende del alcance: una landing page enfocada en una conversión, un sitio multi-página con blog y SEO, o un sitio completo con integraciones a CRM y dashboards son inversiones distintas. En la llamada de diagnóstico definimos alcance y te enviamos una propuesta con precio exacto en 48 horas.",
       },
       {
         question: "¿Con qué tecnología desarrollan?",

@@ -67,11 +67,11 @@ const CHANNELS = [
 ];
 
 const BUDGET_OPTIONS = [
-  "Menos de $500/mes",
-  "$500 - $1,000/mes",
-  "$1,000 - $2,000/mes",
-  "Más de $2,000/mes",
-  "No estoy seguro",
+  "Estoy explorando — todavía no defino inversión",
+  "Tengo un presupuesto chico para empezar",
+  "Tengo presupuesto medio, busco crecer",
+  "Tengo presupuesto fuerte, busco escalar",
+  "No estoy seguro / quiero recomendación",
 ];
 
 export default function AuditoriaPage() {
