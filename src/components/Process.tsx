@@ -51,17 +51,17 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-12 md:py-24 relative overflow-hidden bg-[var(--card-bg)]">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-[var(--card-bg)]">
       {/* Background elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--card-border)] to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -80,10 +80,10 @@ export default function Process() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
               className="group relative"
             >
               {/* Connecting line (desktop) */}

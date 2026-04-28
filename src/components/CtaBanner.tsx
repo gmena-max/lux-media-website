@@ -19,7 +19,7 @@ export default function CtaBanner({
   whatsappMessage = "Hola, quiero reservar una llamada de diagnóstico para mi marca.",
 }: CtaBannerProps) {
   return (
-    <section id="contacto" className="py-20 relative overflow-hidden">
+    <section id="contacto" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--card-bg)] to-[var(--background)] pointer-events-none" />
 
@@ -51,18 +51,18 @@ export default function CtaBanner({
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center"
         >
           {/* Title */}
           <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.1, duration: 0.5 }}
+            transition={{ delay: 0.05, duration: 0.22, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-bold text-white mb-4 font-display"
           >
             {title}
@@ -70,10 +70,10 @@ export default function CtaBanner({
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.1, duration: 0.22, ease: "easeOut" }}
             className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             {subtitle}
@@ -81,10 +81,10 @@ export default function CtaBanner({
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
@@ -113,10 +113,10 @@ export default function CtaBanner({
 
           {/* Trust indicator */}
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
             className="text-gray-600 text-sm mt-4 md:mt-8"
           >
             Respuesta en menos de 24 horas · Consulta de 30 minutos

@@ -72,7 +72,7 @@ export default function ResultsTicker() {
   const reducedMotion = usePrefersReducedMotion();
 
   return (
-    <section className="py-14 md:py-20 bg-[var(--background)] relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-[var(--background)] relative overflow-hidden">
       {/* Decorative blur */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[200px] bg-[var(--accent)]/5 rounded-full blur-3xl" />
@@ -87,10 +87,10 @@ export default function ResultsTicker() {
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <AnimatedNumber
                 target={stat.target}

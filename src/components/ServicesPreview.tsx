@@ -33,10 +33,10 @@ export default function ServicesPreview() {
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-14"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest">
@@ -55,12 +55,13 @@ export default function ServicesPreview() {
           {featuredServices.map((service, index) => (
             <motion.div
               key={service!.slug}
-              initial={isMobile ? false : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              initial={isMobile ? false : { y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                delay: isMobile ? 0 : index * 0.05,
-                duration: 0.4,
+                delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                duration: 0.22,
+                ease: "easeOut",
               }}
             >
               <Link
@@ -90,10 +91,10 @@ export default function ServicesPreview() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.15, duration: 0.22, ease: "easeOut" }}
           className="text-center mt-10"
         >
           <Link

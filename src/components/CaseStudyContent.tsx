@@ -71,10 +71,10 @@ export default function CaseStudyContent({
 
       {/* Services tags */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
+        initial={{ y: 8 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
         className="flex flex-wrap gap-2"
       >
         {cs.services.map((service) => (
@@ -90,10 +90,10 @@ export default function CaseStudyContent({
       {/* Overview */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
             El proyecto
@@ -107,10 +107,10 @@ export default function CaseStudyContent({
       {/* Challenge */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
             El reto
@@ -124,10 +124,10 @@ export default function CaseStudyContent({
       {/* Approach */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-6">
             Nuestro enfoque
@@ -138,12 +138,13 @@ export default function CaseStudyContent({
           {cs.approach.map((item, index) => (
             <motion.div
               key={item}
-              initial={isMobile ? false : { opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
+              initial={isMobile ? false : { y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                delay: isMobile ? 0 : index * 0.05,
-                duration: 0.3,
+                delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                duration: 0.22,
+                ease: "easeOut",
               }}
               className="flex items-start gap-3 p-3"
             >
@@ -159,10 +160,10 @@ export default function CaseStudyContent({
       {/* Results */}
       <section>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-8">
             Resultados
@@ -173,12 +174,13 @@ export default function CaseStudyContent({
           {cs.results.map((result, index) => (
             <motion.div
               key={result.metric}
-              initial={isMobile ? false : { opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
+              initial={isMobile ? false : { y: 8 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                delay: isMobile ? 0 : index * 0.08,
-                duration: 0.4,
+                delay: isMobile ? 0 : Math.min(index * 0.05, 0.15),
+                duration: 0.22,
+                ease: "easeOut",
               }}
               className="p-5 rounded-xl glass-card text-center"
             >
@@ -195,10 +197,10 @@ export default function CaseStudyContent({
       {cs.testimonial && (
         <section>
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             className="p-8 rounded-2xl bg-gradient-to-br from-[var(--accent)]/10 to-transparent border border-[rgba(245,181,26,0.2)]"
           >
             <Quote className="w-8 h-8 text-[var(--accent)]/40 mb-4" />
@@ -218,10 +220,10 @@ export default function CaseStudyContent({
       {/* CTA */}
       <section className="text-center py-8">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">
             ¿Listo para ver resultados así?

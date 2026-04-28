@@ -32,9 +32,9 @@ export interface Service {
 }
 
 export const CATEGORY_LABELS: Record<ServiceCategory, string> = {
-  growth: "Growth",
-  content: "Content",
-  technology: "Technology",
+  growth: "Crecimiento",
+  content: "Contenido",
+  technology: "Tecnología",
 };
 
 export const services: Service[] = [
@@ -43,7 +43,7 @@ export const services: Service[] = [
     slug: "publicidad-meta",
     title: "Meta Ads (Facebook + Instagram)",
     category: "growth",
-    categoryLabel: "Growth",
+    categoryLabel: "Crecimiento",
     metaTitle: "Meta Ads — Más clientes desde Facebook e Instagram",
     metaDescription:
       "Campañas de Meta Ads con resultados desde la primera semana. Segmentación, creativos y optimización semanal. Cada colón invertido se mide.",
@@ -82,7 +82,7 @@ export const services: Service[] = [
       {
         question: "¿Cuánto debo invertir en Meta Ads?",
         answer:
-          "Mínimo $300-500/mes en pauta para resultados consistentes. En la consulta de diagnóstico definimos el presupuesto exacto según tu industria y objetivos.",
+          "Depende de tu industria, mercado y objetivos. En la llamada de diagnóstico revisamos tu situación actual, definimos un presupuesto que tenga sentido para tu volumen de ventas, y te enviamos una propuesta con números exactos en 48 horas.",
       },
       {
         question: "¿Cuánto tardan en verse resultados?",
@@ -102,7 +102,7 @@ export const services: Service[] = [
     slug: "publicidad-google",
     title: "Google Ads",
     category: "growth",
-    categoryLabel: "Growth",
+    categoryLabel: "Crecimiento",
     metaTitle: "Google Ads — Aparecé primero cuando te buscan",
     metaDescription:
       "Campañas de Google Ads que capturan demanda existente. Search, Display y YouTube Ads con tracking de conversiones y ROAS medible.",
@@ -150,13 +150,13 @@ export const services: Service[] = [
       },
     ],
     whatsappMessage: "Hola, me interesa publicidad en Google Ads para mi negocio. Vi su sitio web.",
-    relatedSlugs: ["publicidad-meta", "seo", "desarrollo-web"],
+    relatedSlugs: ["posicionamiento-geo", "publicidad-meta", "seo"],
   },
   {
     slug: "seo",
     title: "SEO & Posicionamiento",
     category: "growth",
-    categoryLabel: "Growth",
+    categoryLabel: "Crecimiento",
     metaTitle: "SEO — Que te encuentren cuando te buscan",
     metaDescription:
       "Posicionamiento orgánico, Google Business Profile y gestión de reseñas. Tráfico calificado que llega sin pagar por cada clic.",
@@ -204,13 +204,88 @@ export const services: Service[] = [
       },
     ],
     whatsappMessage: "Hola, me interesa mejorar el posicionamiento de mi negocio en Google. Vi su sitio web.",
-    relatedSlugs: ["publicidad-google", "desarrollo-web", "crm-ventas"],
+    relatedSlugs: ["posicionamiento-geo", "publicidad-google", "desarrollo-web"],
+  },
+  {
+    slug: "posicionamiento-geo",
+    title: "Posicionamiento GEO",
+    category: "growth",
+    categoryLabel: "Crecimiento",
+    metaTitle: "Posicionamiento GEO — Aparecé en ChatGPT, Claude, Perplexity y Gemini",
+    metaDescription:
+      "Tus clientes ya le preguntan a ChatGPT antes de buscar en Google. GEO posiciona tu marca como fuente citada por las IA. El nuevo canal orgánico.",
+    shortDescription:
+      "Aparecé en las respuestas de ChatGPT, Claude y Gemini cuando tu cliente pregunta — eso es GEO.",
+    icon: "✨",
+    painPoints: [
+      {
+        title: "Tus clientes ya no empiezan en Google",
+        description:
+          "Antes de buscar, preguntan a ChatGPT, Claude o Perplexity. Si la IA no te conoce, te saltearon sin darse cuenta.",
+      },
+      {
+        title: "La IA menciona a tu competencia, no a vos",
+        description:
+          "Las empresas que publican contenido estructurado y citable terminan en las respuestas. Las que no, desaparecen del canal.",
+      },
+      {
+        title: "Te están ganando un canal que ni sabías que existía",
+        description:
+          "Marcas en tu categoría ya están optimizando para aparecer en ChatGPT. Cada mes que esperás, construyen autoridad que luego es cara de alcanzar.",
+      },
+    ],
+    solution:
+      "GEO (Generative Engine Optimization) es aparecer en las respuestas de sistemas de IA generativa — ChatGPT, Claude, Perplexity, Gemini — cuando tus clientes preguntan. Es un canal paralelo al SEO, con sus propias reglas. Los LLMs citan fuentes con contenido estructurado, con autoridad, y con datos concretos sobre tu categoría. Nosotros construimos esa autoridad: contenido en español con el formato que los LLMs priorizan, schema data que te hace citable, y monitoreo mensual de en qué respuestas apareces. GEO complementa al SEO — no lo reemplaza.",
+    deliverables: [
+      "✨ Estrategia GEO adaptada a tu categoría y mercado",
+      "📚 Artículos de alta autoridad en español (formato que los LLMs citan) — cantidad según plan",
+      "🧩 Schema data + llms.txt + estructura de datos citable",
+      "🗺️ Mapa de temas por industria — los subtópicos donde tu marca debe ser citada",
+      "🔍 Monitoreo mensual de menciones en ChatGPT, Claude, Perplexity, Gemini",
+      "📊 Reporte mensual de visibilidad + citaciones detectadas",
+      "🔁 Ajustes mensuales según qué preguntas disparan citaciones",
+      "🧭 Acompañamiento estratégico mensual — revisión de resultados y siguiente jugada",
+    ],
+    faqs: [
+      {
+        question: "¿Cuál es la diferencia entre GEO y SEO?",
+        answer:
+          "SEO es aparecer en los resultados de Google Search. GEO es aparecer en las respuestas de sistemas de IA generativa: ChatGPT, Claude, Perplexity, Gemini. Son canales distintos. Google te lleva a páginas; los LLMs te dan respuestas directas que a veces citan tu marca. Hoy mucha gente resuelve sus dudas en la IA antes de llegar a buscar — si no estás ahí, ni siquiera existe el clic a Google.",
+      },
+      {
+        question: "¿Cómo se mide el éxito en GEO?",
+        answer:
+          "Medimos tres cosas: citaciones detectadas en respuestas de IA (ChatGPT, Claude, Perplexity, Gemini), autoridad en el topic (cuántos temas dentro de tu categoría te mencionan), y tráfico proveniente de esos canales cuando es rastreable. No prometemos 'aparecer en ChatGPT la semana 3' — los LLMs no funcionan así. Medimos la curva de visibilidad mes a mes.",
+      },
+      {
+        question: "¿Cuánto tarda hasta que aparezca en respuestas de IA?",
+        answer:
+          "Típicamente las primeras citaciones comienzan a verse en 3–6 meses. Los LLMs procesan información con rezago — necesitan indexar, validar fuentes, y repetir la cita en contextos parecidos antes de que aparezcas de forma estable. GEO + SEO combinados aceleran: la visibilidad en Google alimenta las citas en IA.",
+      },
+      {
+        question: "¿Por qué ahora y no en un año?",
+        answer:
+          "Porque la autoridad en GEO es acumulativa y primera-en-ganar. Las marcas que publican contenido citable ahora se consolidan como fuente que los LLMs recuerdan. Un año después, esa autoridad ya está tomada — entrás a empujar contra empresas con 12 meses de ventaja. En GEO el early-mover compra autoridad barata; el late-mover la paga triple en volumen de contenido.",
+      },
+      {
+        question: "¿A la IA le interesa Costa Rica?",
+        answer:
+          "Los LLMs responden en español y citan fuentes en español. No es un canal gringo. Cuando alguien en CR le pregunta a ChatGPT sobre un servicio local, la IA busca fuentes relevantes en español — y si tu marca publica contenido de autoridad en tu categoría, aparecés. El sesgo 'solo cosas de EE.UU.' se corrigió en los últimos 12–18 meses.",
+      },
+      {
+        question: "¿Esto reemplaza mi inversión en Google Ads?",
+        answer:
+          "No. Google Ads es pago-por-clic (volumen ahora, ROI inmediato). GEO es orgánico (autoridad acumulativa, ROI sostenido). Recomendamos combinar: Ads te da leads mientras GEO construye la autoridad que el siguiente año te consigue leads sin pagar cada clic.",
+      },
+    ],
+    whatsappMessage: "Hola, me interesa posicionamiento GEO para aparecer en ChatGPT. Vi su sitio web.",
+    relatedSlugs: ["seo", "publicidad-google", "business-brain"],
   },
   {
     slug: "crm-ventas",
     title: "CRM & Automatización de Ventas",
     category: "growth",
-    categoryLabel: "Growth",
+    categoryLabel: "Crecimiento",
     metaTitle: "CRM & Ventas — Cerrá más ventas sin perder leads",
     metaDescription:
       "CRM configurado a tu proceso de ventas. Pipeline visual, seguimiento automático y métricas de conversión. Cada lead tiene su siguiente paso claro.",
@@ -266,7 +341,7 @@ export const services: Service[] = [
     slug: "redes-sociales",
     title: "Redes Sociales",
     category: "content",
-    categoryLabel: "Content",
+    categoryLabel: "Contenido",
     metaTitle: "Redes Sociales — Contenido que genera clientes",
     metaDescription:
       "Gestión de redes sociales con estrategia, contenido y comunidad. Instagram, Facebook, TikTok y LinkedIn — resultados medibles cada mes.",
@@ -320,7 +395,7 @@ export const services: Service[] = [
     slug: "video-reels",
     title: "Video & Reels",
     category: "content",
-    categoryLabel: "Content",
+    categoryLabel: "Contenido",
     metaTitle: "Video & Reels — Dominá el algoritmo con video profesional",
     metaDescription:
       "Producción de video y reels que detienen el scroll. Concepto, grabación y edición optimizada para máximo alcance en cada plataforma.",
@@ -374,7 +449,7 @@ export const services: Service[] = [
     slug: "marca-identidad",
     title: "Branding & Identidad",
     category: "content",
-    categoryLabel: "Content",
+    categoryLabel: "Contenido",
     metaTitle: "Branding — Una marca que se ve como cobra",
     metaDescription:
       "Identidad visual que hace tu marca reconocible y profesional. Logo, paleta, tipografía y guía de marca — consistencia en cada punto de contacto.",
@@ -428,7 +503,7 @@ export const services: Service[] = [
     slug: "produccion-eventos",
     title: "Producción de Eventos",
     category: "content",
-    categoryLabel: "Content",
+    categoryLabel: "Contenido",
     metaTitle: "Eventos — Producción que maximiza tu inversión",
     metaDescription:
       "Producción y cobertura profesional de eventos. Drones, video, streaming y contenido para redes en tiempo real. Cada evento genera meses de contenido.",
@@ -484,7 +559,7 @@ export const services: Service[] = [
     slug: "business-brain",
     title: "Business Brain",
     category: "technology",
-    categoryLabel: "Technology",
+    categoryLabel: "Tecnología",
     metaTitle: "Business Brain — IA que conoce tu empresa y vende 24/7",
     metaDescription:
       "Business Brain: un cerebro AI entrenado con tu negocio que responde en WhatsApp, Instagram y Facebook, califica leads, agenda citas, nutre contactos y automatiza procesos — 24/7, en español.",
@@ -579,15 +654,96 @@ export const services: Service[] = [
         answer:
           "Necesita migrar a WhatsApp Business Cloud API (la versión oficial para empresas con automatización). Coordinamos la migración durante el setup — es parte del trabajo.",
       },
+      {
+        question: "¿Business Brain también contesta llamadas por teléfono?",
+        answer:
+          "No directamente — Business Brain vive en WhatsApp, Instagram y Facebook Messenger. Si también necesitás contestar llamadas automáticamente, lo hacemos con Voice Agent, nuestro servicio hermano. Se pueden combinar: Voice Agent contesta el teléfono, Business Brain cubre los mensajes.",
+      },
     ],
     whatsappMessage: "Hola, me interesa Business Brain para mi empresa. Vi su sitio web.",
-    relatedSlugs: ["crm-ventas", "dashboards", "redes-sociales"],
+    relatedSlugs: ["voice-agent", "crm-ventas", "dashboards"],
+  },
+  {
+    slug: "voice-agent",
+    title: "Voice Agent",
+    category: "technology",
+    categoryLabel: "Tecnología",
+    metaTitle: "Voice Agent — Agente de voz con IA que contesta el teléfono 24/7 en Costa Rica",
+    metaDescription:
+      "Agente de voz con IA que contesta llamadas 24/7 en español, califica leads, agenda citas y confirma recordatorios. Sin perder clientes fuera de horario.",
+    shortDescription:
+      "Tu teléfono contestado 24/7 en español — califica leads y agenda citas mientras tu equipo vende.",
+    icon: "☎️",
+    painPoints: [
+      {
+        title: "Perdés llamadas fuera de horario",
+        description:
+          "Llamadas entrantes a las 7pm se contestan al día siguiente. Para cuando devolvés, el cliente ya buscó a otro proveedor.",
+      },
+      {
+        title: "Tu equipo se quema contestando lo mismo",
+        description:
+          "Precio, horarios, ubicación, disponibilidad — repetido 30 veces al día. Cada vez que suena el teléfono, alguien deja de vender.",
+      },
+      {
+        title: "Tus clientes cuelgan al oír el mensaje de voz",
+        description:
+          "'Deje su mensaje después del tono' es una puerta cerrada. Devolvés la llamada y ya no contestan — perdiste la venta antes de empezar.",
+      },
+    ],
+    solution:
+      "Un agente de voz con IA entrenado con la información de tu empresa — productos, precios, horarios, tono — que atiende tu teléfono en español latinoamericano 24/7. Responde preguntas frecuentes, califica leads según tus criterios, agenda citas directo en tu Google Calendar y te manda un resumen de cada llamada por WhatsApp. Ese mismo agente también llama de vuelta cuando toca: confirmar una cita, recordar un vencimiento, verificar un dato.",
+    deliverables: [
+      "☎️ Inbound 24/7 sin colas ni mensaje de voz",
+      "🎯 Califica leads en tiempo real según tus criterios",
+      "📅 Agenda citas directo en Google Calendar",
+      "📲 Resumen de cada llamada al WhatsApp del dueño",
+      "🔔 Llamadas salientes de confirmación y recordatorio",
+      "👤 Transferencia a un humano cuando algo se sale del guion",
+      "📚 Entrenado con tu información: productos, precios, FAQs, tono de marca",
+      "📊 Reporte mensual de llamadas, motivos y conversión",
+      "🔧 Tuning mensual según las llamadas reales que recibe",
+    ],
+    faqs: [
+      {
+        question: "¿Qué tan natural suena el acento en español?",
+        answer:
+          "Usamos voces con acento latinoamericano neutro, mexicano o colombiano según tu preferencia. La cadencia es humana — los clientes no sienten que están hablando con un robot. En la sesión de discovery te ponemos a escuchar ejemplos antes de comprometerte.",
+      },
+      {
+        question: "¿Funciona con el número que ya tengo?",
+        answer:
+          "Sí. Conectamos con tu línea actual o te asignamos una nueva según lo que mejor funcione para tu operación. Eso lo coordinamos en la sesión de discovery, donde revisamos tu telefonía actual.",
+      },
+      {
+        question: "¿Esto reemplaza a mi recepcionista?",
+        answer:
+          "No la reemplaza — la libera. El Voice Agent maneja lo repetitivo (precios, horarios, citas, preguntas frecuentes, mensajes fuera de horario) para que tu recepcionista o tu equipo se enfoquen en lo que requiere criterio humano: atención al cliente real, ventas complejas, manejo de quejas.",
+      },
+      {
+        question: "¿Qué pasa si el cliente pide hablar con un humano?",
+        answer:
+          "El agente reconoce cuando algo sale del guion y te transfiere la llamada al instante — o te manda el mensaje al WhatsApp si estás ocupado. Nunca deja a un cliente colgando.",
+      },
+      {
+        question: "¿Qué pasa si el sistema falla?",
+        answer:
+          "Si el agente falla o hay un problema técnico, la llamada pasa directo a tu número de respaldo o a quien vos definás. Nunca se pierde una llamada por una caída del sistema. Monitoreamos 24/7 y el tuning mensual incluye revisión de cualquier incidente.",
+      },
+      {
+        question: "¿Puede hacer llamadas salientes de confirmación o recordatorio?",
+        answer:
+          "Sí, para casos específicos — confirmar citas, recordar vencimientos, verificar datos de contacto. No lo usamos para campañas masivas de llamadas; para eso WhatsApp es más barato y menos intrusivo. El Voice Agent saliente es para los momentos donde una llamada cierra mejor que un mensaje.",
+      },
+    ],
+    whatsappMessage: "Hola, me interesa un agente de voz con IA para mi empresa. Vi su sitio web.",
+    relatedSlugs: ["business-brain", "crm-ventas", "publicidad-meta"],
   },
   {
     slug: "desarrollo-web",
     title: "Desarrollo Web",
     category: "technology",
-    categoryLabel: "Technology",
+    categoryLabel: "Tecnología",
     metaTitle: "Desarrollo Web — Sitios que convierten visitantes en clientes",
     metaDescription:
       "Landing pages y sitios web que generan leads. Diseño moderno, velocidad sub-segundo y SEO incluido. No usamos WordPress ni templates genéricos.",
@@ -626,7 +782,7 @@ export const services: Service[] = [
       {
         question: "¿Cuánto cuesta un sitio web?",
         answer:
-          "Una landing page arranca desde $800. Un sitio multi-página desde $2,000. El precio depende de la complejidad y funcionalidades. Cotizamos según tu proyecto.",
+          "Depende del alcance: una landing page enfocada en una conversión, un sitio multi-página con blog y SEO, o un sitio completo con integraciones a CRM y dashboards son inversiones distintas. En la llamada de diagnóstico definimos alcance y te enviamos una propuesta con precio exacto en 48 horas.",
       },
       {
         question: "¿Con qué tecnología desarrollan?",
@@ -641,7 +797,7 @@ export const services: Service[] = [
     slug: "dashboards",
     title: "Dashboards en Tiempo Real",
     category: "technology",
-    categoryLabel: "Technology",
+    categoryLabel: "Tecnología",
     metaTitle: "Dashboards — Todos tus números en una sola pantalla (demo interactivo)",
     metaDescription:
       "Dashboard de marketing en tiempo real. Meta, Google, CRM y web centralizados. Probá el demo interactivo y ve exactamente qué funciona y qué no.",

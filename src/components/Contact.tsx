@@ -76,10 +76,10 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -97,10 +97,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: -15 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
           >
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -241,10 +241,10 @@ export default function Contact() {
 
           {/* Contact info */}
           <motion.div
-            initial={{ opacity: 0, x: 15 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ y: 8 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             className="hidden lg:flex flex-col justify-center"
           >
             <div className="p-8 rounded-2xl glass-card" style={{ borderColor: "rgba(245,181,26,0.15)" }}>

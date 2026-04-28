@@ -57,10 +57,10 @@ export default function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">

@@ -6,7 +6,7 @@ import { useMarquee } from "@/hooks/useMarquee";
 
 const clients = [
   { name: "Dojo Coding", logo: "/logos/dojo-coding-white.png" },
-  { name: "Deporte+", logo: "/logos/deporte-plus.jpg" },
+  { name: "Deporte+", logo: "/logos/deporte-plus-white.png" },
   { name: "Oftalmologica Mena", logo: "/logos/oftalmologica-mena-white.png", size: "md:w-64 md:h-48" },
   { name: "Ortodoncia Steinvorth", logo: "/logos/ortodoncia-steinvorth-white.png" },
 { name: "Blockchain Jungle", logo: "/logos/blockchain-jungle.png" },
@@ -43,7 +43,7 @@ export default function ClientLogos() {
   } = useMarquee({ speed: 80, nudgeDistance: 280 });
 
   return (
-    <section className="py-8 overflow-hidden relative">
+    <section className="py-10 md:py-14 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--background)]/50 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

@@ -89,10 +89,10 @@ function PortfolioCard({ project, index, featured = false }: { project: Project;
 
   return (
     <motion.div
-      initial={isMobile ? false : { opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "50px" }}
-      transition={{ delay: isMobile ? 0 : index * 0.05, duration: 0.4 }}
+      initial={isMobile ? false : { y: 8 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: isMobile ? 0 : Math.min(index * 0.05, 0.15), duration: 0.22, ease: "easeOut" }}
     >
       {project.caseStudy ? (
         <Link
@@ -123,15 +123,15 @@ export default function Portfolio() {
   const regularProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="portafolio" className="py-12 md:py-24 bg-[var(--card-bg)] relative overflow-hidden">
+    <section id="portafolio" className="py-16 md:py-24 bg-[var(--card-bg)] relative overflow-hidden">
       <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center mb-10 md:mb-16"
         >
           <span className="text-[var(--accent)] text-sm font-medium uppercase tracking-widest gold-glow-subtle">
@@ -158,10 +158,10 @@ export default function Portfolio() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
           className="text-center"
         >
           <Link

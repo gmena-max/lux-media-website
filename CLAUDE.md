@@ -77,6 +77,14 @@ Key patterns from skills:
 - Add decorative blurs for visual interest
 - Stagger animations for lists
 
+## Navbar patterns
+
+- Desktop: `Servicios` uses a mega-menu dropdown (3 columns — Crecimiento / Contenido / Tecnología) via `MegaMenuPanel.tsx`. Opens on hover with 150ms intent delay + click toggle.
+- Mobile: `Servicios` expands to a flat list of all services grouped under 3 non-interactive section headers. No nested accordion.
+- Data: mega-menu reads from `services.ts` — adding a new service requires NO Navbar changes. Entry's `category`, `icon`, `title`, `shortDescription`, `slug` drive the render.
+- Close triggers: click-outside, Escape key, route change (pathname), scroll. All have listeners while panel is open; cleared when closed.
+- z-index: mega-menu renders INSIDE the fixed `<nav>` so it inherits z-50 stacking context. Do NOT use a Portal — the breadcrumb overlap fix (h-36→h-24 logo) relies on this stacking.
+
 ## Component Patterns
 
 ### Section Structure

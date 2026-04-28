@@ -103,7 +103,7 @@ const jsonLd = {
   name: "Lux Media",
   alternateName: "Lux Growth Engine",
   description:
-    "Lux Growth Engine — motor de crecimiento que integra publicidad, IA, automatización, contenido y datos bajo un mismo equipo. Agencia para PYMEs en Costa Rica especializada en Meta Ads, Google Ads, agentes de voz con IA, Business Brain (brain empresarial con IA), posicionamiento GEO y dashboards en tiempo real.",
+    "Lux Growth Engine — motor de crecimiento que integra publicidad, IA, automatización, contenido y datos bajo un mismo equipo para PYMEs en Costa Rica. Especialistas en Meta Ads, Google Ads, agentes de voz con IA, Business Brain (cerebro empresarial con IA), posicionamiento GEO y dashboards en tiempo real.",
   url: "https://luxmediacr.com",
   logo: "https://luxmediacr.com/logo-full.png",
   image: "https://luxmediacr.com/og-image.png",
