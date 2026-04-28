@@ -215,7 +215,7 @@ export const services: Service[] = [
     metaDescription:
       "Tus clientes ya le preguntan a ChatGPT antes de buscar en Google. GEO posiciona tu marca como fuente citada por las IA. El nuevo canal orgánico.",
     shortDescription:
-      "Cuando tu cliente le pregunta a ChatGPT, que tu marca sea la respuesta.",
+      "Aparecé en las respuestas de ChatGPT, Claude y Gemini cuando tu cliente pregunta — eso es GEO.",
     icon: "✨",
     painPoints: [
       {

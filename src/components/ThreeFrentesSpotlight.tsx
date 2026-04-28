@@ -3,30 +3,35 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, Brain, Phone, Sparkles, type LucideIcon } from "lucide-react";
 
 // Card reading order is LOCKED: BB → Voice Agent → GEO.
 // F-pattern attention optimization per PRD §4 / §9:
 // - BB leads: umbrella / broadest scope, natural entry point.
 // - Voice Agent center: most concrete outcome, strongest hook for skeptics.
 // - GEO closes: aspirational / frontier wedge.
-const frentes = [
+const frentes: {
+  Icon: LucideIcon;
+  title: string;
+  valueProp: string;
+  href: string;
+}[] = [
   {
-    icon: "🧠",
+    Icon: Brain,
     title: "Business Brain",
     valueProp:
       "Un cerebro que aprende tu negocio y responde en WhatsApp, IG y Facebook mientras vos dormís.",
     href: "/servicios/business-brain",
   },
   {
-    icon: "☎️",
+    Icon: Phone,
     title: "Voice Agent",
     valueProp:
       "Contesta tu teléfono 24/7 en español, califica leads y agenda citas sin que tu equipo deje de vender.",
     href: "/servicios/voice-agent",
   },
   {
-    icon: "✨",
+    Icon: Sparkles,
     title: "Posicionamiento GEO",
     valueProp:
       "Cuando tu cliente le pregunta a ChatGPT, que tu marca sea la respuesta.",
@@ -103,9 +108,15 @@ export default function ThreeFrentesSpotlight() {
                   className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
                 />
 
-                <span className="text-5xl md:text-6xl mb-6 block" aria-hidden>
-                  {frente.icon}
-                </span>
+                <div
+                  aria-hidden
+                  className="mb-6 inline-flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-[var(--accent)]/10 ring-1 ring-[var(--accent)]/20 transition-all duration-300 group-hover:bg-[var(--accent)]/15 group-hover:ring-[var(--accent)]/40"
+                >
+                  <frente.Icon
+                    className="h-7 w-7 md:h-8 md:w-8 text-[var(--accent)]"
+                    strokeWidth={1.75}
+                  />
+                </div>
 
                 <h3 className="text-2xl md:text-3xl font-bold font-display text-white mb-3">
                   {frente.title}
